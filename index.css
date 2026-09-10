@@ -1,0 +1,141 @@
+ * {
+     margin: 0;
+     padding: 0;
+     box-sizing: border-box;
+     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+ }
+
+
+.navbar {
+    display: flex;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    list-style: none;
+    margin: 0 auto;
+    padding: 0;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    list-style: none;
+    margin: 0;
+    margin-left: auto;
+    padding: 0;
+    margin-right: 40px;
+}
+
+
+ .nav-links li {
+     padding: 0 15px;
+ }
+
+
+ .nav-links a {
+     color: #000000;
+     text-decoration: none;
+     font-size: 16px;
+     font-weight: 500;
+     transition: color 0.3s ease;
+ }
+
+
+ .nav-links a:hover {
+     color: #075BE8;
+ }
+
+ .nav-logo img {
+     width: 60px;
+     height: auto;
+     margin-left: 40px;
+ }
+
+
+ .nav-links li {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+}
+
+ .search-box {
+     display: flex;
+     align-items: center;
+     width: 250px;
+     height: 40px;
+     border: 1px solid #d5ddeb;
+     border-radius: 25px;
+     background-color: #F0ECEC;
+     overflow: hidden;
+ }
+
+ .search-box input {
+     flex: 1;
+     border: none;
+     outline: none;
+     padding: 0 15px;
+     font-size: 14px;
+ }
+
+ .search-box button {
+     border: none;
+     background: none;
+     padding: 0 15px;
+     cursor: pointer;
+     font-size: 16px;
+ }
+
+ .search-box input {
+     flex: 1;
+     border: none;
+     outline: none;
+     font-size: 14px;
+     background-color: #F0ECEC;
+ }
+
+ .search-box span {
+     color: #6C6C6C;
+     font-size: 22px;
+ }
+
+ .search-box input::placeholder {
+     color: #6C6C6C;
+     font-size: 14px;
+     font-weight: 600;
+ }
+
+ .search-box span {
+    font-variation-settings: 
+        'FILL' 1,
+        'wght' 700,
+        'GRAD' 0,
+        'opsz' 24;
+}
+
+ #botaoCampanha {
+     background-color: #FFD900;
+     color: #123B8F;
+     border: none;
+     border-radius: 8px;
+     padding: 10px 18px;
+     font-size: 14px;
+     font-weight: bold;
+     cursor: pointer;
+ }
+
+ #botaoCampanha:hover {
+     background-color: #e5e8ed;
+ }
+
+ #botaoCampanha:active {
+     background-color: #E8F1FF;
+     color: #f0f3f7;
+     opacity: 0.7;
+ }
