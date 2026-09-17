@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Doação concluída - Elo</title>
+
+    <link rel="stylesheet" href="doacaofi.css">
+   
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+   
+
+
+    <main class="confirmacao">
+
+
+        <div class="bolinha bolinha1"></div>
+        <div class="bolinha bolinha2"></div>
+        <div class="bolinha bolinha3"></div>
+        <div class="bolinha bolinha4"></div>
+
+        <section class="sucesso">
+
+            <div class="icone-sucesso">
+                <span class="material-symbols-outlined">
+                    check
+                </span>
+            </div>
+
+            <h1>Doação confirmada!</h1>
+
+            <p>
+                Você acabou de fazer parte dessa história. 
+            </p>
+
+        </section>
+
+
+        <section class="card-doacao">
+
+            <div class="top-card">
+
+                <div>
+                    <span>Você doou</span>
+                    <strong>R$ 50,00</strong>
+                </div>
+
+                <div class="icone-doacao">
+                    <span class="material-symbols-outlined">
+                        volunteer_activism
+                    </span>
+                </div>
+
+            </div>
+
+
+            <div class="projeto">
+
+                <div class="projeto-imagem">
+                    <img src="01_energia_solar_na_escola.png"
+                        alt="Projeto Energia Solar na Escola">
+                </div>
+
+                <div class="projeto-info">
+
+                    <span class="label">PROJETO APOIADO</span>
+
+                    <h2>Energia Solar na Escola</h2>
+
+                    <p>Escola Técnica Estadual</p>
+
+                </div>
+
+            </div>
+
+
+      
+            <div class="progresso">
+
+                <div class="progresso-info">
+                    <span>Meta do projeto</span>
+                    <strong>68%</strong>
+                </div>
+
+                <div class="barra">
+                    <div class="barra-preenchida"></div>
+                </div>
+
+                <div class="valores">
+                    <span>R$ 6.800 arrecadados</span>
+                    <span>R$ 10.000</span>
+                </div>
+
+            </div>
+
+        </section>
+
+
+     
+        <section class="jornada">
+
+            <div class="jornada-item ativo">
+
+                <div class="jornada-icon">
+                    <span class="material-symbols-outlined">
+                        check
+                    </span>
+                </div>
+
+                <div>
+                    <strong>Doação realizada</strong>
+                    <span>Agora</span>
+                </div>
+
+            </div>
+
+
+            <div class="jornada-linha"></div>
+
+
+            <div class="jornada-item">
+
+                <div class="jornada-icon">
+                    <span class="material-symbols-outlined">
+                        trending_up
+                    </span>
+                </div>
+
+                <div>
+                    <strong>Projeto avançando</strong>
+                    <span>Em breve</span>
+                </div>
+
+            </div>
+
+
+            <div class="jornada-linha"></div>
+
+
+            <div class="jornada-item">
+
+                <div class="jornada-icon">
+                    <span class="material-symbols-outlined">
+                        emoji_events
+                    </span>
+                </div>
+
+                <div>
+                    <strong>Meta alcançada</strong>
+                    <span>Vamos chegar lá!</span>
+                </div>
+
+            </div>
+
+        </section>
+
+
+  
+        <section class="acoes">
+
+            <button class="btn-principal"
+                onclick="window.location.href='projeto.html'">
+
+                <span class="material-symbols-outlined">
+                    visibility
+                </span>
+
+                Acompanhar projeto
+
+            </button>
+
+
+            <button class="btn-secundario"
+                onclick="window.location.href='explorar.html'">
+
+                Explorar outros projetos
+
+                <span class="material-symbols-outlined">
+                    arrow_forward
+                </span>
+
+            </button>
+
+        </section>
+
+
+        <div class="codigo">
+
+            <span>
+                Doação #ELO0801943
+            </span>
+
+            <button onclick="copiarCodigo()">
+                <span class="material-symbols-outlined">
+                    content_copy
+                </span>
+            </button>
+
+        </div>
+
+    </main>
+  
+          
+
+    <script>
+
+        function copiarCodigo() {
+
+            navigator.clipboard.writeText("ELO0801943");
+
+            const botao = document.querySelector(".codigo button");
+
+            botao.innerHTML = `
+                <span class="material-symbols-outlined">
+                    check
+                </span>
+            `;
+
+            setTimeout(() => {
+
+                botao.innerHTML = `
+                    <span class="material-symbols-outlined">
+                        content_copy
+                    </span>
+                `;
+
+            }, 1800);
+        }
+
+    </script>
+
+</body>
+
+</html>

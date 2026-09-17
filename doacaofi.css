@@ -1,0 +1,594 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', Arial, Helvetica, sans-serif;
+}
+
+body {
+    background: #F8FAFF;
+    color: #172033;
+}
+
+
+/* =========================
+   CONFIRMAÇÃO
+========================= */
+
+.confirmacao {
+    position: relative;
+    overflow: hidden;
+
+    min-height: 800px;
+
+    padding: 60px 20px 75px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+/* =========================
+   DECORAÇÕES
+========================= */
+
+.bolinha {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.bolinha1 {
+    width: 190px;
+    height: 190px;
+    background: #E0ECFF;
+    left: -90px;
+    top: 80px;
+}
+
+.bolinha2 {
+    width: 90px;
+    height: 90px;
+    background: #FFD600;
+    right: 10%;
+    top: 100px;
+}
+
+.bolinha3 {
+    width: 12px;
+    height: 12px;
+    background: #075BE8;
+    left: 15%;
+    top: 250px;
+}
+
+.bolinha4 {
+    width: 9px;
+    height: 9px;
+    background: #075BE8;
+    right: 17%;
+    bottom: 190px;
+}
+
+
+/* =========================
+   SUCESSO
+========================= */
+
+.sucesso {
+    position: relative;
+    z-index: 2;
+
+    text-align: center;
+
+    margin-bottom: 30px;
+}
+
+.icone-sucesso {
+    width: 72px;
+    height: 72px;
+
+    margin: 0 auto 17px;
+
+    border-radius: 50%;
+
+    background: #DDF7E8;
+    color: #16A05D;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    animation: aparecer 0.6s ease;
+}
+
+.icone-sucesso .material-symbols-outlined {
+    font-size: 40px;
+    font-weight: 600;
+}
+
+.sucesso h1 {
+    font-size: 34px;
+    font-weight: 750;
+    color: #075BE8;
+
+    margin-bottom: 7px;
+}
+
+.sucesso p {
+    color: #68758A;
+    font-size: 15px;
+}
+
+
+/* =========================
+   CARD DOAÇÃO
+========================= */
+
+.card-doacao {
+    position: relative;
+    z-index: 2;
+
+    width: 100%;
+    max-width: 650px;
+
+    background: #FFFFFF;
+
+    border: 1px solid #E3EAF5;
+    border-radius: 18px;
+
+    padding: 25px;
+
+    box-shadow: 0 10px 35px rgba(7, 91, 232, 0.08);
+
+    animation: subir 0.7s ease;
+}
+
+
+/* TOPO */
+
+.top-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding-bottom: 22px;
+
+    border-bottom: 1px solid #EDF2F8;
+}
+
+.top-card span {
+    display: block;
+
+    color: #68758A;
+    font-size: 13px;
+
+    margin-bottom: 4px;
+}
+
+.top-card strong {
+    color: #172033;
+    font-size: 29px;
+    font-weight: 750;
+}
+
+.icone-doacao {
+    width: 50px;
+    height: 50px;
+
+    border-radius: 13px;
+
+    background: #FFF5CC;
+    color: #C99D00;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icone-doacao .material-symbols-outlined {
+    font-size: 27px;
+}
+
+
+/* PROJETO */
+
+.projeto {
+    display: flex;
+    align-items: center;
+
+    gap: 16px;
+
+    padding: 22px 0;
+}
+
+.projeto-imagem {
+    width: 105px;
+    height: 75px;
+
+    border-radius: 10px;
+
+    overflow: hidden;
+
+    flex-shrink: 0;
+}
+
+.projeto-imagem img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+}
+
+.projeto-info {
+    text-align: left;
+}
+
+.label {
+    display: inline-block;
+
+    color: #075BE8;
+
+    font-size: 10px;
+    font-weight: 700;
+
+    letter-spacing: 0.7px;
+
+    margin-bottom: 5px;
+}
+
+.projeto-info h2 {
+    color: #172033;
+
+    font-size: 17px;
+
+    margin-bottom: 4px;
+}
+
+.projeto-info p {
+    color: #68758A;
+    font-size: 13px;
+}
+
+
+/* =========================
+   PROGRESSO
+========================= */
+
+.progresso {
+    padding-top: 5px;
+}
+
+.progresso-info {
+    display: flex;
+    justify-content: space-between;
+
+    margin-bottom: 8px;
+}
+
+.progresso-info span {
+    color: #68758A;
+    font-size: 13px;
+}
+
+.progresso-info strong {
+    color: #075BE8;
+    font-size: 14px;
+}
+
+.barra {
+    width: 100%;
+    height: 9px;
+
+    background: #E8F1FF;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+}
+
+.barra-preenchida {
+    width: 68%;
+    height: 100%;
+
+    background: #075BE8;
+
+    border-radius: 20px;
+
+    animation: progresso 1.2s ease;
+}
+
+.valores {
+    display: flex;
+    justify-content: space-between;
+
+    margin-top: 7px;
+}
+
+.valores span {
+    color: #8A97AA;
+    font-size: 11px;
+}
+
+
+/* =========================
+   JORNADA
+========================= */
+
+.jornada {
+    position: relative;
+    z-index: 2;
+
+    display: flex;
+    align-items: center;
+
+    width: 100%;
+    max-width: 650px;
+
+    margin: 32px 0;
+}
+
+.jornada-item {
+    display: flex;
+    align-items: center;
+
+    gap: 9px;
+
+    flex: 1;
+}
+
+.jornada-icon {
+    width: 38px;
+    height: 38px;
+
+    flex-shrink: 0;
+
+    border-radius: 50%;
+
+    background: #EDF2F8;
+    color: #8A97AA;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.jornada-item.ativo .jornada-icon {
+    background: #DDF7E8;
+    color: #16A05D;
+}
+
+.jornada-icon .material-symbols-outlined {
+    font-size: 20px;
+}
+
+.jornada-item strong {
+    display: block;
+
+    color: #172033;
+    font-size: 12px;
+}
+
+.jornada-item span {
+    display: block;
+
+    color: #94A3B8;
+    font-size: 10px;
+
+    margin-top: 2px;
+}
+
+.jornada-linha {
+    height: 1px;
+
+    width: 45px;
+
+    background: #D8E4F5;
+
+    margin: 0 10px;
+}
+
+
+/* =========================
+   AÇÕES
+========================= */
+
+.acoes {
+    position: relative;
+    z-index: 2;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 10px;
+
+    width: 100%;
+    max-width: 400px;
+}
+
+.btn-principal,
+.btn-secundario {
+    width: 100%;
+
+    border-radius: 9px;
+
+    padding: 13px 20px;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.25s;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+}
+
+.btn-principal {
+    border: none;
+
+    background: #075BE8;
+    color: #FFFFFF;
+}
+
+.btn-principal:hover {
+    background: #054BC2;
+
+    transform: translateY(-2px);
+
+    box-shadow: 0 7px 20px rgba(7, 91, 232, 0.20);
+}
+
+.btn-principal .material-symbols-outlined {
+    font-size: 20px;
+}
+
+.btn-secundario {
+    border: none;
+
+    background: transparent;
+
+    color: #075BE8;
+}
+
+.btn-secundario:hover {
+    background: #E8F1FF;
+}
+
+
+/* =========================
+   CÓDIGO
+========================= */
+
+.codigo {
+    position: relative;
+    z-index: 2;
+
+    display: flex;
+    align-items: center;
+
+    gap: 8px;
+
+    margin-top: 20px;
+
+    color: #94A3B8;
+
+    font-size: 11px;
+}
+
+.codigo button {
+    width: 27px;
+    height: 27px;
+
+    border: none;
+
+    border-radius: 6px;
+
+    background: #E8F1FF;
+    color: #075BE8;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+}
+
+.codigo button .material-symbols-outlined {
+    font-size: 16px;
+}
+
+
+/* =========================
+   ANIMAÇÕES
+========================= */
+
+@keyframes aparecer {
+
+    from {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+}
+
+@keyframes subir {
+
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+@keyframes progresso {
+
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 68%;
+    }
+
+}
+
+
+/* =========================
+   RESPONSIVO
+========================= */
+
+@media (max-width: 700px) {
+
+    .confirmacao {
+        padding: 45px 18px 60px;
+    }
+
+    .sucesso h1 {
+        font-size: 28px;
+    }
+
+    .card-doacao {
+        padding: 20px;
+    }
+
+    .jornada {
+        flex-direction: column;
+        align-items: flex-start;
+
+        gap: 10px;
+    }
+
+    .jornada-item {
+        width: 100%;
+    }
+
+    .jornada-linha {
+        width: 1px;
+        height: 20px;
+
+        margin: 0 0 0 18px;
+    }
+
+    .bolinha2 {
+        right: -35px;
+    }
+
+}
