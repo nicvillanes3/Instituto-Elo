@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Central de Ajuda - Elo</title>
+
+  <link rel="stylesheet" href="central.css">
+  <link rel="stylesheet" href="header.css">
+  <link rel="stylesheet" href="footer.css">
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@300&icon_names=search,help,volunteer_activism,person,edit_note,security,account_balance_wallet,school"
+    rel="stylesheet">
+
+  <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <script src="header.js"></script>
+  <header id="header"></header>
+
+  <script src="search.js"></script>
+
+
+  <!-- TOPO -->
+  <section class="topo-central">
+
+    <span class="material-symbols-outlined icone-ajuda">
+      help
+    </span>
+
+    <h1>Central de Ajuda</h1>
+
+    <p>
+      Como podemos ajudar você hoje?
+    </p>
+
+  </section>
+
+
+  <!-- CONTEÚDO -->
+  <main class="container">
+
+    <!-- PESQUISA -->
+    <section class="pesquisa">
+
+      <h2>Pesquise sua dúvida</h2>
+
+      <div class="campo-pesquisa">
+
+        <span class="material-symbols-outlined">
+          search
+        </span>
+
+        <input
+          type="text"
+          id="barraPesquisa"
+          placeholder="Ex: Como fazer uma doação?"
+          onkeyup="pesquisar()">
+
+      </div>
+
+    </section>
+
+
+    <!-- CATEGORIAS -->
+    <section class="categorias">
+
+      <h2>Encontre o que precisa</h2>
+
+      <div class="cards">
+
+
+        <!-- DOAÇÕES -->
+        <div class="card item-ajuda">
+
+          <div class="icone-card azul">
+            <span class="material-symbols-outlined">
+              volunteer_activism
+            </span>
+          </div>
+
+          <h3>Doações</h3>
+
+          <p>
+            Saiba como apoiar projetos, escolher o valor da doação
+            e acompanhar suas contribuições.
+          </p>
+
+        </div>
+
+
+        <!-- PROJETOS -->
+        <div class="card item-ajuda">
+
+          <div class="icone-card verde">
+            <span class="material-symbols-outlined">
+              school
+            </span>
+          </div>
+
+          <h3>Projetos</h3>
+
+          <p>
+            Encontre projetos estudantis, conheça suas metas
+            e acompanhe o progresso das campanhas.
+          </p>
+
+        </div>
+
+
+        <!-- CRIAR CAMPANHA -->
+        <div class="card item-ajuda">
+
+          <div class="icone-card amarelo">
+            <span class="material-symbols-outlined">
+              edit_note
+            </span>
+          </div>
+
+          <h3>Criar campanha</h3>
+
+          <p>
+            Aprenda como publicar seu projeto, definir uma meta
+            e começar a receber apoio.
+          </p>
+
+        </div>
+
+
+        <!-- CONTA -->
+        <div class="card item-ajuda">
+
+          <div class="icone-card azul">
+            <span class="material-symbols-outlined">
+              person
+            </span>
+          </div>
+
+          <h3>Conta e cadastro</h3>
+
+          <p>
+            Gerencie seus dados, altere sua senha e
+            mantenha sua conta atualizada.
+          </p>
+
+        </div>
+
+
+        <!-- PAGAMENTOS -->
+        <div class="card item-ajuda">
+
+          <div class="icone-card verde">
+            <span class="material-symbols-outlined">
+              account_balance_wallet
+            </span>
+          </div>
+
+          <h3>Pagamentos</h3>
+
+          <p>
+            Tire dúvidas sobre PIX, cartão, boleto,
+            confirmação e acompanhamento das doações.
+          </p>
+
+        </div>
+
+
+        <!-- SEGURANÇA -->
+        <div class="card item-ajuda">
+
+          <div class="icone-card vermelho">
+            <span class="material-symbols-outlined">
+              security
+            </span>
+          </div>
+
+          <h3>Segurança e privacidade</h3>
+
+          <p>
+            Entenda como protegemos seus dados e
+            mantemos sua experiência segura na Elo.
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- FAQ -->
+    <section class="faq">
+
+      <h2>Perguntas frequentes</h2>
+
+
+      <div class="pergunta item-ajuda">
+
+        <h3>
+          Como faço uma doação?
+        </h3>
+
+        <p>
+          Escolha um projeto na página Explorar projetos,
+          selecione o valor que deseja contribuir e escolha
+          uma das formas de pagamento disponíveis.
+        </p>
+
+      </div>
+
+
+      <div class="pergunta item-ajuda">
+
+        <h3>
+          Como acompanho uma doação?
+        </h3>
+
+        <p>
+          Acesse seu perfil e entre em “Minhas doações”.
+          Lá você poderá visualizar os projetos apoiados,
+          valores e informações sobre suas contribuições.
+        </p>
+
+      </div>
+
+
+      <div class="pergunta item-ajuda">
+
+        <h3>
+          Como posso criar uma campanha?
+        </h3>
+
+        <p>
+          Clique em “Criar campanha” e preencha as informações
+          do projeto, sua meta de arrecadação e os detalhes
+          da iniciativa. Depois, revise e publique sua campanha.
+        </p>
+
+      </div>
+
+
+      <div class="pergunta item-ajuda">
+
+        <h3>
+          Posso acompanhar o progresso de um projeto?
+        </h3>
+
+        <p>
+          Sim. Cada projeto possui uma barra de progresso
+          que mostra quanto já foi arrecadado em relação à
+          meta estabelecida.
+        </p>
+
+      </div>
+
+
+      <div class="pergunta item-ajuda">
+
+        <h3>
+          Quais formas de pagamento estão disponíveis?
+        </h3>
+
+        <p>
+          A Elo disponibiliza opções como PIX, cartão de crédito
+          e boleto bancário para realizar as contribuições.
+        </p>
+
+      </div>
+
+
+      <div class="pergunta item-ajuda">
+
+        <h3>
+          Como altero meus dados da conta?
+        </h3>
+
+        <p>
+          Acesse seu perfil e entre em “Configurações”.
+          Nessa área você pode atualizar suas informações
+          pessoais e preferências da conta.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- NÃO ENCONTROU -->
+    <section class="contato-ajuda">
+
+      <div>
+
+        <span class="material-symbols-outlined">
+          help
+        </span>
+
+        <div>
+
+          <h2>Não encontrou o que procurava?</h2>
+
+          <p>
+            Nossa equipe está pronta para ajudar você.
+          </p>
+
+        </div>
+
+      </div>
+
+      <button>
+        Falar com a Elo
+      </button>
+
+    </section>
+
+
+  </main>
+
+
+
+  <script src="central.js"></script>
+
+</body>
+
+</html>

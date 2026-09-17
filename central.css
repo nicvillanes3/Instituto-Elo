@@ -1,0 +1,574 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
+}
+
+body {
+  background: #F8FAFF;
+  color: #172033;
+}
+
+
+/* =========================
+   TOPO DA CENTRAL
+========================= */
+
+.topo-central {
+  position: relative;
+  overflow: hidden;
+  background: #E0ECFF;
+  color: #172033;
+  text-align: center;
+  padding: 55px 20px 60px;
+}
+
+/* decoração */
+
+.topo-central::before {
+  content: "";
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  background: #C9DDFF;
+  border-radius: 50%;
+  left: -55px;
+  top: -55px;
+}
+
+.topo-central::after {
+  content: "";
+  position: absolute;
+  width: 90px;
+  height: 90px;
+  background: #FFD900;
+  border-radius: 50%;
+  right: 7%;
+  bottom: -40px;
+}
+
+.topo-central {
+  position: relative;
+  overflow: hidden;
+}
+
+.topo-central h1::before,
+.topo-central h1::after {
+  content: "";
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: #075BE8;
+  border-radius: 50%;
+}
+
+.topo-central h1::before {
+  top: -25px;
+  left: 15%;
+}
+
+.topo-central h1::after {
+  top: 35px;
+  right: 15%;
+}
+
+.topo-central h1 {
+  position: relative;
+  z-index: 2;
+  font-size: 42px;
+  font-weight: 700;
+  color: #075BE8;
+  margin-bottom: 10px;
+}
+
+.topo-central p {
+  position: relative;
+  z-index: 2;
+  font-size: 17px;
+  color: #52627A;
+}
+
+
+/* =========================
+   CONTAINER
+========================= */
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 45px auto 70px;
+}
+
+
+/* =========================
+   PESQUISA
+========================= */
+
+.pesquisa {
+  background: #FFFFFF;
+  padding: 32px;
+  border-radius: 16px;
+  box-shadow: 0 5px 20px rgba(37, 87, 174, 0.08);
+  margin-bottom: 45px;
+  text-align: center;
+}
+
+.pesquisa h2 {
+  font-size: 27px;
+  margin-bottom: 20px;
+  color: #172033;
+}
+
+.pesquisa input {
+  width: 100%;
+  max-width: 700px;
+  padding: 16px 20px;
+
+  background: #F8FAFF;
+
+  border: 1px solid #D8E4F5;
+  border-radius: 10px;
+
+  font-size: 16px;
+  color: #172033;
+
+  outline: none;
+  transition: 0.25s;
+}
+
+.pesquisa input::placeholder {
+  color: #8A97AA;
+}
+
+.pesquisa input:focus {
+  border-color: #075BE8;
+  background: #FFFFFF;
+  box-shadow: 0 0 0 3px rgba(7, 91, 232, 0.10);
+}
+
+
+/* =========================
+   CARDS
+========================= */
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.card {
+  position: relative;
+
+  background: #FFFFFF;
+
+  padding: 28px;
+
+  border-radius: 16px;
+
+  border: 1px solid #EDF2F8;
+
+  box-shadow: 0 5px 18px rgba(37, 87, 174, 0.07);
+
+  transition: 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+
+  box-shadow:
+    0 12px 28px rgba(37, 87, 174, 0.12);
+
+  border-color: #D8E6FA;
+}
+
+.card h3 {
+  color: #172033;
+  margin-bottom: 12px;
+  font-size: 20px;
+  font-weight: 650;
+}
+
+.card p {
+  font-size: 15px;
+  line-height: 1.7;
+  color: #68758A;
+}
+
+
+/* =========================
+   ÍCONES DOS CARDS
+========================= */
+
+.icone-card {
+  width: 48px;
+  height: 48px;
+
+  border-radius: 12px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 17px;
+}
+
+.icone-card .material-symbols-outlined {
+  font-size: 25px;
+}
+
+
+/* azul */
+
+.azul {
+  background: #E8F1FF;
+  color: #075BE8;
+}
+
+
+/* verde */
+
+.verde {
+  background: #DDF7E8;
+  color: #16A05D;
+}
+
+
+/* amarelo */
+
+.amarelo {
+  background: #FFF5CC;
+  color: #C99D00;
+}
+
+
+/* vermelho/coral */
+
+.vermelho {
+  background: #FFE5E5;
+  color: #F04444;
+}
+
+
+/* =========================
+   FAQ
+========================= */
+
+.faq {
+  margin-top: 65px;
+}
+
+.faq h2 {
+  font-size: 30px;
+  color: #172033;
+  margin-bottom: 25px;
+}
+
+.pergunta {
+  background: #FFFFFF;
+
+  padding: 24px 28px;
+
+  border-radius: 14px;
+
+  margin-bottom: 15px;
+
+  border: 1px solid #EDF2F8;
+
+  box-shadow: 0 4px 15px rgba(37, 87, 174, 0.06);
+
+  transition: 0.3s ease;
+
+  cursor: pointer;
+}
+
+.pergunta:hover {
+  transform: translateY(-3px);
+
+  border-color: #D5E4FA;
+
+  box-shadow:
+    0 9px 22px rgba(37, 87, 174, 0.10);
+}
+
+.pergunta h3 {
+  margin-bottom: 9px;
+
+  color: #172033;
+
+  font-size: 17px;
+
+  transition: 0.3s;
+}
+
+.pergunta:hover h3 {
+  color: #075BE8;
+}
+
+.pergunta p {
+  color: #68758A;
+  line-height: 1.7;
+  font-size: 15px;
+}
+
+
+/* =========================
+   CONTATO / PRECISA DE AJUDA
+========================= */
+
+.contato-ajuda {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 30px;
+
+  background: #E8F1FF;
+
+  padding: 30px 35px;
+
+  border-radius: 16px;
+
+  margin-top: 55px;
+
+  border: 1px solid #D9E7FA;
+}
+
+.contato-ajuda > div {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.contato-ajuda .material-symbols-outlined {
+  width: 48px;
+  height: 48px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 12px;
+
+  background: #FFFFFF;
+
+  color: #075BE8;
+
+  font-size: 25px;
+}
+
+.contato-ajuda h2 {
+  font-size: 20px;
+  color: #172033;
+  margin-bottom: 5px;
+}
+
+.contato-ajuda p {
+  color: #68758A;
+  font-size: 15px;
+}
+
+.contato-ajuda button {
+  border: none;
+
+  background: #075BE8;
+  color: #FFFFFF;
+
+  padding: 13px 24px;
+
+  border-radius: 8px;
+
+  font-size: 15px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: 0.25s;
+}
+
+.contato-ajuda button:hover {
+  background: #054BC2;
+  transform: translateY(-2px);
+}
+
+
+/* =========================
+   VOLTAR
+========================= */
+
+.voltar {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.voltar a {
+  text-decoration: none;
+}
+
+.voltar button {
+  background: #FFFFFF;
+  color: #075BE8;
+
+  border: 1px solid #D5E3F7;
+
+  padding: 13px 30px;
+
+  border-radius: 8px;
+
+  font-size: 15px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: 0.3s;
+}
+
+.voltar button:hover {
+  background: #E8F1FF;
+}
+
+
+/* =========================
+   RESPONSIVO
+========================= */
+
+@media (max-width: 900px) {
+
+  .cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+}
+
+
+@media (max-width: 768px) {
+
+  .navbar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    padding: 15px 10px;
+  }
+
+  #logo {
+    text-align: center;
+    width: 100%;
+  }
+
+  #logo img {
+    width: auto;
+    max-height: 50px;
+  }
+
+  .search-box {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .contato-header {
+    justify-content: center;
+    margin: 5px 0;
+  }
+
+  .avatshop {
+    width: 100%;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 5px;
+  }
+
+  .navegação {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px;
+  }
+
+  .navegação a {
+    font-size: 14px;
+    padding: 6px 12px;
+  }
+
+
+  /* topo */
+
+  .topo-central {
+    padding: 38px 15px 45px;
+  }
+
+  .topo-central h1 {
+    font-size: 32px;
+  }
+
+  .topo-central p {
+    font-size: 15px;
+  }
+
+
+  /* container */
+
+  .container {
+    width: 92%;
+    margin: 30px auto 50px;
+  }
+
+
+  /* pesquisa */
+
+  .pesquisa {
+    padding: 24px 18px;
+    margin-bottom: 30px;
+  }
+
+  .pesquisa h2 {
+    font-size: 23px;
+  }
+
+
+  /* cards */
+
+  .cards {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .card {
+    padding: 23px;
+  }
+
+
+  /* FAQ */
+
+  .faq {
+    margin-top: 45px;
+  }
+
+  .faq h2 {
+    font-size: 26px;
+  }
+
+  .pergunta {
+    padding: 20px;
+  }
+
+
+  /* contato */
+
+  .contato-ajuda {
+    flex-direction: column;
+    align-items: flex-start;
+
+    padding: 25px;
+  }
+
+  .contato-ajuda button {
+    width: 100%;
+  }
+
+
+}

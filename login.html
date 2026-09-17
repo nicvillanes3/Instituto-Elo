@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=arrow_back,favorite,group,lock,mail,verified_user,visibility_off,search" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <title>Entre na sua conta</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="nav-logo">
+            <a href="index.html">
+                <img src="logoElo.jpeg" alt="Instituto Elo Logo">
+            </a>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Explorar</a></li>
+            <li><a href="projetos.html">Projetos</a></li>
+            <li><a href="comoFunciona.html">Como funciona</a></li>
+            <li><a href="sobre.html">Sobre nós</a></li>
+
+            <li>
+                <div class="search-box">
+                    <input type="text" placeholder="Buscar projetos">
+                    <button>
+                        <span class="material-symbols-outlined">search</span>
+                    </button>
+                </div>
+            </li>
+
+            <li><a href="login.html">Entrar</a></li>
+
+            <li>
+                <input type="button" value="Criar Campanha" id="botaoCampanha"
+                    onclick="window.location.href='criarCampanha.html'">
+            </li>
+        </ul>
+    </nav>
+    <div class="voltarini">
+        <span class="material-symbols-outlined">arrow_back</span>
+        <a href="index.html">Voltar ao inicial</a>
+    </div>
+    <div class="login-container">
+        <h2>Entre na sua conta</h2>
+        <form action="process_login.php" method="POST">
+            <span class="material-symbols-outlined">
+                mail
+            </span>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required placeholder="seuemail@gamil.com">
+
+            <span class="material-symbols-outlined">
+                lock
+            </span>
+            <div class="passwordicon">
+                 <span class="material-symbols-outlined">
+                    visibility_off
+                </span>
+                <label for="password">Senha:</label>
+                <input type="password" id="password" name="password" required placeholder="Digite sua senha">
+               
+            </div>
+
+
+            <a href="esqueciSenha.html">Esqueceu sua senha?</a>
+            <button type="submit">Entrar</button>
+        </form>
+        <p>ou continue com</p>
+        <div class="social-login">
+            <button class="google-login">
+                <i class="fa-brands fa-google" style="color: #4285F4;"></i>
+                <span>Continuar com Google</span>
+            </button>
+
+            <button class="facebook-login">
+                <i class="fa-brands fa-facebook" style="color: #1877F2;"></i>
+                <span>Continuar com Facebook</span>
+            </button>
+        </div>
+        <p>Ainda não tem conta? <a href="criarConta.html">Criar conta</a></p>
+    </div>
+    <div class="logindet">
+        <div class="logoelo">
+            <img src="logo elo lateral.png" alt="Logo lateral">
+        </div>
+        <p>Conectamos ideias a pessoas que querem transformar o mundo</p>
+        <p>Apoie projetos inovadores de estudantes e escolas e faça parte dessa mudança.</p>
+        <div class="cardsicons">
+            <div class="cardicon">
+                <span class="material-symbols-outlined">group</span>
+                <p>Apoie projetos reais</p>
+                <p>Contribua com iniciativas que fazem a diferença. </p>
+            </div>
+            <div class="cardicon">
+                <span class="material-symbols-outlined">verified_user</span>
+                <p>Acompanhe o progresso e veja onde seu apoio chega.</p>
+            </div>
+            <div class="cardicon">
+                <span class="material-symbols-outlined">favorite</span>
+                <p>Impacto positivo</p>
+                <p>Sua ajuda transforma ideias em realidade.</p>
+            </div>
+            <div class="imagenslogin">
+                <img src="meninalogin.png" alt="Imagem 1">
+                <img src="plantandologin.png" alt="Imagem 2">
+            </div>
+        </div>
+    </div>
+
+
+</body>
+
+</html>
