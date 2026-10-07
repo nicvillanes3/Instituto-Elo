@@ -1,713 +1,533 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+/* ============ Variáveis ============ */
+:root {
+    --azul: #1363f0;
+    --azul-escuro: #0d4bc0;
+    --azul-claro: #dbe8ff;
+    --azul-fundo: #e8f0ff;
+    --amarelo: #ffd60a;
+    --texto: #111827;
+    --texto-suave: #6b7280;
+    --borda: #d9dee7;
+    --branco: #ffffff;
+}
+
+/* ============ Base / layout geral ============ */
 * {
-    margin: 0;
-    padding: 0;
     box-sizing: border-box;
-     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body {
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+    color: var(--texto);
+    background: var(--branco);
     min-height: 100vh;
-    background: #F8FAFF;
-    color: #172033;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto 1fr;
+    position: relative;
+    overflow-x: hidden;
 }
 
+/* a navbar (estilizada no index.css) ocupa as duas colunas */
+.navbar {
+    grid-column: 1 / -1;
+    grid-row: 1;
+    position: relative;
+    z-index: 5;
+}
 
+/* círculos decorativos do lado esquerdo */
+body::before {
+    content: "";
+    position: absolute;
+    top: 150px;
+    left: -90px;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: var(--azul-fundo);
+    z-index: 0;
+}
 
-/* =========================
-   VOLTAR
-========================= */
+body::after {
+    content: "";
+    position: absolute;
+    bottom: 90px;
+    left: -50px;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: var(--amarelo);
+    z-index: 0;
+}
 
+/* ============ Voltar ao início ============ */
 .voltarini {
+    grid-column: 1;
+    grid-row: 2;
     width: 100%;
-    max-width: 1250px;
-
-    margin: 28px auto 0;
-
-    padding: 0 30px;
-
+    max-width: 380px;
+    margin: 40px auto 0;
     display: flex;
     align-items: center;
-
-    gap: 6px;
-}
-
-.voltarini .material-symbols-outlined {
-    color: #075BE8;
-    font-size: 20px;
+    gap: 8px;
+    position: relative;
+    z-index: 2;
 }
 
 .voltarini a {
-    text-decoration: none;
-
-    color: #68758A;
-
-    font-size: 13px;
+    color: var(--azul);
+    font-size: 0.85rem;
     font-weight: 500;
-
-    transition: 0.2s;
+    text-decoration: none;
 }
 
 .voltarini a:hover {
-    color: #075BE8;
+    text-decoration: underline;
 }
 
-
-/* =========================
-   ÁREA PRINCIPAL
-========================= */
-
-.login-container,
-.logindet {
-    position: relative;
+.voltarini .material-symbols-outlined {
+    color: var(--azul);
+    font-size: 18px;
 }
 
-
-/* =========================
-   FORMULÁRIO
-========================= */
-
+/* ============ Card de login ============ */
 .login-container {
-    width: 470px;
-
-    background: #FFFFFF;
-
-    border: 1px solid #E3EAF5;
-    border-radius: 18px;
-
-    padding: 34px 38px;
-
-    box-shadow: 0 10px 35px rgba(7, 91, 232, 0.07);
-
-    margin-left: calc(50% - 570px);
-    margin-top: 28px;
-
-    margin-bottom: 50px;
-
+    grid-column: 1;
+    grid-row: 3;
+    width: 100%;
+    max-width: 380px;
+    margin: 36px auto 40px;
+    position: relative;
     z-index: 2;
+}
+
+/* bolinha azul decorativa */
+.login-container::before {
+    content: "";
+    position: absolute;
+    left: -210px;
+    top: 290px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--azul);
 }
 
 .login-container h2 {
-    color: #172033;
-
-    font-size: 27px;
-    font-weight: 700;
-
-    margin-bottom: 25px;
+    margin: 0 0 6px;
+    font-size: 1.6rem;
+    font-weight: 600;
+    line-height: 1.2;
 }
 
+/* ---- Formulário ---- */
+/* Os ícones vêm ANTES dos labels no HTML, então usamos "order" e
+   spans de altura zero para posicioná-los dentro dos inputs. */
 .login-container form {
-    width: 100%;
-
     display: flex;
     flex-direction: column;
+    margin-top: 24px;
 }
 
-
-/* LABEL */
+.passwordicon {
+    display: contents; /* filhos participam do flex do form */
+}
 
 .login-container label {
-    color: #344054;
-
-    font-size: 13px;
-    font-weight: 600;
-
-    margin-bottom: 7px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    margin-bottom: 8px;
 }
 
+.login-container label[for="email"]    { order: 1; }
+.login-container form > span:nth-of-type(1) { order: 2; }  /* ícone mail */
+.login-container input[type="email"]   { order: 3; margin-bottom: 22px; }
 
-/* INPUT */
+.login-container label[for="password"] { order: 4; }
+.login-container form > span:nth-of-type(2) { order: 5; }  /* ícone lock */
+.passwordicon > span                   { order: 6; }       /* ícone olho */
+.login-container input[type="password"]{ order: 7; }
 
-.login-container input[type="text"],
+.login-container form > a              { order: 8; }
+.login-container form > button         { order: 9; }
+
+/* ícones: altura zero, flutuam sobre o input */
+.login-container form .material-symbols-outlined {
+    height: 0;
+    overflow: visible;
+    position: relative;
+    z-index: 2;
+    top: 14px;
+    font-size: 18px;
+    color: var(--texto-suave);
+    pointer-events: none;
+    user-select: none;
+}
+
+.login-container form > span:nth-of-type(1),
+.login-container form > span:nth-of-type(2) {
+    left: 14px;
+}
+
+.passwordicon > span {
+    text-align: right;
+    padding-right: 14px;
+    cursor: pointer;
+    pointer-events: auto;
+}
+
 .login-container input[type="email"],
 .login-container input[type="password"] {
     width: 100%;
-    height: 44px;
-
-    background: #F8FAFF;
-
-    border: 1px solid #D8E4F5;
-    border-radius: 8px;
-
-    outline: none;
-
-    padding: 0 13px;
-
-    color: #172033;
-
-    font-size: 14px;
-
-    margin-bottom: 17px;
-
-    transition: 0.25s;
+    height: 48px;
+    padding: 0 16px 0 42px;
+    border: 1px solid var(--borda);
+    border-radius: 10px;
+    background: var(--branco);
+    font-family: inherit;
+    font-size: 0.85rem;
+    color: var(--texto);
+    box-shadow: 0 1px 3px rgba(17, 24, 39, 0.06);
+    transition: border-color 0.2s, box-shadow 0.2s;
 }
 
 .login-container input::placeholder {
-    color: #9AA6B7;
+    color: #b8bec9;
 }
 
-.login-container input[type="text"]:focus,
-.login-container input[type="email"]:focus,
-.login-container input[type="password"]:focus {
-    background: #FFFFFF;
-
-    border-color: #075BE8;
-
-    box-shadow: 0 0 0 3px rgba(7, 91, 232, 0.08);
+.login-container input:focus {
+    outline: none;
+    border-color: var(--azul);
+    box-shadow: 0 0 0 3px rgba(19, 99, 240, 0.15);
 }
 
-
-/* ÍCONES */
-
-.login-container form > .material-symbols-outlined {
-    display: none;
-}
-
-
-/* SENHA */
-
-.passwordicon {
-    position: relative;
-
-    display: flex;
-    flex-direction: column;
-}
-
-.passwordicon > .material-symbols-outlined {
-    position: absolute;
-
-    right: 13px;
-    bottom: 29px;
-
-    color: #8A97AA;
-
-    font-size: 20px;
-
-    cursor: pointer;
-
-    z-index: 2;
-}
-
-.passwordicon input {
-    padding-right: 45px !important;
-}
-
-
-/* ESQUECI SENHA */
-
+/* esqueceu a senha */
 .login-container form > a {
     align-self: flex-end;
-
-    color: #075BE8;
-
-    font-size: 12px;
+    margin: 10px 0 30px;
+    font-size: 0.7rem;
     font-weight: 500;
-
+    color: var(--azul);
     text-decoration: none;
-
-    margin-top: -5px;
-    margin-bottom: 18px;
 }
 
 .login-container form > a:hover {
     text-decoration: underline;
 }
 
-
-/* BOTÃO */
-
-.login-container form button[type="submit"] {
-    width: 100%;
-    height: 45px;
-
+/* botão entrar */
+.login-container form > button {
+    height: 46px;
     border: none;
-    border-radius: 8px;
-
-    background: #075BE8;
-    color: #FFFFFF;
-
-    font-size: 14px;
+    border-radius: 10px;
+    background: var(--azul);
+    color: var(--branco);
+    font-family: inherit;
+    font-size: 0.95rem;
     font-weight: 600;
-
     cursor: pointer;
-
-    transition: 0.25s;
+    box-shadow: 0 6px 14px rgba(19, 99, 240, 0.28);
+    transition: background 0.2s, transform 0.1s;
 }
 
-.login-container form button[type="submit"]:hover {
-    background: #054BC2;
-
-    transform: translateY(-1px);
-
-    box-shadow: 0 6px 18px rgba(7, 91, 232, 0.18);
+.login-container form > button:hover {
+    background: var(--azul-escuro);
 }
 
+.login-container form > button:active {
+    transform: translateY(1px);
+}
 
-/* =========================
-   DIVISOR
-========================= */
-
+/* ---- "ou continue com" ---- */
 .login-container > p:first-of-type {
     display: flex;
     align-items: center;
-
     gap: 12px;
-
-    color: #94A3B8;
-
-    font-size: 12px;
-
-    margin: 22px 0 15px;
+    margin: 28px 0 30px;
+    font-size: 0.7rem;
+    color: var(--texto-suave);
+    text-align: center;
 }
 
 .login-container > p:first-of-type::before,
 .login-container > p:first-of-type::after {
     content: "";
-
-    height: 1px;
-
-    background: #E6EBF2;
-
     flex: 1;
+    height: 1px;
+    background: var(--borda);
 }
 
-
-/* =========================
-   LOGIN SOCIAL
-========================= */
-
+/* ---- Login social ---- */
 .social-login {
     display: flex;
-    flex-direction: column;
-
-    gap: 9px;
+    gap: 14px;
 }
 
 .social-login button {
-    width: 100%;
-    height: 42px;
-
-    border-radius: 8px;
-
-    background: #FFFFFF;
-
-    border: 1px solid #D8E4F5;
-
+    flex: 1;
+    height: 44px;
     display: flex;
     align-items: center;
     justify-content: center;
-
-    gap: 10px;
-
-    color: #344054;
-
-    font-size: 13px;
+    gap: 8px;
+    border: 1px solid var(--borda);
+    border-radius: 10px;
+    background: var(--branco);
+    font-family: inherit;
+    font-size: 0.72rem;
     font-weight: 500;
-
+    color: var(--texto);
     cursor: pointer;
-
-    transition: 0.25s;
+    box-shadow: 0 1px 3px rgba(17, 24, 39, 0.06);
+    transition: background 0.2s, border-color 0.2s;
 }
 
 .social-login button:hover {
-    background: #F8FAFF;
-
-    border-color: #BFD1EC;
-
-    transform: translateY(-1px);
+    background: #f5f8ff;
+    border-color: var(--azul);
 }
 
 .social-login i {
-    font-size: 17px;
+    font-size: 1.1rem;
 }
 
-
-/* CRIAR CONTA */
-
-.login-container > p:last-child {
+/* ---- Criar conta ---- */
+.login-container > p:last-of-type {
+    margin: 28px 0 0;
     text-align: center;
-
-    color: #68758A;
-
-    font-size: 13px;
-
-    margin-top: 20px;
+    font-size: 0.72rem;
+    color: var(--texto-suave);
 }
 
-.login-container > p:last-child a {
-    color: #075BE8;
-
-    font-weight: 600;
-
+.login-container > p:last-of-type a {
+    color: var(--azul);
+    font-weight: 500;
     text-decoration: none;
 }
 
-.login-container > p:last-child a:hover {
+.login-container > p:last-of-type a:hover {
     text-decoration: underline;
 }
 
-
-/* =========================
-   LADO DIREITO
-========================= */
-
+/* ============ Lado direito (painel azul) ============ */
 .logindet {
-    position: absolute;
-
-    width: 540px;
-
-    min-height: 590px;
-
-    right: calc(50% - 590px);
-    top: 145px;
-
-    background: #E0ECFF;
-
-    border-radius: 25px;
-
-    padding: 42px 38px;
-
+    grid-column: 2;
+    grid-row: 2 / 4;
+    position: relative;
+    padding: 70px 50px 70px 100px;
+    /* forma orgânica (blob) desenhada em SVG + círculo amarelo na borda direita */
+    background-color: transparent;
+    background-image:
+        radial-gradient(circle 55px at calc(100% - 12px) 52%, var(--amarelo) 0 98%, transparent 100%),
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 430 580' preserveAspectRatio='none'%3E%3Cpath fill='%23e6efff' d='M95 0 C45 35 0 100 3 190 C6 255 42 285 30 350 C18 410 -4 450 18 510 C30 543 52 563 68 580 L430 580 L430 0 Z'/%3E%3C/svg%3E");
+    background-size: 100% 100%, 100% 100%;
+    background-repeat: no-repeat;
     overflow: hidden;
+    z-index: 1;
+    color: var(--texto);
 }
 
-
-/* DECORAÇÕES */
-
+/* círculos decorativos */
 .logindet::before {
     content: "";
-
     position: absolute;
-
-    width: 180px;
-    height: 180px;
-
+    top: -110px;
+    right: -90px;
+    width: 220px;
+    height: 220px;
     border-radius: 50%;
-
-    background: #C9DDFF;
-
-    top: -85px;
-    right: -50px;
+    background: #d3e3ff;
+    z-index: 0;
 }
 
 .logindet::after {
     content: "";
-
     position: absolute;
-
-    width: 95px;
-    height: 95px;
-
+    bottom: -100px;
+    left: 60px;
+    width: 220px;
+    height: 220px;
     border-radius: 50%;
-
-    background: #FFD600;
-
-    right: -25px;
-    top: 150px;
+    background: var(--azul-claro);
+    z-index: 0;
 }
 
-
-/* LOGO */
-
-.logoelo {
+.logindet > * {
     position: relative;
-    z-index: 2;
-
-    margin-bottom: 15px;
+    z-index: 1;
 }
 
-.logoelo img {
-    width: 115px;
-    height: auto;
+.logindet .logoelo img {
+    height: 44px;
+    width: auto;
+    display: block;
+    margin: 0 0 36px;
 }
 
-
-/* TEXTOS */
-
-.logindet > p {
-    position: relative;
-    z-index: 2;
-
+/* título */
+.logindet > p:nth-of-type(1) {
     max-width: 420px;
-
-    color: #52627A;
-
-    font-size: 14px;
-
-    line-height: 1.6;
-
-    margin-bottom: 8px;
-}
-
-.logindet > p:first-of-type {
-    color: #172033;
-
-    font-size: 23px;
+    margin: 0 0 14px;
+    font-size: 1.6rem;
     font-weight: 700;
-
     line-height: 1.3;
-
-    max-width: 390px;
-
-    margin-bottom: 10px;
 }
 
+/* subtítulo */
+.logindet > p:nth-of-type(2) {
+    max-width: 360px;
+    margin: 0 0 36px;
+    font-size: 0.8rem;
+    color: var(--texto-suave);
+    line-height: 1.5;
+}
 
-/* =========================
-   CARDS
-========================= */
-
-.cardsicons {
-    position: relative;
-    z-index: 3;
-
-    margin-top: 27px;
-
+/* ---- Grade: textinhos à esquerda, fotos à direita (sem sobrepor) ---- */
+.logindet .cardsicons {
     display: grid;
-
-    grid-template-columns: 1fr 1fr;
-
-    gap: 12px;
-
+    grid-template-columns: minmax(190px, 250px) minmax(0, 1fr);
+    column-gap: 30px;
+    row-gap: 24px;
+    align-items: start;
+    position: static;
+    max-width: none;
     width: 100%;
 }
 
-.cardicon {
-    min-height: 112px;
-
-    background: rgba(255, 255, 255, 0.92);
-
-    border: 1px solid rgba(255, 255, 255, 0.8);
-
-    border-radius: 13px;
-
-    padding: 17px;
-
-    box-shadow: 0 5px 18px rgba(37, 87, 174, 0.06);
-
-    transition: 0.25s;
+.logindet .cardicon {
+    grid-column: 1;
+    display: grid;
+    grid-template-columns: 40px 1fr;
+    column-gap: 14px;
+    row-gap: 2px;
+    align-items: start;
+    position: static;
+    margin: 0;
+    padding: 0;
+    background: none;
+    box-shadow: none;
 }
 
-.cardicon:hover {
-    transform: translateY(-3px);
-
-    box-shadow: 0 9px 22px rgba(37, 87, 174, 0.10);
-}
-
-.cardicon > .material-symbols-outlined {
-    width: 38px;
-    height: 38px;
-
+.logindet .cardicon .material-symbols-outlined {
+    grid-column: 1;
+    grid-row: 1 / span 2;
     display: flex;
     align-items: center;
     justify-content: center;
-
+    width: 40px;
+    height: 40px;
     border-radius: 10px;
-
-    background: #E8F1FF;
-
-    color: #075BE8;
-
-    font-size: 21px;
-
-    margin-bottom: 10px;
+    background: var(--azul-claro);
+    color: var(--azul);
+    font-size: 22px;
 }
 
-.cardicon:nth-child(2) > .material-symbols-outlined {
-    background: #DDF7E8;
-    color: #16A05D;
+.logindet .cardicon p {
+    grid-column: 2;
+    margin: 0;
+    font-size: 0.7rem;
+    color: var(--texto-suave);
+    line-height: 1.4;
 }
 
-.cardicon:nth-child(3) > .material-symbols-outlined {
-    background: #FFF5CC;
-    color: #C99D00;
+/* primeira linha de cada card = título */
+.logindet .cardicon p:first-of-type {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--texto);
 }
 
-.cardicon p {
-    color: #68758A;
-
-    font-size: 11px;
-
-    line-height: 1.45;
-
-    margin-bottom: 4px;
+/* se o card só tiver 1 texto, ele é a descrição */
+.logindet .cardicon p:only-of-type {
+    font-size: 0.72rem;
+    font-weight: 400;
+    color: var(--texto-suave);
+    align-self: center;
+    grid-row: 1 / span 2;
 }
 
-.cardicon p:first-of-type {
-    color: #172033;
-
-    font-size: 13px;
-
-    font-weight: 650;
+/* ---- Fotos (coluna da direita) ---- */
+.logindet .imagenslogin {
+    grid-column: 2;
+    grid-row: 1 / span 3;
+    position: relative;
+    justify-self: end;
+    align-self: start;
+    width: 100%;
+    max-width: 330px;
+    height: 330px;
+    margin: 0;
+    right: auto;
+    bottom: auto;
+    transform: none;
 }
 
-
-/* =========================
-   IMAGENS
-========================= */
-
-.imagenslogin {
+.logindet .imagenslogin img {
     position: absolute;
-
-    right: -10px;
-    bottom: -45px;
-
-    width: 350px;
-    height: 180px;
-
-    pointer-events: none;
-}
-
-.imagenslogin img {
-    position: absolute;
-
     object-fit: cover;
-
-    border: 5px solid #FFFFFF;
-
-    box-shadow: 0 8px 25px rgba(37, 87, 174, 0.12);
-
-    border-radius: 17px;
+    border: 3px solid var(--branco);
+    border-radius: 14px;
+    box-shadow: 0 10px 24px rgba(17, 24, 39, 0.18);
+    margin: 0;
 }
 
-.imagenslogin img:first-child {
-    width: 210px;
-    height: 145px;
-
-    right: 95px;
-    bottom: 10px;
-
-    transform: rotate(-2deg);
-
-    z-index: 2;
-}
-
-.imagenslogin img:last-child {
-    width: 145px;
-    height: 145px;
-
+.logindet .imagenslogin img:first-child {
+    top: 0;
     right: 0;
-    bottom: 0;
-
-    transform: rotate(3deg);
-
-    z-index: 3;
+    width: 260px;
+    height: 190px;
 }
 
-
-/* =========================
-   RESPONSIVO
-========================= */
-
-@media (max-width: 1150px) {
-
-    .navbar {
-        padding: 0 30px;
-    }
-
-    .nav-links {
-        gap: 17px;
-    }
-
-    .search-box {
-        width: 170px;
-    }
-
-    .login-container {
-        margin-left: 5%;
-    }
-
-    .logindet {
-        right: 5%;
-        width: 470px;
-    }
+.logindet .imagenslogin img:last-child {
+    top: 160px;
+    left: 0;
+    width: 150px;
+    height: 170px;
 }
 
-
-@media (max-width: 950px) {
-
-    .navbar {
-        height: auto;
-
-        padding: 18px 25px;
-
-        flex-direction: column;
-
-        gap: 15px;
-    }
-
-    .nav-links {
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-
-    .login-container {
-        margin: 30px auto 40px;
-
-        width: min(92%, 470px);
-    }
-
+/* ============ Responsivo ============ */
+@media (max-width: 1100px) {
     .logindet {
-        position: relative;
-
-        top: auto;
-        right: auto;
-
-        width: min(92%, 540px);
-
-        margin: 0 auto 50px;
-    }
-}
-
-
-@media (max-width: 600px) {
-
-    .navbar {
-        padding: 15px;
+        padding: 60px 30px 60px 50px;
     }
 
-    .nav-links {
-        gap: 12px;
-    }
-
-    .nav-links li {
-        display: none;
-    }
-
-    .nav-links li:nth-child(1),
-    .nav-links li:nth-child(5),
-    .nav-links li:nth-child(6) {
-        display: block;
-    }
-
-    .login-container {
-        padding: 28px 22px;
-    }
-
-    .login-container h2 {
-        font-size: 24px;
-    }
-
-    .logindet {
-        padding: 32px 22px 210px;
-    }
-
-    .logindet > p:first-of-type {
-        font-size: 21px;
-    }
-
-    .cardsicons {
+    .logindet .cardsicons {
         grid-template-columns: 1fr;
     }
 
-    .cardicon {
-        min-height: auto;
+    .logindet .imagenslogin {
+        grid-column: 1;
+        grid-row: auto;
+        justify-self: start;
+        margin-top: 10px;
+    }
+}
+
+@media (max-width: 900px) {
+    body {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto auto;
     }
 
-    .imagenslogin {
-        right: 50%;
-        transform: translateX(50%);
-    }
-
-    .voltarini {
+    .voltarini,
+    .login-container {
         padding: 0 20px;
+    }
+
+    .login-container::before {
+        display: none;
+    }
+
+    .logindet {
+        grid-column: 1;
+        grid-row: 4;
+        background-image: none;
+        background-color: var(--azul-fundo);
+        border-radius: 40px 40px 0 0;
+        padding: 50px 24px 60px;
     }
 }
