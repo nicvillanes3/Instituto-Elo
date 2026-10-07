@@ -1,11 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Criar Campanha-Elo</title>
-    <link rel="stylesheet" href="index.css"
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="criarCampanha1.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=account_circle,arrow_back,arrow_forward,delete,image,favorite,group,keyboard_arrow_down,calendar_month,help,location_on,mail,payments,schedule,school,verified_user,visibility_off,search" />
 </head>
+
 <body>
     <nav class="navbar">
         <div class="nav-logo">
@@ -32,14 +37,366 @@
                 <input type="button" value="Criar Campanha" id="botaoCampanha"
                     onclick="window.location.href='criarCampanha.html'">
             </li>
-        
-    <li>
-    <div class="meuPerfil">
-        <a href="perfil.html">Perfil</a>
-        <span class="material-symbols-outlined">account_circle</span>
-    </div>
-</li>
 
+            <li>
+                <div class="meuPerfil">
+                    <a href="perfil.html">Perfil</a>
+                    <span class="material-symbols-outlined">account_circle</span>
+                </div>
+            </li>
+        </ul>
+    </nav>
+    <main class="campanha-page">
+
+
+        <header class="campanha-header">
+            <a href="index.html" class="btn-voltar" aria-label="Voltar ao início">
+                <span class="material-symbols-outlined">arrow_back</span>
+            </a>
+            <div>
+                <h1>Criar nova campanha</h1>
+                <p>Compartilhe seu projeto e comece a transformar ideias em realidade.</p>
+            </div>
+        </header>
+
+        <div class="campanha-grid">
+
+
+            <section class="card form-card">
+                <div class="tabs" role="tablist">
+                    <button type="button" class="tab active" role="tab" data-step="1">
+                        <span class="tab-num">1</span> Informações básicas
+                    </button>
+                    <button type="button" class="tab" role="tab" data-step="2">
+                        <span class="tab-num outline">2</span> Metas e recompensas
+                    </button>
+                </div>
+
+                <form id="formCampanha" action="process_campanha.php" method="POST" enctype="multipart/form-data">
+
+
+                    <div class="step" id="step1">
+                        <h2>Informações Básicas</h2>
+                        <p class="step-sub">Vamos começar! Preencha os dados principais da sua campanha.</p>
+
+                        <div class="row">
+                            <div class="field">
+                                <label for="titulo">Título da campanha</label>
+                                <input type="text" id="titulo" name="titulo" maxlength="80" required
+                                    placeholder="Ex. Robótica sustentável nas escolas">
+                            </div>
+                            <div class="field">
+                                <label for="categoria">Categoria</label>
+                                <div class="input-icon">
+                                    <select id="categoria" name="categoria" required>
+                                        <option value="" selected disabled>Selecione uma categoria</option>
+                                        <option>Educação</option>
+                                        <option>Tecnologia</option>
+                                        <option>Meio ambiente</option>
+                                        <option>Saúde</option>
+                                        <option>Arte e cultura</option>
+                                        <option>Esporte</option>
+                                    </select>
+                                    <span class="material-symbols-outlined">keyboard_arrow_down</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <label for="resumo">Resumo da campanha</label>
+                            <input type="text" id="resumo" name="resumo" maxlength="160" required
+                                placeholder="Escreva um breve resumo do seu projeto e o impacto que ele pode gerar.">
+                        </div>
+
+                        <div class="field">
+                            <label for="capa">Imagem da capa</label>
+                            <label for="capa" class="dropzone" id="dropzone">
+                                <span class="material-symbols-outlined">image</span>
+                                <span class="dz-text">
+                                    <strong>Clique pra enviar ou arraste a imagem até aqui</strong>
+                                    <small>PNG, JPG ou WEBP (máx. 5MB)</small>
+                                </span>
+                            </label>
+                            <input type="file" id="capa" name="capa" accept="image/png, image/jpeg, image/webp" hidden>
+                        </div>
+
+                        <div class="row">
+                            <div class="field">
+                                <label for="local">Localização</label>
+                                <div class="input-icon">
+                                    <input type="text" id="local" name="local" placeholder="Ex. São Paulo">
+                                    <span class="material-symbols-outlined">location_on</span>
+                                </div>
+                            </div>
+                            <div class="field">
+                                <label for="instituicao">Instituição/Escola</label>
+                                <div class="input-icon">
+                                    <input type="text" id="instituicao" name="instituicao"
+                                        placeholder="Ex. Etec Martin Luther King">
+                                    <span class="material-symbols-outlined">school</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="step" id="step2" hidden>
+                        <h2>Metas e recompensas</h2>
+                        <p class="step-sub">Defina quanto você precisa arrecadar e por quanto tempo.</p>
+
+                        <div class="row">
+                           <div class="field">
+    <label for="meta">Meta de arrecadação (R$)</label>
+
+    <div class="input-icon">
+        <input type="text" id="meta" name="meta" min="1" placeholder="Ex. 5000">
+        <span class="simbolo-rs">R$</span>
+    </div>
+</div>
+
+                         <div class="field">
+    <label for="dias">Duração da campanha</label>
+
+    <div class="input-icon">
+        <select id="dias" name="dias" required>
+            <option value="" selected disabled>Selecione a duração</option>
+            <option value="7">7 dias</option>
+            <option value="15">15 dias</option>
+            <option value="30">30 dias</option>
+            <option value="45">45 dias</option>
+            <option value="60">60 dias</option>
+            <option value="90">90 dias</option>
+        </select>
+
+        <span class="material-symbols-outlined">calendar_month</span>
+    </div>
+</div>
+                        </div>
+
+                        <div class="field">
+                            <h2>Como o valor será utilizado?</h2>
+                            <p class="step-sub">Explique como cada parte do valor será aplicada no seu projeto. </p>
+                            <div class="utilizado-inputs">
+
+                                <div class="utilizado-item">
+                                    <div class="utilizado-nome">
+                                        Materiais e equipamentos
+                                    </div>
+
+                                    <input type="number" class="utilizado-porcentagem" placeholder="%">
+
+                                    <input type="number" class="utilizado-valor" placeholder="R$">
+
+                                    <button type="button" class="btn-lixeira">
+                                        <span class="material-symbols-outlined">delete</span>
+                                    </button>
+                                </div>
+
+                                <div class="utilizado-item">
+                                    <div class="utilizado-nome">
+                                        Transporte e logística
+                                    </div>
+
+                                    <input type="number" class="utilizado-porcentagem" placeholder="%">
+
+                                    <input type="number" class="utilizado-valor" placeholder="R$">
+
+                                    <button type="button" class="btn-lixeira">
+                                        <span class="material-symbols-outlined">delete</span>
+                                    </button>
+                                </div>
+
+                                <div class="utilizado-item">
+                                    <div class="utilizado-nome">
+                                        Divulgação do projeto
+                                    </div>
+
+                                    <input type="number" class="utilizado-porcentagem" placeholder="%">
+
+                                    <input type="number" class="utilizado-valor" placeholder="R$">
+
+                                    <button type="button" class="btn-lixeira">
+                                        <span class="material-symbols-outlined">delete</span>
+                                    </button>
+                                </div>
+
+                                <div class="utilizado-item">
+                                    <div class="utilizado-nome">
+                                        Adicionar item
+                                    </div>
+
+                                    <input type="number" class="utilizado-porcentagem" placeholder="%">
+
+                                    <input type="number" class="utilizado-valor" placeholder="R$">
+
+                                    <button type="button" class="btn-lixeira">
+                                        <span class="material-symbols-outlined">delete</span>
+                                    </button>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="button" class="btn-secundario" id="btnVoltarPasso" hidden>Voltar</button>
+                        <button type="button" class="btn-primario" id="btnContinuar">
+                            <span id="btnTexto">Continuar</span>
+                            <span class="material-symbols-outlined">arrow_forward</span>
+                        </button>
+                    </div>
+                </form>
+            </section>
+
+
+            <aside class="lateral">
+
+                <div class="card ajuda-card">
+                    <span class="ajuda-icone">
+                        <span class="material-symbols-outlined">help</span>
+                    </span>
+                    <div class="ajuda-texto">
+                        <strong>Dúvidas?</strong>
+                        <p>Veja nossas dicas para criar uma campanha</p>
+                    </div>
+                    <a href="comoFunciona.html" class="ver-dicas">ver dicas
+                        <span class="material-symbols-outlined">arrow_forward</span>
+                    </a>
+                </div>
+
+                <div class="card preview-card">
+                    <h3>Prévia da sua campanha</h3>
+                    <p class="preview-sub">Essa é uma prévia de como sua campanha será exibida para os apoiadores.</p>
+
+                    <article class="camp">
+                        <div class="camp-capa" id="prevCapa">
+                            <span class="selo">Em rascunho</span>
+                            <span class="material-symbols-outlined">image</span>
+                        </div>
+
+                        <div class="camp-corpo">
+                            <div class="camp-topo">
+                                <div class="autor">
+                                    <span class="material-symbols-outlined">account_circle</span>
+                                    <div>
+                                        <small>por <strong>Seu nome</strong></small>
+                                        <small>Escola/Instituição</small>
+                                    </div>
+                                </div>
+                                <span class="camp-local">
+                                    <span class="material-symbols-outlined">location_on</span>
+                                    <span id="prevLocal">São Paulo - SP</span>
+                                </span>
+                            </div>
+
+                            <h4 id="prevTitulo">Título da sua campanha aparecerá aqui</h4>
+                            <p class="camp-resumo" id="prevResumo">Esse é um resumo curto do seu projeto. Ele será
+                                exibido para as pessoas entenderem rapidamente do que se trata sua campanha.</p>
+
+                            <div class="barra"><span id="prevBarra"></span></div>
+
+                            <div class="numeros">
+                                <div><strong id="prevMeta">R$0</strong><small>arrecadados</small></div>
+                                <div class="centro"><strong>0%</strong><small>da meta</small></div>
+                                <div class="direita"><strong id="prevMetaTotal">R$0</strong><small>meta</small></div>
+                            </div>
+
+                            <div class="camp-rodape">
+                                <div class="stat">
+                                    <span class="material-symbols-outlined">group</span>
+                                    <div><strong>0</strong><small>apoiadores</small></div>
+                                </div>
+                                <div class="stat">
+                                    <span class="material-symbols-outlined">schedule</span>
+                                    <div><strong id="prevDias">0 dias</strong><small>para terminar</small></div>
+                                </div>
+                            </div>
+
+                            <button type="button" class="btn-apoiar" disabled>
+                                Quero apoiar
+                                <span class="material-symbols-outlined">favorite</span>
+                            </button>
+                        </div>
+                    </article>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <script>
+        const $ = (id) => document.getElementById(id);
+
+        /* ---------- Prévia em tempo real ---------- */
+        const brl = (v) => 'R$' + Number(v || 0).toLocaleString('pt-BR');
+
+        $('titulo').addEventListener('input', e =>
+            $('prevTitulo').textContent = e.target.value || 'Título da sua campanha aparecerá aqui');
+        $('resumo').addEventListener('input', e =>
+            $('prevResumo').textContent = e.target.value ||
+            'Esse é um resumo curto do seu projeto. Ele será exibido para as pessoas entenderem rapidamente do que se trata sua campanha.');
+        $('local').addEventListener('input', e =>
+            $('prevLocal').textContent = e.target.value || 'São Paulo - SP');
+        $('meta').addEventListener('input', e =>
+            $('prevMetaTotal').textContent = brl(e.target.value));
+        $('dias').addEventListener('change', e => {
+            $('prevDias').textContent = e.target.value
+                ? e.target.value + ' dias'
+                : '0 dias';
+        });
+
+        /* ---------- Imagem de capa ---------- */
+        function mostrarCapa(file) {
+            if (!file || !file.type.startsWith('image/') || file.size > 5 * 1024 * 1024) {
+                alert('Envie uma imagem PNG, JPG ou WEBP de até 5MB.');
+                return;
+            }
+            const url = URL.createObjectURL(file);
+            $('prevCapa').style.backgroundImage = `url(${url})`;
+            $('prevCapa').classList.add('com-imagem');
+            $('dropzone').querySelector('strong').textContent = file.name;
+        }
+        $('capa').addEventListener('change', e => mostrarCapa(e.target.files[0]));
+
+        const dz = $('dropzone');
+        ['dragenter', 'dragover'].forEach(ev => dz.addEventListener(ev, e => {
+            e.preventDefault(); dz.classList.add('arrastando');
+        }));
+        ['dragleave', 'drop'].forEach(ev => dz.addEventListener(ev, e => {
+            e.preventDefault(); dz.classList.remove('arrastando');
+        }));
+        dz.addEventListener('drop', e => {
+            const file = e.dataTransfer.files[0];
+            if (file) {
+                const dt = new DataTransfer();
+                dt.items.add(file);
+                $('capa').files = dt.files;
+                mostrarCapa(file);
+            }
+        });
+
+        /* ---------- Passos ---------- */
+        const tabs = document.querySelectorAll('.tab');
+        function irParaPasso(n) {
+            $('step1').hidden = n !== 1;
+            $('step2').hidden = n !== 2;
+            tabs.forEach(t => t.classList.toggle('active', Number(t.dataset.step) === n));
+            document.querySelectorAll('.tab-num').forEach((el, i) =>
+                el.classList.toggle('outline', i + 1 !== n));
+            $('btnVoltarPasso').hidden = n === 1;
+            $('btnTexto').textContent = n === 1 ? 'Continuar' : 'Publicar campanha';
+            $('btnContinuar').dataset.step = n;
+        }
+        tabs.forEach(t => t.addEventListener('click', () => irParaPasso(Number(t.dataset.step))));
+        $('btnVoltarPasso').addEventListener('click', () => irParaPasso(1));
+        $('btnContinuar').addEventListener('click', () => {
+            if ($('btnContinuar').dataset.step === '2') {
+                $('formCampanha').requestSubmit();
+            } else {
+                irParaPasso(2);
+            }
+        });
+    </script>
 
 </body>
+
 </html>
