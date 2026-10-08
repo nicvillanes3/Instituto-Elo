@@ -1,0 +1,77 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f5f7;
+    margin: 0;
+    padding: 20px;
+}
+
+.barra-lateral {
+    width: 260px;
+    background-color: #f9f9fb;
+    border-radius: 12px;
+    padding: 15px 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+}
+
+.barra-lateral a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    text-decoration: none;
+    color: #4a4a4a;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+}
+
+.barra-lateral a i {
+    font-size: 16px;
+    width: 20px;
+    text-align: center;
+    color: #6c757d;
+}
+
+.barra-lateral a:hover {
+    background-color: #f0f2f5;
+    color: #000;
+}
+
+.barra-lateral a.active {
+    background-color: #e2ecff;
+    color: #1a73e8;
+    font-weight: 600;
+}
+
+.barra-lateral a.active i {
+    color: #1a73e8;
+}
+
+.card-destaque {
+    width: 240px;
+    background-color: #f0f4ff;
+    border: 1px solid #d4e2fc;
+    border-radius: 16px;
+    padding: 20px;
+    text-align: center;
+    margin-top: 20px;
+    box-shadow: 0 4px 10px rgba(26, 115, 232, 0.05);
+}
+
+.card-destaque i {
+    color: #1a73e8;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.card-destaque p {
+    color: #333;
+    font-size: 13px;
+    line-height: 1.4;
+    margin: 0;
+    font-weight: 500;
+}

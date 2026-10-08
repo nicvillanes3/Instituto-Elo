@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="menuLateral.css">
+    <title>barra lateral</title>
+</head>
+<body>
+<div class="barra-lateral">
+    <a href="perfil.html">
+        <i class="fa-regular fa-user"></i> Meu perfil
+    </a>
+    <a href="criador.html">
+        <i class="fa-solid fa-chart-column"></i> Painel do criador
+    </a>
+    <a href="projetos.html">
+        <i class="fa-regular fa-comment-dots"></i> Projetos criados
+    </a>
+    <a href="doacoes.html">
+        <i class="fa-solid fa-dollar-sign"></i> Minhas doações
+    </a>
+    <a href="favoritos.html">
+        <i class="fa-regular fa-heart"></i> Favoritos
+    </a>
+    <a href="notificacoes.html">
+        <i class="fa-regular fa-bell"></i> Notificações
+    </a>
+    <a href="configuracoes.html">
+        <i class="fa-solid fa-gear"></i> Configurações
+    </a>
+    <a href="sair.html">
+        <i class="fa-solid fa-right-from-bracket"></i> Sair
+    </a>
+</div>
+
+<div class="card-destaque">
+    <i class="fa-regular fa-heart" id="card-icon"></i>
+    <p id="card-text">Conecte-se com ideias que transformam o futuro.</p>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+
+    const path = window.location.pathname;
+    const page = path.substring(path.lastIndexOf("/") + 1);
+
+    const links = document.querySelectorAll(".barra-lateral a");
+    const cardText = document.getElementById("card-text");
+    const cardIcon = document.getElementById("card-icon");
+
+    links.forEach(link => {
+
+        if (link.getAttribute("href") === page) {
+            link.classList.add("active");
+            if (page === "perfil.html") {
+                cardText.textContent = "Conecte-se com ideias que transformam o futuro.";
+                cardIcon.className = "fa-regular fa-user";
+            } else if (page === "criador.html") {
+                cardText.textContent = "Dicas para sua campanha decolar";
+                cardIcon.className = "fa-solid fa-chart-column";
+            } else if (page === "projetos.html") {
+                cardText.textContent = "Dicas para sua campanha decolar";
+                cardIcon.className = "fa-regular fa-comment-dots";
+            } else if (page === "favoritos.html") {
+                cardText.textContent = "Salve projetos que você gosta e acompanhe quando quiser!";
+                cardIcon.className = "fa-solid fa--sign";
+            }else if (page === "doacoes.html") {
+                cardText.textContent = "Apoiar é transformar ideias em realidade.";
+                cardIcon.className = "fa-solid fa-dollar-sign";
+            }else if (page === "notificacoes.html") {
+                cardText.textContent = "Fiquer por dentro!";
+                cardIcon.className = "fa-solid fa-bell";
+            }else if (page === "configuracoes.html") {
+                cardText.textContent = "Sua segurança é nossa prioridade";
+                cardIcon.className = "fa-solid fa-gear";
+        }
+    }});
+});
+</script>
+</body>
+</html>

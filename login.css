@@ -347,7 +347,7 @@ body::after {
 .logindet::after {
     content: "";
     position: absolute;
-    bottom: -100px;
+    bottom: -150px;
     left: 60px;
     width: 220px;
     height: 220px;
@@ -393,7 +393,8 @@ body::after {
     column-gap: 30px;
     row-gap: 24px;
     align-items: start;
-    position: static;
+    position: relative;
+    z-index: 1;
     max-width: none;
     width: 100%;
 }

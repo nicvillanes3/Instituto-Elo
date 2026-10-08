@@ -94,19 +94,26 @@ body::after {
     font-size: 18px;
 }
 
-/* ============ Card de login ============ */
-.login-container {
+/* ============ Card de logout ============ */
+/* o <main> some da estrutura para os filhos entrarem direto no grid do body */
+.sair-container {
+    display: contents;
+}
+
+.sair-card {
     grid-column: 1;
     grid-row: 3;
+    align-self: start;
     width: 100%;
     max-width: 380px;
     margin: 36px auto 40px;
     position: relative;
     z-index: 2;
+    text-align: center;
 }
 
 /* bolinha azul decorativa */
-.login-container::before {
+.sair-card::before {
     content: "";
     position: absolute;
     left: -210px;
@@ -117,228 +124,84 @@ body::after {
     background: var(--azul);
 }
 
-.login-container h2 {
-    margin: 0 0 6px;
+.icone-sair {
+    width: 84px;
+    height: 84px;
+    margin: 0 auto 26px;
+    border-radius: 50%;
+    background: var(--azul-claro);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 0 10px var(--azul-fundo);
+}
+
+.icone-sair .material-symbols-outlined {
+    font-size: 44px;
+    color: var(--azul);
+    font-variation-settings: "FILL" 1;
+}
+
+.sair-card h1 {
+    margin: 0 0 10px;
     font-size: 1.6rem;
     font-weight: 600;
     line-height: 1.2;
 }
 
-/* ---- Formulário ---- */
-/* Os ícones vêm ANTES dos labels no HTML, então usamos "order" e
-   spans de altura zero para posicioná-los dentro dos inputs. */
-.login-container form {
+.sair-card .mensagem {
+    margin: 0 auto 34px;
+    max-width: 320px;
+    font-size: 0.85rem;
+    line-height: 1.6;
+    color: var(--texto-suave);
+}
+
+.acoes-sair {
     display: flex;
     flex-direction: column;
-    margin-top: 24px;
-}
-
-.passwordicon {
-    display: contents; /* filhos participam do flex do form */
-}
-
-.login-container label {
-    font-size: 0.8rem;
-    font-weight: 500;
-    margin-bottom: 8px;
-}
-
-/* ordem dos itens do formulário (label > ícone > input) */
-.login-container label[for="name"]                 { order: 1; }
-.login-container input[type="text"]                { order: 2; margin-bottom: 22px; }
-
-.login-container label[for="email"]                { order: 3; }
-.login-container form > span                       { order: 4; }  /* ícone mail */
-.login-container input[type="email"]               { order: 5; margin-bottom: 22px; }
-
-/* senha */
-.passwordicon:first-of-type > label                { order: 6; }
-.login-container form > span ~ span,
-.passwordicon:first-of-type > span                 { order: 8; }
-.passwordicon:first-of-type > input                { order: 9; margin-bottom: 22px; }
-
-/* confirmar senha */
-.passwordicon:last-of-type > label                 { order: 10; }
-.passwordicon:last-of-type > span                  { order: 11; }
-.passwordicon:last-of-type > input                 { order: 12; margin-bottom: 8px; }
-
-.login-container form > a                          { display: none; } /* não faz sentido no cadastro */
-.login-container form > button                     { order: 14; }
-
-/* ícones: altura zero, flutuam sobre o input */
-.login-container form .material-symbols-outlined {
-    height: 0;
-    overflow: visible;
-    position: relative;
-    z-index: 2;
-    top: 14px;
-    font-size: 18px;
-    color: var(--texto-suave);
-    pointer-events: none;
-    user-select: none;
-}
-
-.login-container form > span:nth-of-type(1),
-.login-container form > span:nth-of-type(2) {
-    left: 14px;
-}
-
-.passwordicon > span {
-    text-align: right;
-    padding-right: 14px;
-    cursor: pointer;
-    pointer-events: auto;
-}
-
-.login-container input[type="text"],
-.login-container input[type="email"],
-.login-container input[type="password"] {
-    width: 100%;
-    height: 48px;
-    padding: 0 16px 0 42px;
-    border: 1px solid var(--borda);
-    border-radius: 10px;
-    background: var(--branco);
-    font-family: inherit;
-    font-size: 0.85rem;
-    color: var(--texto);
-    box-shadow: 0 1px 3px rgba(17, 24, 39, 0.06);
-    transition: border-color 0.2s, box-shadow 0.2s;
-}
-
-.login-container input::placeholder {
-    color: #b8bec9;
-}
-
-.login-container input:focus {
-    outline: none;
-    border-color: var(--azul);
-    box-shadow: 0 0 0 3px rgba(19, 99, 240, 0.15);
-}
-
-
-/* campo de nome não tem ícone */
-.login-container input[type="text"] {
-    padding-left: 16px;
-}
-
-/* ícone de cadeado no "confirmar senha" (o HTML só tem o olho) */
-.passwordicon:last-of-type > span::before {
-    content: "lock";
-    position: absolute;
-    left: 14px;
-    top: 0;
-    font-family: "Material Symbols Outlined";
-    font-size: 18px;
-    color: var(--texto-suave);
-}
-
-/* esqueceu a senha */
-.login-container form > a {
-    align-self: flex-end;
-    margin: 10px 0 30px;
-    font-size: 0.7rem;
-    font-weight: 500;
-    color: var(--azul);
-    text-decoration: none;
-}
-
-.login-container form > a:hover {
-    text-decoration: underline;
-}
-
-/* botão entrar */
-.login-container form > button {
-    height: 46px;
-    border: none;
-    border-radius: 10px;
-    background: var(--azul);
-    color: var(--branco);
-    font-family: inherit;
-    font-size: 0.95rem;
-    font-weight: 600;
-    cursor: pointer;
-    box-shadow: 0 6px 14px rgba(19, 99, 240, 0.28);
-    transition: background 0.2s, transform 0.1s;
-}
-
-.login-container form > button:hover {
-    background: var(--azul-escuro);
-}
-
-.login-container form > button:active {
-    transform: translateY(1px);
-}
-
-/* ---- "ou continue com" ---- */
-.login-container > p:first-of-type {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin: 28px 0 30px;
-    font-size: 0.7rem;
-    color: var(--texto-suave);
-    text-align: center;
-}
-
-.login-container > p:first-of-type::before,
-.login-container > p:first-of-type::after {
-    content: "";
-    flex: 1;
-    height: 1px;
-    background: var(--borda);
-}
-
-/* ---- Login social ---- */
-.social-login {
-    display: flex;
     gap: 14px;
 }
 
-.social-login button {
-    flex: 1;
-    height: 44px;
+.btn-entrar,
+.btn-inicio {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 8px;
-    border: 1px solid var(--borda);
+    height: 46px;
     border-radius: 10px;
-    background: var(--branco);
     font-family: inherit;
-    font-size: 0.72rem;
-    font-weight: 500;
-    color: var(--texto);
-    cursor: pointer;
-    box-shadow: 0 1px 3px rgba(17, 24, 39, 0.06);
-    transition: background 0.2s, border-color 0.2s;
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.2s, border-color 0.2s, transform 0.1s;
 }
 
-.social-login button:hover {
+.btn-entrar {
+    background: var(--azul);
+    color: var(--branco);
+    box-shadow: 0 6px 14px rgba(19, 99, 240, 0.28);
+}
+
+.btn-entrar:hover {
+    background: var(--azul-escuro);
+}
+
+.btn-inicio {
+    background: var(--branco);
+    color: var(--texto);
+    border: 1px solid var(--borda);
+    box-shadow: 0 1px 3px rgba(17, 24, 39, 0.06);
+}
+
+.btn-inicio:hover {
     background: #f5f8ff;
     border-color: var(--azul);
 }
 
-.social-login i {
-    font-size: 1.1rem;
-}
-
-/* ---- Criar conta ---- */
-.login-container > p:last-of-type {
-    margin: 28px 0 0;
-    text-align: center;
-    font-size: 0.72rem;
-    color: var(--texto-suave);
-}
-
-.login-container > p:last-of-type a {
-    color: var(--azul);
-    font-weight: 500;
-    text-decoration: none;
-}
-
-.login-container > p:last-of-type a:hover {
-    text-decoration: underline;
+.btn-entrar:active,
+.btn-inicio:active {
+    transform: translateY(1px);
 }
 
 /* ============ Lado direito (painel azul) ============ */
@@ -543,11 +406,11 @@ body::after {
     }
 
     .voltarini,
-    .login-container {
+    .sair-card {
         padding: 0 20px;
     }
 
-    .login-container::before {
+    .sair-card::before {
         display: none;
     }
 
@@ -558,5 +421,80 @@ body::after {
         background-color: var(--azul-fundo);
         border-radius: 40px 40px 0 0;
         padding: 50px 24px 60px;
+    }
+}
+
+/* ============ "ou continue com" + login social (igual ao login) ============ */
+.sair-card .divisor {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 30px 0;
+    font-size: 0.7rem;
+    color: var(--texto-suave);
+    text-align: center;
+}
+
+.sair-card .divisor::before,
+.sair-card .divisor::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--borda);
+}
+
+.social-login {
+    display: flex;
+    gap: 14px;
+}
+
+.social-login button {
+    flex: 1;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    border: 1px solid var(--borda);
+    border-radius: 10px;
+    background: var(--branco);
+    font-family: inherit;
+    font-size: 0.72rem;
+    font-weight: 500;
+    color: var(--texto);
+    cursor: pointer;
+    box-shadow: 0 1px 3px rgba(17, 24, 39, 0.06);
+    transition: background 0.2s, border-color 0.2s;
+}
+
+.social-login button:hover {
+    background: #f5f8ff;
+    border-color: var(--azul);
+}
+
+.social-login i {
+    font-size: 1.1rem;
+}
+
+.sair-card .criar-conta {
+    margin: 28px 0 0;
+    text-align: center;
+    font-size: 0.72rem;
+    color: var(--texto-suave);
+}
+
+.sair-card .criar-conta a {
+    color: var(--azul);
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.sair-card .criar-conta a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 560px) {
+    .social-login {
+        flex-direction: column;
     }
 }
