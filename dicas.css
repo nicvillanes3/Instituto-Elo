@@ -1,0 +1,280 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+    background: #F8FAFF;
+    color: #172033;
+    overflow-x: hidden;
+}
+
+.dicas-page {
+    position: relative;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 34px 24px 70px;
+}
+
+.dicas-page::before {
+    content: "";
+    position: absolute;
+    width: 260px;
+    height: 260px;
+    border-radius: 50%;
+    background: #E0ECFF;
+    left: -180px;
+    top: 180px;
+    z-index: -1;
+}
+
+.dicas-page::after {
+    content: "";
+    position: absolute;
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    background: #FFD600;
+    right: -30px;
+    bottom: 120px;
+    z-index: -1;
+}
+
+.voltar {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: #075BE8;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    margin-bottom: 30px;
+}
+
+.voltar:hover {
+    text-decoration: underline;
+}
+
+.voltar .material-symbols-outlined {
+    font-size: 19px;
+}
+
+.dicas-header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 38px;
+}
+
+.icone-header {
+    width: 62px;
+    height: 62px;
+    border-radius: 16px;
+    background: #E8F1FF;
+    color: #075BE8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.icone-header .material-symbols-outlined {
+    font-size: 32px;
+}
+
+.tag {
+    font-size: 11px;
+    font-weight: 600;
+    color: #075BE8;
+    letter-spacing: 1px;
+}
+
+.dicas-header h1 {
+    margin: 4px 0 6px;
+    font-size: 30px;
+    font-weight: 600;
+}
+
+.dicas-header p {
+    margin: 0;
+    color: #68758A;
+    font-size: 14px;
+}
+
+.dicas-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+}
+
+.dica-card {
+    position: relative;
+    background: #FFFFFF;
+    border: 1px solid #E4EAF3;
+    border-radius: 14px;
+    padding: 24px;
+    display: flex;
+    gap: 18px;
+    min-height: 180px;
+    box-shadow: 0 5px 20px rgba(37, 87, 174, 0.06);
+    transition: 0.2s;
+}
+
+.dica-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(37, 87, 174, 0.10);
+}
+
+.numero {
+    position: absolute;
+    right: 18px;
+    top: 14px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #B8C7DD;
+}
+
+.dica-icone {
+    width: 46px;
+    height: 46px;
+    border-radius: 12px;
+    background: #E8F1FF;
+    color: #075BE8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.dica-icone .material-symbols-outlined {
+    font-size: 24px;
+}
+
+.dica-conteudo {
+    padding-right: 15px;
+}
+
+.dica-conteudo h2 {
+    margin: 2px 0 8px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.dica-conteudo p {
+    margin: 0;
+    color: #68758A;
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+.dica-card:nth-child(3) .dica-icone,
+.dica-card:nth-child(6) .dica-icone {
+    background: #FFF5CC;
+    color: #C99D00;
+}
+
+.dica-card:nth-child(4) .dica-icone {
+    background: #DDF7E8;
+    color: #16A05D;
+}
+
+.dica-final {
+    margin-top: 28px;
+    padding: 24px 28px;
+    background: #E0ECFF;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.dica-final > div:first-child {
+    width: 46px;
+    height: 46px;
+    border-radius: 12px;
+    background: #FFFFFF;
+    color: #075BE8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.dica-final h2 {
+    margin: 0 0 5px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.dica-final p {
+    margin: 0;
+    color: #52627A;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+.dica-final a {
+    margin-left: auto;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    white-space: nowrap;
+    padding: 11px 18px;
+    border-radius: 8px;
+    background: #075BE8;
+    color: #FFFFFF;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.dica-final a:hover {
+    background: #064FC9;
+}
+
+.dica-final a .material-symbols-outlined {
+    font-size: 17px;
+}
+
+@media (max-width: 760px) {
+    .dicas-header h1 {
+        font-size: 24px;
+    }
+
+    .dicas-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .dica-final {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .dica-final a {
+        margin-left: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .dicas-page {
+        padding: 25px 16px 50px;
+    }
+
+    .dicas-header {
+        align-items: flex-start;
+    }
+
+    .icone-header {
+        width: 52px;
+        height: 52px;
+    }
+
+    .dicas-header h1 {
+        font-size: 21px;
+    }
+
+    .dicas-header p {
+        font-size: 12px;
+    }
+}

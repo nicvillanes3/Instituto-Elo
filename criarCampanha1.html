@@ -280,7 +280,7 @@
                                     <span class="material-symbols-outlined">account_circle</span>
                                     <div>
                                         <small>por <strong>Seu nome</strong></small>
-                                        <small>Escola/Instituição</small>
+                                    <small id="prevInstituicao">Escola/Instituição</small>
                                     </div>
                                 </div>
                                 <span class="camp-local">
@@ -324,78 +324,106 @@
     </main>
 
     <script>
-        const $ = (id) => document.getElementById(id);
+const $ = (id) => document.getElementById(id);
 
-        /* ---------- Prévia em tempo real ---------- */
-        const brl = (v) => 'R$' + Number(v || 0).toLocaleString('pt-BR');
+const brl = (v) => 'R$' + Number(v || 0).toLocaleString('pt-BR');
 
-        $('titulo').addEventListener('input', e =>
-            $('prevTitulo').textContent = e.target.value || 'Título da sua campanha aparecerá aqui');
-        $('resumo').addEventListener('input', e =>
-            $('prevResumo').textContent = e.target.value ||
-            'Esse é um resumo curto do seu projeto. Ele será exibido para as pessoas entenderem rapidamente do que se trata sua campanha.');
-        $('local').addEventListener('input', e =>
-            $('prevLocal').textContent = e.target.value || 'São Paulo - SP');
-        $('meta').addEventListener('input', e =>
-            $('prevMetaTotal').textContent = brl(e.target.value));
-        $('dias').addEventListener('change', e => {
-            $('prevDias').textContent = e.target.value
-                ? e.target.value + ' dias'
-                : '0 dias';
-        });
+$('titulo').addEventListener('input', e =>
+    $('prevTitulo').textContent = e.target.value || 'Título da sua campanha aparecerá aqui');
 
-        /* ---------- Imagem de capa ---------- */
-        function mostrarCapa(file) {
-            if (!file || !file.type.startsWith('image/') || file.size > 5 * 1024 * 1024) {
-                alert('Envie uma imagem PNG, JPG ou WEBP de até 5MB.');
-                return;
-            }
-            const url = URL.createObjectURL(file);
-            $('prevCapa').style.backgroundImage = `url(${url})`;
-            $('prevCapa').classList.add('com-imagem');
-            $('dropzone').querySelector('strong').textContent = file.name;
-        }
-        $('capa').addEventListener('change', e => mostrarCapa(e.target.files[0]));
+$('resumo').addEventListener('input', e =>
+    $('prevResumo').textContent = e.target.value ||
+    'Esse é um resumo curto do seu projeto. Ele será exibido para as pessoas entenderem rapidamente do que se trata sua campanha.');
 
-        const dz = $('dropzone');
-        ['dragenter', 'dragover'].forEach(ev => dz.addEventListener(ev, e => {
-            e.preventDefault(); dz.classList.add('arrastando');
-        }));
-        ['dragleave', 'drop'].forEach(ev => dz.addEventListener(ev, e => {
-            e.preventDefault(); dz.classList.remove('arrastando');
-        }));
-        dz.addEventListener('drop', e => {
-            const file = e.dataTransfer.files[0];
-            if (file) {
-                const dt = new DataTransfer();
-                dt.items.add(file);
-                $('capa').files = dt.files;
-                mostrarCapa(file);
-            }
-        });
+$('local').addEventListener('input', e =>
+    $('prevLocal').textContent = e.target.value || 'São Paulo - SP');
 
-        /* ---------- Passos ---------- */
-        const tabs = document.querySelectorAll('.tab');
-        function irParaPasso(n) {
-            $('step1').hidden = n !== 1;
-            $('step2').hidden = n !== 2;
-            tabs.forEach(t => t.classList.toggle('active', Number(t.dataset.step) === n));
-            document.querySelectorAll('.tab-num').forEach((el, i) =>
-                el.classList.toggle('outline', i + 1 !== n));
-            $('btnVoltarPasso').hidden = n === 1;
-            $('btnTexto').textContent = n === 1 ? 'Continuar' : 'Publicar campanha';
-            $('btnContinuar').dataset.step = n;
-        }
-        tabs.forEach(t => t.addEventListener('click', () => irParaPasso(Number(t.dataset.step))));
-        $('btnVoltarPasso').addEventListener('click', () => irParaPasso(1));
-        $('btnContinuar').addEventListener('click', () => {
-            if ($('btnContinuar').dataset.step === '2') {
-                $('formCampanha').requestSubmit();
-            } else {
-                irParaPasso(2);
-            }
-        });
-    </script>
+$('instituicao').addEventListener('input', e =>
+    $('prevInstituicao').textContent = e.target.value || 'Escola/Instituição');
+
+$('meta').addEventListener('input', e =>
+    $('prevMetaTotal').textContent = brl(e.target.value));
+
+$('dias').addEventListener('change', e => {
+    $('prevDias').textContent = e.target.value
+        ? e.target.value + ' dias'
+        : '0 dias';
+});
+
+function mostrarCapa(file) {
+    if (!file || !file.type.startsWith('image/') || file.size > 5 * 1024 * 1024) {
+        alert('Envie uma imagem PNG, JPG ou WEBP de até 5MB.');
+        return;
+    }
+
+    const url = URL.createObjectURL(file);
+    $('prevCapa').style.backgroundImage = `url(${url})`;
+    $('prevCapa').classList.add('com-imagem');
+    $('dropzone').querySelector('strong').textContent = file.name;
+}
+
+$('capa').addEventListener('change', e => mostrarCapa(e.target.files[0]));
+
+const dz = $('dropzone');
+
+['dragenter', 'dragover'].forEach(ev =>
+    dz.addEventListener(ev, e => {
+        e.preventDefault();
+        dz.classList.add('arrastando');
+    })
+);
+
+['dragleave', 'drop'].forEach(ev =>
+    dz.addEventListener(ev, e => {
+        e.preventDefault();
+        dz.classList.remove('arrastando');
+    })
+);
+
+dz.addEventListener('drop', e => {
+    const file = e.dataTransfer.files[0];
+
+    if (file) {
+        const dt = new DataTransfer();
+        dt.items.add(file);
+        $('capa').files = dt.files;
+        mostrarCapa(file);
+    }
+});
+
+const tabs = document.querySelectorAll('.tab');
+
+function irParaPasso(n) {
+    $('step1').hidden = n !== 1;
+    $('step2').hidden = n !== 2;
+
+    tabs.forEach(t =>
+        t.classList.toggle('active', Number(t.dataset.step) === n)
+    );
+
+    document.querySelectorAll('.tab-num').forEach((el, i) =>
+        el.classList.toggle('outline', i + 1 !== n)
+    );
+
+    $('btnVoltarPasso').hidden = n === 1;
+    $('btnTexto').textContent = n === 1 ? 'Continuar' : 'Publicar campanha';
+    $('btnContinuar').dataset.step = n;
+}
+
+tabs.forEach(t =>
+    t.addEventListener('click', () => irParaPasso(Number(t.dataset.step)))
+);
+
+$('btnVoltarPasso').addEventListener('click', () => irParaPasso(1));
+
+$('btnContinuar').addEventListener('click', () => {
+    if ($('btnContinuar').dataset.step === '2') {
+        $('formCampanha').requestSubmit();
+    } else {
+        irParaPasso(2);
+    }
+});
+</script>
 
 </body>
 

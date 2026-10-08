@@ -1,0 +1,177 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    margin: 0;
+}
+
+.footer {
+    width: 100%;
+    min-height: 230px;
+    background-color: #edf4ff;
+    display: flex;
+    padding: 28px 11%;
+    color: #34405a;
+}
+
+.footer-content {
+    width: 28%;
+    padding-right: 45px;
+}
+
+.footer-logo {
+    width: 55px;
+    margin-bottom: 15px;
+}
+
+.social-icons {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.social-icons a {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #1458b8;
+    text-decoration: none;
+    transition: 0.2s;
+}
+
+.social-icons a:hover {
+    color: #0d4bc0;
+}
+
+.social-icons i {
+    font-size: 18px;
+}
+
+.navegaçao {
+    width: 27%;
+    border-left: 1px solid #c5cfdd;
+    padding-left: 20px;
+}
+
+.navegaçao::before {
+    content: "Navegação";
+    display: block;
+    color: #1458b8;
+    font-size: 11px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #1458b8;
+    width: 50px;
+    padding-bottom: 3px;
+}
+
+.navegaçao ul,
+.institucional ul {
+    list-style: none;
+}
+
+.navegaçao li,
+.institucional li {
+    margin-bottom: 13px;
+}
+
+.navegaçao a,
+.institucional a {
+    text-decoration: none;
+    color: #4b5870;
+    font-size: 11px;
+}
+
+.institucional {
+    width: 27%;
+    border-left: 1px solid #c5cfdd;
+    padding-left: 30px;
+}
+
+.institucional::before {
+    content: "Institucional";
+    display: block;
+    color: #1458b8;
+    font-size: 11px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #1458b8;
+    width: 58px;
+    padding-bottom: 3px;
+}
+
+.contato {
+    width: 20%;
+    border-left: 1px solid #c5cfdd;
+    padding-left: 20px;
+}
+
+.contato::before {
+    content: "Contato";
+    display: block;
+    color: #1458b8;
+    font-size: 11px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #1458b8;
+    width: 43px;
+    padding-bottom: 3px;
+}
+
+.contato p {
+    font-size: 11px;
+    margin-bottom: 12px;
+    color: #4b5870;
+}
+
+.navegaçao a:hover,
+.institucional a:hover {
+    color: #1458b8;
+}
+
+@media (max-width: 800px) {
+    .footer {
+        padding: 30px 6%;
+        flex-wrap: wrap;
+        gap: 25px;
+    }
+
+    .footer-content {
+        width: 100%;
+    }
+
+    .navegaçao,
+    .institucional,
+    .contato {
+        width: 30%;
+    }
+}
+
+@media (max-width: 550px) {
+    .footer {
+        flex-direction: column;
+    }
+
+    .footer-content,
+    .navegaçao,
+    .institucional,
+    .contato {
+        width: 100%;
+        border-left: none;
+        padding-left: 0;
+    }
+}
+
+.slogan {
+    font-size: 11px;
+    line-height: 1.5;
+    color: #4b5870;
+    margin-bottom: 15px;
+    max-width: 180px;
+}
