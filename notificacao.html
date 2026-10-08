@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notificações</title>
+
+    <link rel="stylesheet" href="notificacoes.css">
+    <link rel="stylesheet" href="footer.css">
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="menuLateral.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="nav-logo">
+            <a href="index.html">
+                <img src="logoElo.jpeg" alt="Instituto Elo Logo">
+            </a>
+        </div>
+<ul class="nav-links">
+    <li><a href="index.html">Explorar</a></li>
+    <li><a href="projetos.html">Projetos</a></li>
+    <li><a href="comoFunciona.html">Como funciona</a></li>
+    <li><a href="sobre.html">Sobre nós</a></li>
+
+    <li>
+        <div class="search-box">
+            <input type="text" placeholder="Buscar projetos">
+            <button>
+                <span class="material-symbols-outlined">search</span>
+            </button>
+        </div>
+    </li>
+
+    <li><a href="login.html">Entrar</a></li>
+
+    <li>
+        <input type="button" value="Criar Campanha" id="botaoCampanha" onclick="window.location.href='criarCampanha.html'">
+    </li>
+</ul>
+    </nav>
+
+    <div class="layout-principal">
+    <aside class="area-lateral">
+<div class="barra-lateral">
+    <a href="perfil.html">
+        <i class="fa-regular fa-user"></i> Meu perfil
+    </a>
+    <a href="criador.html">
+        <i class="fa-solid fa-chart-column"></i> Painel do criador
+    </a>
+    <a href="projetos.html">
+        <i class="fa-regular fa-comment-dots"></i> Projetos criados
+    </a>
+    <a href="doacoes.html">
+        <i class="fa-solid fa-dollar-sign"></i> Minhas doações
+    </a>
+    <a href="favoritos.html">
+        <i class="fa-regular fa-heart"></i> Favoritos
+    </a>
+    <a href="notificacoes.html">
+        <i class="fa-regular fa-bell"></i> Notificações
+    </a>
+    <a href="configuracoes.html">
+        <i class="fa-solid fa-gear"></i> Configurações
+    </a>
+    <a href="sair.html">
+        <i class="fa-solid fa-right-from-bracket"></i> Sair
+    </a>
+</div>
+
+<div class="card-destaque">
+    <i class="fa-regular fa-heart" id="card-icon"></i>
+    <p id="card-text">Conecte-se com ideias que transformam o futuro.</p>
+</div>
+    </aside>
+
+    <main class="conteudo-principal">
+    <h1>Notificações</h1>
+    <p>Acompanhe tudo o que acontece na plataforma.</p>
+
+    <div class="notificacao">
+        <p class="filtro ativo" data-filtro="todos">
+            Todos (<span>8</span>)
+        </p>
+
+        <p class="filtro" data-filtro="nao-lidos">
+            Não lidos (<span>3</span>)
+        </p>
+
+        <p class="filtro" data-filtro="doacao">
+            Doações (<span>3</span>)
+        </p>
+
+        <p class="filtro" data-filtro="projeto">
+            Projetos (<span>3</span>)
+        </p>
+
+        <p class="filtro" data-filtro="sistema">
+            Sistema (<span>2</span>)
+        </p>
+
+        <button id="marcarTodas">
+            ✓ Marcar todas como lidas
+        </button>
+    </div>
+
+
+    <div class="cards" id="listaNotificacoes">
+
+        <div class="card tipo-doacao nao-lida">
+
+            <div class="icone doacao">♡</div>
+
+            <div class="conteudo">
+                <h2>Sua doação faz a diferença!</h2>
+
+                <p>
+                    Obrigado por apoiar o projeto "Educação para Todos".
+                    Sua contribuição ajuda a transformar vidas.
+                </p>
+            </div>
+
+            <span class="tempo">Agora mesmo</span>
+            <span class="categoria doacao-tag">Doação</span>
+
+        </div>
+
+
+        <div class="card tipo-projeto nao-lida">
+
+            <div class="icone projeto">↗</div>
+
+            <div class="conteudo">
+                <h2>Meta alcançada!</h2>
+
+                <p>
+                    O projeto "Robótica Sustentável" alcançou 100% da meta!
+                    Parabéns a todos os apoiadores.
+                </p>
+            </div>
+
+            <span class="tempo">1 hora atrás</span>
+            <span class="categoria projeto-tag">Projeto</span>
+
+        </div>
+
+
+        <div class="card tipo-projeto nao-lida">
+
+            <div class="icone projeto">♙</div>
+
+            <div class="conteudo">
+                <h2>Novo apoiador no seu projeto!</h2>
+
+                <p>
+                    Rafael Sbruzzi acabou de apoiar o seu projeto
+                    "Biblioteca Digital para Todos".
+                </p>
+            </div>
+
+            <span class="tempo">3 horas atrás</span>
+            <span class="categoria projeto-tag">Projeto</span>
+
+        </div>
+
+
+        <div class="card tipo-sistema">
+
+            <div class="icone mensagem">•••</div>
+
+            <div class="conteudo">
+                <h2>Você recebeu uma mensagem</h2>
+
+                <p>
+                    Arthur Volpi enviou uma mensagem sobre o projeto
+                    "Energia Solar na Escola". Confira agora!
+                </p>
+            </div>
+
+            <span class="tempo">5 horas atrás</span>
+            <span class="categoria mensagem-tag">Mensagem</span>
+
+        </div>
+
+
+        <div class="card tipo-doacao">
+
+            <div class="icone doacao">♡</div>
+
+            <div class="conteudo">
+                <h2>Doação confirmada!</h2>
+
+                <p>
+                    Sua doação de R$50,00 para o projeto
+                    "Costurando Sonhos" foi confirmada com sucesso.
+                </p>
+            </div>
+
+            <span class="tempo">Ontem, 18:30</span>
+            <span class="categoria doacao-tag">Doação</span>
+
+        </div>
+
+
+        <div class="card tipo-projeto">
+
+            <div class="icone projeto">♟</div>
+
+            <div class="conteudo">
+                <h2>Atualização no projeto</h2>
+
+                <p>
+                    O projeto "Esporte sem Barreiras" publicou
+                    uma atualização. Confira!
+                </p>
+            </div>
+
+            <span class="tempo">Ontem, 10:15</span>
+            <span class="categoria projeto-tag">Projeto</span>
+
+        </div>
+
+    </div>
+
+
+    <button id="carregarMais" class="ver-mais">
+        Carregar mais ↓
+    </button>
+
+    </main>
+</div>
+
+    <div class="footer">
+
+        <div class="footer-content">
+            <div class="logo">
+                <img src="Vetorizado (1) (1).png" alt="Logo" class="footer-logo">
+            </div>
+            <p class="slogan">Conectando ideias, transformando realidades.</p>
+            <div class="social-icons">
+                <a href="https://www.instagram.com/instituto_.elo/?utm_source=ig_web_button_share_sheet" aria-label="Instagram">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+
+                <a href="https://www.facebook.com/profile.php?id=61595034278434" aria-label="Facebook">
+                    <i class="fa-brands fa-facebook-f"></i>
+                </a>
+
+                <a href="#" aria-label="LinkedIn">
+                    <i class="fa-brands fa-linkedin-in"></i>
+                </a>
+            </div>
+        </div>
+
+        <div class="navegaçao">
+            <ul>
+                <li><a href="#">Projetos</a></li>
+                <li><a href="#">Como funciona</a></li>
+                <li><a href="#">Sobre nós</a></li>
+            </ul>
+        </div>
+
+        <div class="institucional">
+            <ul>
+                <li><a href="#">Quem somos</a></li>
+                <li><a href="#">Transparência</a></li>
+                <li><a href="#">Termos de uso</a></li>
+                <li><a href="#">Política de privacidade</a></li>
+            </ul>
+        </div>
+
+        <div class="contato">
+            <p>contato@elo.com.br</p>
+            <p>(12) 92348-922067</p>
+        </div>
+
+    </div>
+    
+    <script>
+        const filtros = document.querySelectorAll(".filtro");
+        const lista = document.getElementById("listaNotificacoes");
+        const carregarMais = document.getElementById("carregarMais");
+        const marcarTodas = document.getElementById("marcarTodas");
+
+        let filtroAtual = "todos";
+
+        const novasNotificacoes = [
+
+            {
+                tipo: "doacao",
+                titulo: "Nova doação recebida!",
+                texto: "Você recebeu uma nova contribuição para o projeto Educação para Todos.",
+                tempo: "Agora mesmo",
+                icone: "♡",
+                classeIcone: "doacao",
+                categoria: "Doação",
+                classeTag: "doacao-tag"
+            },
+
+            {
+                tipo: "projeto",
+                titulo: "Projeto atualizado!",
+                texto: "O projeto Biblioteca Digital para Todos recebeu uma nova atualização.",
+                tempo: "Agora mesmo",
+                icone: "↗",
+                classeIcone: "projeto",
+                categoria: "Projeto",
+                classeTag: "projeto-tag"
+            },
+
+            {
+                tipo: "sistema",
+                titulo: "Nova mensagem!",
+                texto: "Você recebeu uma nova mensagem de um dos apoiadores.",
+                tempo: "Agora mesmo",
+                icone: "•••",
+                classeIcone: "mensagem",
+                categoria: "Mensagem",
+                classeTag: "mensagem-tag"
+            },
+
+            {
+                tipo: "doacao",
+                titulo: "Meta de doação atualizada!",
+                texto: "O projeto Costurando Sonhos está próximo de atingir sua meta.",
+                tempo: "Ontem",
+                icone: "♡",
+                classeIcone: "doacao",
+                categoria: "Doação",
+                classeTag: "doacao-tag"
+            },
+
+            {
+                tipo: "projeto",
+                titulo: "Novo comentário!",
+                texto: "Alguém comentou no seu projeto. Confira a novidade.",
+                tempo: "Ontem",
+                icone: "♙",
+                classeIcone: "projeto",
+                categoria: "Projeto",
+                classeTag: "projeto-tag"
+            },
+
+            {
+                tipo: "sistema",
+                titulo: "Atualização do sistema",
+                texto: "A plataforma recebeu novas melhorias para os usuários.",
+                tempo: "2 dias atrás",
+                icone: "⚙",
+                classeIcone: "mensagem",
+                categoria: "Sistema",
+                classeTag: "mensagem-tag"
+            }
+        ];
+
+        filtros.forEach(filtro => {
+
+            filtro.addEventListener("click", () => {
+
+                filtros.forEach(item => {
+                    item.classList.remove("ativo");
+                });
+
+                filtro.classList.add("ativo");
+
+                filtroAtual = filtro.dataset.filtro;
+
+                aplicarFiltro();
+            });
+
+        });
+
+        function aplicarFiltro() {
+
+            const cards = document.querySelectorAll(".card");
+
+            cards.forEach(card => {
+
+                const tipo = card.classList.contains("tipo-doacao")
+                    ? "doacao"
+                    : card.classList.contains("tipo-projeto")
+                        ? "projeto"
+                        : "sistema";
+
+
+                if (filtroAtual === "todos") {
+
+                    card.style.display = "block";
+
+                }
+
+                else if (filtroAtual === "nao-lidos") {
+
+                    if (card.classList.contains("nao-lida")) {
+                        card.style.display = "block";
+                    } else {
+                        card.style.display = "none";
+                    }
+
+                }
+
+                else {
+
+                    if (tipo === filtroAtual) {
+                        card.style.display = "block";
+                    } else {
+                        card.style.display = "none";
+                    }
+
+                }
+
+            });
+
+            atualizarContadores();
+        }
+
+        lista.addEventListener("click", function (event) {
+
+            const card = event.target.closest(".card");
+
+            if (!card) return;
+
+            card.classList.remove("nao-lida");
+
+            atualizarContadores();
+
+            if (filtroAtual === "nao-lidos") {
+                card.style.display = "none";
+            }
+
+        });
+
+        marcarTodas.addEventListener("click", () => {
+
+            const cards = document.querySelectorAll(".card");
+
+            cards.forEach(card => {
+                card.classList.remove("nao-lida");
+            });
+
+            atualizarContadores();
+
+            aplicarFiltro();
+        });
+
+        carregarMais.addEventListener("click", () => {
+
+            novasNotificacoes.forEach(notificacao => {
+
+                const card = document.createElement("div");
+
+                card.classList.add(
+                    "card",
+                    `tipo-${notificacao.tipo}`,
+                    "nao-lida"
+                );
+
+                card.innerHTML = `
+
+            <div class="icone ${notificacao.classeIcone}">
+                ${notificacao.icone}
+            </div>
+
+            <div class="conteudo">
+
+                <h2>${notificacao.titulo}</h2>
+
+                <p>${notificacao.texto}</p>
+
+            </div>
+
+            <span class="tempo">
+                ${notificacao.tempo}
+            </span>
+
+            <span class="categoria ${notificacao.classeTag}">
+                ${notificacao.categoria}
+            </span>
+        `;
+
+                lista.appendChild(card);
+
+            });
+
+            carregarMais.innerText = "Todas carregadas";
+            carregarMais.disabled = true;
+
+            carregarMais.style.cursor = "default";
+            carregarMais.style.opacity = "0.6";
+
+            atualizarContadores();
+
+            aplicarFiltro();
+
+        });
+
+        function atualizarContadores() {
+
+            const cards = document.querySelectorAll(".card");
+
+            const total = cards.length;
+
+            const naoLidos = document.querySelectorAll(
+                ".card.nao-lida"
+            ).length;
+
+            const doacoes = document.querySelectorAll(
+                ".card.tipo-doacao"
+            ).length;
+
+            const projetos = document.querySelectorAll(
+                ".card.tipo-projeto"
+            ).length;
+
+            const sistema = document.querySelectorAll(
+                ".card.tipo-sistema"
+            ).length;
+
+
+            document.querySelector(
+                '[data-filtro="todos"] span'
+            ).textContent = total;
+
+            document.querySelector(
+                '[data-filtro="nao-lidos"] span'
+            ).textContent = naoLidos;
+
+            document.querySelector(
+                '[data-filtro="doacao"] span'
+            ).textContent = doacoes;
+
+            document.querySelector(
+                '[data-filtro="projeto"] span'
+            ).textContent = projetos;
+
+            document.querySelector(
+                '[data-filtro="sistema"] span'
+            ).textContent = sistema;
+        }
+
+        atualizarContadores();
+    </script>
+
+</body>
+
+</html>

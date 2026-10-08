@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meus Favoritos</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="favoritos.css">
+</head>
+<body>
+
+    <div class="dashboard-container">
+        <aside>
+            <nav class="barra-lateral">
+                <a href="perfil.html">
+                    <i class="fa-regular fa-user"></i> Meu perfil
+                </a>
+                <a href="criador.html">
+                    <i class="fa-solid fa-chart-column"></i> Painel do criador
+                </a>
+                <a href="projetos.html">
+                    <i class="fa-regular fa-comment-dots"></i> Projetos criados
+                </a>
+                <a href="doacoes.html">
+                    <i class="fa-solid fa-dollar-sign"></i> Minhas doações
+                </a>
+                <a href="favoritos.html">
+                    <i class="fa-regular fa-heart"></i> Favoritos
+                </a>
+                <a href="notificacoes.html">
+                    <i class="fa-regular fa-bell"></i> Notificações
+                </a>
+                <a href="configuracoes.html">
+                    <i class="fa-solid fa-gear"></i> Configurações
+                </a>
+                <a href="sair.html">
+                    <i class="fa-solid fa-right-from-bracket"></i> Sair
+                </a>
+            </nav>
+
+            <div class="card-destaque">
+                <i class="fa-regular fa-heart" id="card-icon"></i>
+                <p id="card-text">Conecte-se com ideias que transformam o futuro.</p>
+            </div>
+        </aside>
+
+        <main>
+            <header>
+                <h1>Meus favoritos</h1>
+                <p>Aqui estão os projetos que você marcou como favoritos</p>
+            </header>
+
+            <div class="filtros-container">
+                <div class="filtros-botoes">
+                    <button class="btn-filtro ativo" data-filtro="todos">Todos (<span id="count-todos">8</span>)</button>
+                    <button class="btn-filtro" data-filtro="andamento">Em andamento (<span id="count-andamento">7</span>)</button>
+                    <button class="btn-filtro" data-filtro="concluidos">Concluídos (<span id="count-concluidos">1</span>)</button>
+                </div>
+                <select class="select-ordenacao">
+                    <option value="recentes">Mais recentes</option>
+                    <option value="antigos">Mais antigos</option>
+                </select>
+            </div>
+
+            <div class="grid-projetos">
+
+                <div class="card-projeto" data-status="andamento">
+                    <div class="card-img-topo" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1509391365370-d864141e9746?auto=format&fit=crop&w=500&q=80')">
+                        <button class="btn-favorito-card"><i class="fa-solid fa-heart"></i></button>
+                    </div>
+                    <div class="card-info">
+                        <span class="tag-categoria">Tecnologia</span>
+                        <h3>Energia Solar na Escola</h3>
+                        <span class="autor">Por Maria Rita</span>
+                        <div class="barra-progresso"><div class="progresso-preenchido" style="width: 63%;"></div></div>
+                        <div class="card-detalhes-valores">
+                            <span>R$ 12.640 arrecadados</span>
+                            <span>63% da meta</span>
+                        </div>
+                        <div class="card-rodape-apoio">
+                            <i class="fa-regular fa-user" style="font-size: 10px;"></i> 42 apoiadores
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-projeto" data-status="andamento">
+                    <div class="card-img-topo" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=500&q=80')">
+                        <button class="btn-favorito-card"><i class="fa-solid fa-heart"></i></button>
+                    </div>
+                    <div class="card-info">
+                        <span class="tag-categoria">Meio Ambiente</span>
+                        <h3>Filtro de Água Sustentável</h3>
+                        <span class="autor">Por Rafaela Zucare</span>
+                        <div class="barra-progresso"><div class="progresso-preenchido" style="width: 64%;"></div></div>
+                        <div class="card-detalhes-valores">
+                            <span>R$ 3.200 arrecadados</span>
+                            <span>64% da meta</span>
+                        </div>
+                        <div class="card-rodape-apoio">
+                            <i class="fa-regular fa-user" style="font-size: 10px;"></i> 26 apoiadores
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-projeto" data-status="andamento">
+                    <div class="card-img-topo" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=500&q=80')">
+                        <button class="btn-favorito-card"><i class="fa-solid fa-heart"></i></button>
+                    </div>
+                    <div class="card-info">
+                        <span class="tag-categoria" style="background-color: #28a745;">Educação</span>
+                        <h3>Robótica Sustentável</h3>
+                        <span class="autor">Por Carlos Oliveira</span>
+                        <div class="barra-progresso"><div class="progresso-preenchido" style="width: 78%; background-color: #28a745;"></div></div>
+                        <div class="card-detalhes-valores">
+                            <span>R$ 7.850 arrecadados</span>
+                            <span>78% da meta</span>
+                        </div>
+                        <div class="card-rodape-apoio">
+                            <i class="fa-regular fa-user" style="font-size: 10px;"></i> 35 apoiadores
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-projeto" data-status="andamento">
+                    <div class="card-img-topo" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1530836369250-ef72a3f5cda8?auto=format&fit=crop&w=500&q=80')">
+                        <button class="btn-favorito-card"><i class="fa-solid fa-heart"></i></button>
+                    </div>
+                    <div class="card-info">
+                        <span class="tag-categoria" style="background-color: #17a2b8;">Sustentabilidade</span>
+                        <h3>Horta Inteligente na Escola</h3>
+                        <span class="autor">Por Laura Costa</span>
+                        <div class="barra-progresso"><div class="progresso-preenchido" style="width: 43%; background-color: #17a2b8;"></div></div>
+                        <div class="card-detalhes-valores">
+                            <span>R$ 2.150 arrecadados</span>
+                            <span>43% da meta</span>
+                        </div>
+                        <div class="card-rodape-apoio">
+                            <i class="fa-regular fa-user" style="font-size: 10px;"></i> 18 apoiadores
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-projeto" data-status="andamento">
+                    <div class="card-img-topo" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?auto=format&fit=crop&w=500&q=80')">
+                        <button class="btn-favorito-card"><i class="fa-solid fa-heart"></i></button>
+                    </div>
+                    <div class="card-info">
+                        <span class="tag-categoria" style="background-color: #28a745;">Educação</span>
+                        <h3>Biblioteca Digital</h3>
+                        <span class="autor">Por Pedro Almeida</span>
+                        <div class="barra-progresso"><div class="progresso-preenchido" style="width: 54%; background-color: #28a745;"></div></div>
+                        <div class="card-detalhes-valores">
+                            <span>R$ 4.300 arrecadados</span>
+                            <span>54% da meta</span>
+                        </div>
+                        <div class="card-rodape-apoio">
+                            <i class="fa-regular fa-user" style="font-size: 10px;"></i> 31 apoiadores
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-projeto" data-status="andamento">
+                    <div class="card-img-topo" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=500&q=80')">
+                        <button class="btn-favorito-card"><i class="fa-solid fa-heart"></i></button>
+                    </div>
+                    <div class="card-info">
+                        <span class="tag-categoria" style="background-color: #e83e8c;">Cultura</span>
+                        <h3>Costurando Sonhos</h3>
+                        <span class="autor">Por Rafaela Nascimento</span>
+                        <div class="barra-progresso"><div class="progresso-preenchido" style="width: 37%; background-color: #e83e8c;"></div></div>
+                        <div class="card-detalhes-valores">
+                            <span>R$ 1.870 arrecadados</span>
+                            <span>37% da meta</span>
+                        </div>
+                        <div class="card-rodape-apoio">
+                            <i class="fa-regular fa-user" style="font-size: 10px;"></i> 14 apoiadores
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-projeto" data-status="andamento">
+                    <div class="card-img-topo" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=500&q=80')">
+                        <button class="btn-favorito-card"><i class="fa-solid fa-heart"></i></button>
+                    </div>
+                    <div class="card-info">
+                        <span class="tag-categoria" style="background-color: #fd7e14;">Inclusão Social</span>
+                        <h3>Esporte sem Barreiras</h3>
+                        <span class="autor">Por Rafael Morais</span>
+                        <div class="barra-progresso"><div class="progresso-preenchido" style="width: 70%; background-color: #fd7e14;"></div></div>
+                        <div class="card-detalhes-valores">
+                            <span>R$ 5.620 arrecadados</span>
+                            <span>70% da meta</span>
+                        </div>
+                        <div class="card-rodape-apoio">
+                            <i class="fa-regular fa-user" style="font-size: 10px;"></i> 29 apoiadores
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-projeto" data-status="concluido">
+                    <div class="card-img-topo" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?auto=format&fit=crop&w=500&q=80')">
+                        <button class="btn-favorito-card"><i class="fa-solid fa-heart"></i></button>
+                    </div>
+                    <div class="card-info">
+                        <span class="tag-categoria" style="background-color: #17a2b8;">Sustentabilidade</span>
+                        <h3>Plantando o Futuro</h3>
+                        <span class="autor">Por José Roberto</span>
+                        <div class="barra-progresso"><div class="progresso-preenchido" style="width: 100%; background-color: #28a745;"></div></div>
+                        <div class="card-detalhes-valores">
+                            <span>R$ 5.000 arrecadados</span>
+                            <span>100% da meta</span>
+                        </div>
+                        <div class="card-rodape-apoio">
+                            <i class="fa-regular fa-user" style="font-size: 10px;"></i> 45 apoiadores
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="paginacao-container">
+                <span>Mostrando 1 a 8 de 8 projetos</span>
+                <div class="paginacao-botoes">
+                    <button class="btn-pag"><i class="fa-solid fa-chevron-left"></i></button>
+                    <button class="btn-pag ativo">1</button>
+                    <button class="btn-pag"><i class="fa-solid fa-chevron-right"></i></button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+    
+    const path = window.location.pathname;
+    const page = path.substring(path.lastIndexOf("/") + 1) || "favoritos.html";
+
+    const links = document.querySelectorAll(".barra-lateral a");
+    const cardText = document.getElementById("card-text");
+    const cardIcon = document.getElementById("card-icon");
+
+    links.forEach(link => {
+        if (link.getAttribute("href") === page) {
+            link.classList.add("active");
+
+            if (page === "favoritos.html") {
+                cardText.textContent = "Conecte-se com ideias que transformam o futuro.";
+                cardIcon.className = "fa-regular fa-heart";
+            } else if (page === "perfil.html") {
+                cardText.textContent = "Gerencie as suas informações pessoais com facilidade.";
+                cardIcon.className = "fa-regular fa-user";
+            }
+        }
+    });
+
+    const botoesFiltro = document.querySelectorAll(".btn-filtro");
+    const cardsProjetos = document.querySelectorAll(".grid-projetos .card-projeto");
+    const textoContadorRodape = document.querySelector(".paginacao-container span");
+
+    let totalCards = cardsProjetos.length;
+    let totalAndamento = document.querySelectorAll('.grid-projetos .card-projeto[data-status="andamento"]').length;
+    let totalConcluidos = document.querySelectorAll('.grid-projetos .card-projeto[data-status="concluido"]').length;
+
+    document.getElementById("count-todos").textContent = totalCards;
+    document.getElementById("count-andamento").textContent = totalAndamento;
+    document.getElementById("count-concluidos").textContent = totalConcluidos;
+
+    botoesFiltro.forEach(botao => {
+        botao.addEventListener("click", function() {
+
+            botoesFiltro.forEach(b => b.classList.remove("ativo"));
+            this.classList.add("ativo");
+
+            const filtro = this.getAttribute("data-filtro");
+            let visiveis = 0;
+
+            cardsProjetos.forEach(card => {
+                const statusCard = card.getAttribute("data-status");
+
+                if (filtro === "todos") {
+                    card.style.display = "flex";
+                    visiveis++;
+                } else if (filtro === "andamento" && statusCard === "andamento") {
+                    card.style.display = "flex";
+                    visiveis++;
+                } else if (filtro === "concluidos" && statusCard === "concluido") {
+                    card.style.display = "flex";
+                    visiveis++;
+                } else {
+                    card.style.display = "none";
+                }
+            });
+
+            if (textoContadorRodape) {
+                textoContadorRodape.textContent = `Mostrando 1 a ${visiveis} de ${totalCards} projetos`;
+            }
+        });
+    });
+
+    const botoesFavoritoCard = document.querySelectorAll(".btn-favorito-card");
+
+    botoesFavoritoCard.forEach(btn => {
+
+        const icone = btn.querySelector("i");
+        icone.classList.add("fa-solid", "fa-heart");
+        btn.classList.add("favorito-ativo");
+
+        btn.addEventListener("click", function(e) {
+            e.stopPropagation(); 
+            this.classList.toggle("favorito-ativo");
+            
+            const iconeCard = this.querySelector("i");
+            if (this.classList.contains("favorito-ativo")) {
+                iconeCard.style.color = "#1a73e8";
+            } else {
+                iconeCard.style.color = "#ccc";
+            }
+        });
+    });
+
+    const selectOrdenacao = document.querySelector(".select-ordenacao");
+    const gridProjetos = document.querySelector(".grid-projetos");
+
+    if (selectOrdenacao) {
+        selectOrdenacao.addEventListener("change", function() {
+            const cardsArray = Array.from(cardsProjetos);
+            cardsArray.reverse();
+            cardsArray.forEach(card => gridProjetos.appendChild(card));
+        });
+    }
+    </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+
+    const path = window.location.pathname;
+    const page = path.substring(path.lastIndexOf("/") + 1) || "favoritos.html";
+
+    const links = document.querySelectorAll(".barra-lateral a");
+    const cardText = document.getElementById("card-text");
+    const cardIcon = document.getElementById("card-icon");
+
+    links.forEach(link => {
+        if (link.getAttribute("href") === page) {
+            link.classList.add("active");
+
+            if (page === "favoritos.html") {
+                cardText.textContent = "Conecte-se com ideias que transformam o futuro.";
+                cardIcon.className = "fa-regular fa-heart";
+            } else if (page === "perfil.html") {
+                cardText.textContent = "Gerencie as suas informações pessoais com facilidade.";
+                cardIcon.className = "fa-regular fa-user";
+            } else if (page === "criador.html") {
+                cardText.textContent = "Acompanhe o desempenho das suas criações em tempo real.";
+                cardIcon.className = "fa-solid fa-chart-column";
+            } else if (page === "projetos.html") {
+                cardText.textContent = "Publique novas ideias e alcance apoiadores.";
+                cardIcon.className = "fa-regular fa-comment-dots";
+            } else if (page === "doacoes.html") {
+                cardText.textContent = "Veja o impacto do seu apoio nos projetos sociais.";
+                cardIcon.className = "fa-solid fa-dollar-sign";
+            }
+        }
+    });
+
+    const botoesFiltro = document.querySelectorAll(".btn-filtro");
+    const cardsProjetos = document.querySelectorAll(".grid-projetos .card-projeto");
+
+    botoesFiltro.forEach(botao => {
+        botao.addEventListener("click", function() {
+            botoesFiltro.forEach(b => b.classList.remove("ativo"));
+            this.classList.add("ativo");
+
+            const filtroTexto = this.textContent.toLowerCase();
+
+            cardsProjetos.forEach(card => {
+
+                const progressoPreenchido = card.querySelector(".progresso-preenchido");
+                const percentual = parseInt(progressoPreenchido.style.width);
+
+                if (filtroTexto.includes("todos")) {
+                    card.style.display = "flex";
+                } else if (filtroTexto.includes("em andamento")) {
+
+                    if (percentual < 100) {
+                        card.style.display = "flex";
+                    } else {
+                        card.style.display = "none";
+                    }
+                } else if (filtroTexto.includes("concluídos")) {
+                    if (percentual >= 100) {
+                        card.style.display = "flex";
+                    } else {
+                        card.style.display = "none";
+                    }
+                }
+            });
+        });
+    });
+
+    const botoesFavoritoCard = document.querySelectorAll(".btn-favorito-card");
+
+    botoesFavoritoCard.forEach(btn => {
+        btn.addEventListener("click", function(e) {
+            e.stopPropagation(); 
+            const icone = this.querySelector("i");
+         
+            if (icone.classList.contains("fa-solid")) {
+                icone.classList.remove("fa-solid");
+                icone.classList.add("fa-regular");
+                this.style.opacity = "0.6";
+            } else {
+                icone.classList.remove("fa-regular");
+                icone.classList.add("fa-solid");
+                this.style.opacity = "1";
+            }
+        });
+    });
+
+    const selectOrdenacao = document.querySelector(".select-ordenacao");
+    const gridProjetos = document.querySelector(".grid-projetos");
+
+    if (selectOrdenacao) {
+        selectOrdenacao.addEventListener("change", function() {
+            const cardsArray = Array.from(cardsProjetos);
+
+            cardsArray.reverse();
+   
+            cardsArray.forEach(card => gridProjetos.appendChild(card));
+        });
+    }
+
+});
+    </script>
+</body>
+</html>
