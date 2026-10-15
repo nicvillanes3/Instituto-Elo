@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minhas Doações | Elo</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="minhasDoacoes.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <a href="index.html" class="logo">Elo<span>.</span></a>
+            <p class="menu-titulo">MINHA CONTA</p>
+
+            <nav class="barra-lateral">
+                <a href="perfil.html">
+                    <i class="fa-regular fa-user"></i> Meu perfil
+                </a>
+                <a href="criador.html">
+                    <i class="fa-solid fa-chart-column"></i> Painel do criador
+                </a>
+                <a href="projetos.html">
+                    <i class="fa-regular fa-comment-dots"></i> Projetos criados
+                </a>
+                <a href="doacoes.html" class="active">
+                    <i class="fa-solid fa-dollar-sign"></i> Minhas doações
+                </a>
+                <a href="favoritos.html">
+                    <i class="fa-regular fa-heart"></i> Favoritos
+                </a>
+                <a href="notificacoes.html">
+                    <i class="fa-regular fa-bell"></i> Notificações
+                </a>
+                <a href="configuracoes.html">
+                    <i class="fa-solid fa-gear"></i> Configurações
+                </a>
+                <a href="sair.html">
+                    <i class="fa-solid fa-right-from-bracket"></i> Sair
+                </a>
+            </nav>
+
+            <div class="card-destaque">
+                <div class="destaque-icone">
+                    <i class="fa-solid fa-heart"></i>
+                </div>
+                <h3>Você faz a diferença!</h3>
+                <p>Cada contribuição ajuda uma ideia a se tornar realidade.</p>
+                <a href="favoritos.html">Ver favoritos <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+        </aside>
+
+        <main class="conteudo">
+            <header class="cabecalho">
+                <div>
+                    <span class="subtitulo">MINHA CONTA</span>
+                    <h1>Minhas doações</h1>
+                    <p>Acompanhe suas contribuições e veja o impacto do seu apoio.</p>
+                </div>
+                <a href="favoritos.html" class="btn-apoio">
+                    <i class="fa-solid fa-heart"></i> Apoiar projetos
+                </a>
+            </header>
+
+            <section class="resumo">
+                <article class="resumo-card">
+                    <div class="resumo-icone azul">
+                        <i class="fa-solid fa-hand-holding-heart"></i>
+                    </div>
+                    <div>
+                        <p>Total em contribuições</p>
+                        <h2>R$ 350,00</h2>
+                        <span>Considerando os exemplos desta página</span>
+                    </div>
+                </article>
+
+                <article class="resumo-card">
+                    <div class="resumo-icone verde">
+                        <i class="fa-solid fa-lightbulb"></i>
+                    </div>
+                    <div>
+                        <p>Projetos apoiados</p>
+                        <h2>5</h2>
+                        <span>Ideias que receberam seu apoio</span>
+                    </div>
+                </article>
+
+                <article class="resumo-card">
+                    <div class="resumo-icone amarelo">
+                        <i class="fa-solid fa-circle-check"></i>
+                    </div>
+                    <div>
+                        <p>Doações confirmadas</p>
+                        <h2>4</h2>
+                        <span>Contribuições com status confirmado</span>
+                    </div>
+                </article>
+            </section>
+
+            <section class="historico">
+                <div class="historico-topo">
+                    <div>
+                        <h2>Histórico de doações</h2>
+                        <p>Confira os detalhes das suas contribuições.</p>
+                    </div>
+                    <div class="total-historico">
+                        <i class="fa-regular fa-clock"></i>
+                        <span id="totalDoacoes">5 contribuições</span>
+                    </div>
+                </div>
+
+                <div class="filtros">
+                    <div class="filtros-botoes">
+                        <button class="filtro ativo" data-filtro="todas">Todas</button>
+                        <button class="filtro" data-filtro="confirmada">Confirmadas</button>
+                        <button class="filtro" data-filtro="pendente">Pendentes</button>
+                    </div>
+
+                    <select id="ordenacao" aria-label="Ordenar doações">
+                        <option value="recentes">Mais recentes</option>
+                        <option value="antigas">Mais antigas</option>
+                        <option value="maior">Maior valor</option>
+                        <option value="menor">Menor valor</option>
+                    </select>
+                </div>
+
+                <div class="lista-doacoes" id="listaDoacoes">
+                    <article class="doacao-card" data-status="confirmada" data-data="2026-09-12" data-valor="100">
+                        <img src="https://irp.cdn-website.com/ec21af5c/dms3rep/multi/opt/adlai-solar-1920w.jpg" alt="Painéis solares do projeto Energia Solar na Escola" class="imagem-projeto">
+
+                        <div class="doacao-info">
+                            <span class="categoria">Tecnologia</span>
+                            <h3>Energia Solar na Escola</h3>
+                            <p class="descricao">Por Maria Rita</p>
+                            <div class="detalhes">
+                                <span><i class="fa-regular fa-calendar"></i> 12/09/2026</span>
+                                <span><i class="fa-solid fa-hashtag"></i> ELO001</span>
+                            </div>
+                        </div>
+
+                        <div class="doacao-valor">
+                            <span>Valor contribuído</span>
+                            <strong>R$ 100,00</strong>
+                            <span class="status confirmada"><i class="fa-solid fa-circle-check"></i> Confirmada</span>
+                        </div>
+                    </article>
+
+                    <article class="doacao-card" data-status="confirmada" data-data="2026-09-05" data-valor="80">
+                        <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=500&q=80" alt="Robô do projeto Robótica Sustentável" class="imagem-projeto">
+
+                        <div class="doacao-info">
+                            <span class="categoria educacao">Educação</span>
+                            <h3>Robótica Sustentável</h3>
+                            <p class="descricao">Por Carlos Oliveira</p>
+                            <div class="detalhes">
+                                <span><i class="fa-regular fa-calendar"></i> 05/09/2026</span>
+                                <span><i class="fa-solid fa-hashtag"></i> ELO002</span>
+                            </div>
+                        </div>
+
+                        <div class="doacao-valor">
+                            <span>Valor contribuído</span>
+                            <strong>R$ 80,00</strong>
+                            <span class="status confirmada"><i class="fa-solid fa-circle-check"></i> Confirmada</span>
+                        </div>
+                    </article>
+
+                    <article class="doacao-card" data-status="pendente" data-data="2026-09-02" data-valor="50">
+                        <img src="https://images.unsplash.com/photo-1530836369250-ef72a3f5cda8?auto=format&fit=crop&w=500&q=80" alt="Plantação do projeto Horta Inteligente na Escola" class="imagem-projeto">
+
+                        <div class="doacao-info">
+                            <span class="categoria sustentabilidade">Sustentabilidade</span>
+                            <h3>Horta Inteligente na Escola</h3>
+                            <p class="descricao">Por Laura Costa</p>
+                            <div class="detalhes">
+                                <span><i class="fa-regular fa-calendar"></i> 02/09/2026</span>
+                                <span><i class="fa-solid fa-hashtag"></i> ELO003</span>
+                            </div>
+                        </div>
+
+                        <div class="doacao-valor">
+                            <span>Valor contribuído</span>
+                            <strong>R$ 50,00</strong>
+                            <span class="status pendente"><i class="fa-solid fa-clock"></i> Pendente</span>
+                        </div>
+                    </article>
+
+                    <article class="doacao-card" data-status="confirmada" data-data="2026-08-28" data-valor="70">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=500&q=80" alt="Participantes do projeto Esporte sem Barreiras" class="imagem-projeto">
+
+                        <div class="doacao-info">
+                            <span class="categoria inclusao">Inclusão Social</span>
+                            <h3>Esporte sem Barreiras</h3>
+                            <p class="descricao">Por Rafael Morais</p>
+                            <div class="detalhes">
+                                <span><i class="fa-regular fa-calendar"></i> 28/08/2026</span>
+                                <span><i class="fa-solid fa-hashtag"></i> ELO004</span>
+                            </div>
+                        </div>
+
+                        <div class="doacao-valor">
+                            <span>Valor contribuído</span>
+                            <strong>R$ 70,00</strong>
+                            <span class="status confirmada"><i class="fa-solid fa-circle-check"></i> Confirmada</span>
+                        </div>
+                    </article>
+
+                    <article class="doacao-card" data-status="confirmada" data-data="2026-08-20" data-valor="50">
+                        <img src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?auto=format&fit=crop&w=500&q=80" alt="Livros do projeto Biblioteca Digital" class="imagem-projeto">
+
+                        <div class="doacao-info">
+                            <span class="categoria educacao">Educação</span>
+                            <h3>Biblioteca Digital</h3>
+                            <p class="descricao">Por Pedro Almeida</p>
+                            <div class="detalhes">
+                                <span><i class="fa-regular fa-calendar"></i> 20/08/2026</span>
+                                <span><i class="fa-solid fa-hashtag"></i> ELO005</span>
+                            </div>
+                        </div>
+
+                        <div class="doacao-valor">
+                            <span>Valor contribuído</span>
+                            <strong>R$ 50,00</strong>
+                            <span class="status confirmada"><i class="fa-solid fa-circle-check"></i> Confirmada</span>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="sem-resultados" id="semResultados" hidden>
+                    <i class="fa-regular fa-folder-open"></i>
+                    <h3>Nenhuma doação encontrada</h3>
+                    <p>Não há contribuições com esse status.</p>
+                </div>
+
+                <div class="rodape-historico">
+                    <span id="textoResultados">Mostrando 5 contribuições</span>
+                    <span>Valores ilustrativos para demonstração</span>
+                </div>
+            </section>
+
+            <footer class="rodape-pagina">
+                <p>Conectando ideias, transformando realidades.</p>
+                <span>© 2026 Elo. Todos os direitos reservados.</span>
+            </footer>
+        </main>
+    </div>
+
+    <script>
+        const botoesFiltro = document.querySelectorAll(".filtro");
+        const listaDoacoes = document.getElementById("listaDoacoes");
+        const cards = Array.from(document.querySelectorAll(".doacao-card"));
+        const ordenacao = document.getElementById("ordenacao");
+        const semResultados = document.getElementById("semResultados");
+        const textoResultados = document.getElementById("textoResultados");
+        const totalDoacoes = document.getElementById("totalDoacoes");
+
+        let filtroAtual = "todas";
+
+        function atualizarDoacoes() {
+            const filtrados = cards.filter(card => {
+                return filtroAtual === "todas" || card.dataset.status === filtroAtual;
+            });
+
+            filtrados.sort((a, b) => {
+                if (ordenacao.value === "recentes") {
+                    return new Date(b.dataset.data) - new Date(a.dataset.data);
+                }
+                if (ordenacao.value === "antigas") {
+                    return new Date(a.dataset.data) - new Date(b.dataset.data);
+                }
+                if (ordenacao.value === "maior") {
+                    return Number(b.dataset.valor) - Number(a.dataset.valor);
+                }
+                return Number(a.dataset.valor) - Number(b.dataset.valor);
+            });
+
+            cards.forEach(card => card.hidden = true);
+            filtrados.forEach(card => {
+                card.hidden = false;
+                listaDoacoes.appendChild(card);
+            });
+
+            semResultados.hidden = filtrados.length > 0;
+            textoResultados.textContent = `Mostrando ${filtrados.length} ${filtrados.length === 1 ? "contribuição" : "contribuições"}`;
+            totalDoacoes.textContent = `${filtrados.length} ${filtrados.length === 1 ? "contribuição" : "contribuições"}`;
+        }
+
+        botoesFiltro.forEach(botao => {
+            botao.addEventListener("click", () => {
+                botoesFiltro.forEach(item => item.classList.remove("ativo"));
+                botao.classList.add("ativo");
+                filtroAtual = botao.dataset.filtro;
+                atualizarDoacoes();
+            });
+        });
+
+        ordenacao.addEventListener("change", atualizarDoacoes);
+        atualizarDoacoes();
+    </script>
+</body>
+</html>

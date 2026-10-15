@@ -311,3 +311,17 @@ header p {
 .btn-pag:hover:not(.ativo) {
     background-color: #f9f9f9;
 }
+
+.dashboard-container {
+    display: flex;
+    align-items: stretch;
+    gap: 28px;
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 28px;
+}
+
+.conteudo {
+    flex: 1;
+    min-width: 0;
+}
