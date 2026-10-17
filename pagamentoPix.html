@@ -74,9 +74,9 @@
                 </svg>
             </div>
             <div>
-                <h3 class="text-blue-900 font-semibold text-sm mb-0.5">Aguardando pagamento</h3>
-                <p class="text-xs text-blue-800/80 leading-relaxed">Você tem até 30 minutos para pagar</p>
-                <p class="text-xs text-blue-800/80 leading-relaxed">Após o pagamento sua doação será confirmada automaticamente</p>
+                <h3 id="statusTitulo" class="text-blue-900 font-semibold text-sm mb-0.5">Aguardando pagamento</h3>
+                <p id="statusTexto1" class="text-xs text-blue-800/80 leading-relaxed">Você tem até 30 minutos para pagar</p>
+                <p id="statusTexto2" class="text-xs text-blue-800/80 leading-relaxed">Após o pagamento sua doação será confirmada automaticamente</p>
             </div>
         </div>
 
@@ -135,6 +135,15 @@
             setTimeout(() => {
                 copyText.textContent = 'Copiar';
             }, 2000);
+
+            // Simula o pagamento: depois de alguns segundos confirma e abre a página de doação concluída
+            setTimeout(() => {
+                document.getElementById('statusTitulo').textContent = 'Pagamento confirmado!';
+                document.getElementById('statusTexto1').textContent = 'Estamos finalizando a sua doação...';
+                document.getElementById('statusTexto2').textContent = '';
+            }, 3000);
+
+            concluirPagamento('pix', 4500);
         }
 
     </script>

@@ -61,3 +61,21 @@ function preencherResumo() {
 if (pagamentoValido) {
     preencherResumo();
 }
+
+// Código da doação (gerado uma vez por página de pagamento)
+const codigoDoacao = "ELO" + String(Date.now()).slice(-7);
+let conclusaoAgendada = false;
+
+// Nome do arquivo da página de doação concluída (mantenha igual ao nome real do arquivo)
+const PAGINA_CONCLUIDA = "doacaoFi.html";
+
+// Espera alguns segundos e abre a página de doação concluída
+function concluirPagamento(metodo, atrasoMs) {
+    if (conclusaoAgendada || !pagamentoValido) return;
+    conclusaoAgendada = true;
+
+    setTimeout(() => {
+        window.location.href =
+            `${PAGINA_CONCLUIDA}?id=${projetoPagamento.id}&valor=${valorPagamento}&metodo=${metodo}&codigo=${codigoDoacao}`;
+    }, atrasoMs);
+}

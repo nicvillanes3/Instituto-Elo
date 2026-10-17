@@ -24,6 +24,13 @@
 </head>
 <body class="bg-white min-h-screen relative overflow-x-hidden flex flex-col justify-between py-6 px-4 md:px-12">
 
+    <div id="toast" class="fixed top-5 right-5 z-50 transform -translate-y-40 opacity-0 transition-all duration-300 bg-gray-900 text-white px-5 py-3 rounded-xl shadow-2xl flex items-center gap-3 pointer-events-none">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+        </svg>
+        <span id="toastMensagem" class="text-sm font-medium"></span>
+    </div>
+
     <div class="absolute top-24 left-[-60px] w-64 h-64 bg-blue-50 rounded-full blur-xl pointer-events-none -z-10"></div>
     <div class="absolute bottom-[-30px] left-[-20px] w-32 h-32 bg-yellow-400 rounded-full pointer-events-none -z-10"></div>
     <div class="absolute bottom-44 left-32 w-3.5 h-3.5 bg-blue-600 rounded-full pointer-events-none -z-10"></div>
@@ -75,17 +82,11 @@
                 </div>
 
                 <div class="flex flex-wrap items-center gap-4 pt-4 border-t border-gray-100">
-                    <button class="flex-1 min-w-[140px] inline-flex items-center justify-center gap-2 border border-blue-200 bg-white hover:bg-gray-50 text-blue-600 font-semibold text-xs py-3 px-4 rounded-xl transition-colors">
+                    <button onclick="baixarBoleto()" class="flex-1 min-w-[140px] inline-flex items-center justify-center gap-2 border border-blue-200 bg-white hover:bg-gray-50 text-blue-600 font-semibold text-xs py-3 px-4 rounded-xl transition-colors">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
                         </svg>
                         Baixar boleto (PDF)
-                    </button>
-                    <button onclick="window.print()" class="flex-1 min-w-[140px] inline-flex items-center justify-center gap-2 border border-blue-200 bg-white hover:bg-gray-50 text-blue-600 font-semibold text-xs py-3 px-4 rounded-xl transition-colors">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" />
-                        </svg>
-                        Imprimir boleto
                     </button>
                 </div>
             </div>
@@ -138,6 +139,7 @@
         </p>
     </div>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="dadosProjetos.js"></script>
     <script src="pagamento.js"></script>
     <script>
@@ -151,13 +153,95 @@
         function copyBoletoCode() {
             const input = document.getElementById('barcodeValue');
             input.select();
-            navigator.clipboard.writeText(input.value);
 
-            const copyBtnText = document.getElementById('copyBtnText');
-            copyBtnText.textContent = 'Copiado!';
-            setTimeout(() => {
-                copyBtnText.textContent = 'Copiar código';
-            }, 2000);
+            navigator.clipboard.writeText(input.value).then(() => {
+                document.getElementById('copyBtnText').textContent = 'Copiado!';
+                mostrarAviso('Código copiado com sucesso!');
+
+                // vai para a página de doação concluída levando projeto e valor
+                concluirPagamento('boleto', 5000);
+            }).catch(() => {
+                mostrarAviso('Não foi possível copiar o código.');
+            });
+        }
+
+        function mostrarAviso(mensagem) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toastMensagem').textContent = mensagem;
+            toast.classList.remove('-translate-y-40', 'opacity-0');
+            toast.classList.add('translate-y-0', 'opacity-100');
+        }
+
+        function baixarBoleto() {
+            if (!window.jspdf) {
+                alert("Não foi possível carregar a biblioteca para gerar o PDF. Verifique sua conexão com a internet.");
+                return;
+            }
+
+            const { jsPDF } = window.jspdf;
+            const pdf = new jsPDF();
+
+            const pegarTexto = (campo) =>
+                document.querySelector(`[data-campo="${campo}"]`)?.textContent.trim() || "Não informado";
+
+            const valor = pegarTexto("valor");
+            const projeto = pegarTexto("projeto");
+            const organizacao = pegarTexto("org");
+            const vencimento = pegarTexto("vencimento");
+            const apoiador = pegarTexto("apoiador");
+            const codigo = document.getElementById("barcodeValue").value;
+
+            pdf.setFont("helvetica", "bold");
+            pdf.setFontSize(20);
+            pdf.text("ELO - BOLETO", 20, 25);
+
+            pdf.setFont("helvetica", "normal");
+            pdf.setFontSize(11);
+            pdf.text("Comprovante de dados para pagamento", 20, 35);
+
+            pdf.setDrawColor(210, 220, 235);
+            pdf.line(20, 42, 190, 42);
+
+            pdf.setFont("helvetica", "bold");
+            pdf.text("Projeto:", 20, 55);
+            pdf.setFont("helvetica", "normal");
+            pdf.text(pdf.splitTextToSize(projeto, 150), 20, 63);
+
+            pdf.setFont("helvetica", "bold");
+            pdf.text("Organização:", 20, 82);
+            pdf.setFont("helvetica", "normal");
+            pdf.text(pdf.splitTextToSize(organizacao, 150), 20, 90);
+
+            pdf.setFont("helvetica", "bold");
+            pdf.text("Valor da doação:", 20, 108);
+            pdf.setFont("helvetica", "normal");
+            pdf.text(valor, 65, 108);
+
+            pdf.setFont("helvetica", "bold");
+            pdf.text("Vencimento:", 20, 120);
+            pdf.setFont("helvetica", "normal");
+            pdf.text(vencimento, 55, 120);
+
+            pdf.setFont("helvetica", "bold");
+            pdf.text("Apoiador(a):", 20, 132);
+            pdf.setFont("helvetica", "normal");
+            pdf.text(pdf.splitTextToSize(apoiador, 140), 20, 140);
+
+            pdf.setFont("helvetica", "bold");
+            pdf.text("Linha digitável:", 20, 160);
+            pdf.setFont("helvetica", "normal");
+            pdf.setFontSize(10);
+            pdf.text(pdf.splitTextToSize(codigo, 165), 20, 170);
+
+            pdf.setFontSize(9);
+            pdf.text("Documento demonstrativo gerado pela plataforma Elo.", 20, 200);
+            pdf.text("Este arquivo não substitui um boleto bancário emitido por uma instituição financeira.", 20, 207);
+
+            pdf.save("boleto-elo.pdf");
+            mostrarAviso('Boleto baixado: boleto-elo.pdf');
+
+            // vai para a página de doação concluída levando projeto e valor
+            concluirPagamento('boleto', 5000);
         }
     </script>
 </body>

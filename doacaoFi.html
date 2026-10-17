@@ -8,8 +8,8 @@
     <title>Doação concluída - Elo</title>
 
     <link rel="stylesheet" href="doacaofi.css">
-     <link rel="stylesheet" href="footer.css">
-   
+    <link rel="stylesheet" href="footer.css">
+
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
@@ -22,11 +22,7 @@
 
 <body>
 
-   
-
-
     <main class="confirmacao">
-
 
         <div class="bolinha bolinha1"></div>
         <div class="bolinha bolinha2"></div>
@@ -44,7 +40,7 @@
             <h1>Doação confirmada!</h1>
 
             <p>
-                Você acabou de fazer parte dessa história. 
+                Você acabou de fazer parte dessa história.
             </p>
 
         </section>
@@ -56,7 +52,7 @@
 
                 <div>
                     <span>Você doou</span>
-                    <strong>R$ 50,00</strong>
+                    <strong id="valorDoado"></strong>
                 </div>
 
                 <div class="icone-doacao">
@@ -70,41 +66,37 @@
 
             <div class="projeto">
 
-                
-<div class="projeto-imagem">
-    <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=500&q=80"
-        alt="Projeto Robótica Sustentável">
-</div>
-
+                <div class="projeto-imagem">
+                    <img data-imagem src="" alt="">
+                </div>
 
                 <div class="projeto-info">
 
                     <span class="label">PROJETO APOIADO</span>
 
-                    <h2>Robótica Sustentável</h2>
+                    <h2 id="tituloProjeto"></h2>
 
-                    <p>Escola Técnica Estadual</p>
+                    <p id="orgProjeto"></p>
 
                 </div>
 
             </div>
 
 
-      
             <div class="progresso">
 
                 <div class="progresso-info">
                     <span>Meta do projeto</span>
-                    <strong>68%</strong>
+                    <strong id="pctMeta"></strong>
                 </div>
 
                 <div class="barra">
-                    <div class="barra-preenchida"></div>
+                    <div class="barra-preenchida" id="barraMeta"></div>
                 </div>
 
                 <div class="valores">
-                    <span>R$ 6.800 arrecadados</span>
-                    <span>R$ 10.000</span>
+                    <span id="arrecadadoMeta"></span>
+                    <span id="valorMeta"></span>
                 </div>
 
             </div>
@@ -112,7 +104,6 @@
         </section>
 
 
-     
         <section class="jornada">
 
             <div class="jornada-item ativo">
@@ -171,11 +162,9 @@
         </section>
 
 
-  
         <section class="acoes">
 
-            <button class="btn-principal"
-                onclick="window.location.href='projeto.html'">
+            <button class="btn-principal" id="btnAcompanhar">
 
                 <span class="material-symbols-outlined">
                     visibility
@@ -202,9 +191,7 @@
 
         <div class="codigo">
 
-            <span>
-                Doação #ELO0801943
-            </span>
+            <span id="textoCodigo"></span>
 
             <button onclick="copiarCodigo()">
                 <span class="material-symbols-outlined">
@@ -215,36 +202,8 @@
         </div>
 
     </main>
-  
-          
 
-    <script>
-
-        function copiarCodigo() {
-
-            navigator.clipboard.writeText("ELO0801943");
-
-            const botao = document.querySelector(".codigo button");
-
-            botao.innerHTML = `
-                <span class="material-symbols-outlined">
-                    check
-                </span>
-            `;
-
-            setTimeout(() => {
-
-                botao.innerHTML = `
-                    <span class="material-symbols-outlined">
-                        content_copy
-                    </span>
-                `;
-
-            }, 1800);
-        }
-
-    </script>
- <div class="footer">
+    <div class="footer">
 
         <div class="footer-content">
             <div class="logo">
@@ -289,6 +248,61 @@
         </div>
 
     </div>
+
+    <script src="dadosProjetos.js"></script>
+    <script src="pagamento.js"></script>
+    <script>
+        // Código da doação vem da URL (?codigo=ELO1234567)
+        const codigoRecebido = new URLSearchParams(window.location.search).get("codigo") || codigoDoacao;
+
+        if (pagamentoValido) {
+            const p = projetoPagamento;
+            const moedaEspaco = n => "R$ " + n.toLocaleString("pt-BR", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+            const moedaInteira = n => "R$ " + n.toLocaleString("pt-BR", { maximumFractionDigits: 0 });
+
+            // A doação recém-feita entra no total arrecadado
+            const novoTotal = p.arrecadado + valorPagamento;
+            const pctNovo = Math.min(100, Math.round((novoTotal / p.meta) * 100));
+
+            document.getElementById("valorDoado").textContent = moedaEspaco(valorPagamento);
+            document.getElementById("tituloProjeto").textContent = p.titulo;
+            document.getElementById("orgProjeto").textContent = p.org;
+
+            document.getElementById("pctMeta").textContent = pctNovo + "%";
+            document.getElementById("barraMeta").style.width = pctNovo + "%";
+            document.getElementById("arrecadadoMeta").textContent = moedaInteira(novoTotal) + " arrecadados";
+            document.getElementById("valorMeta").textContent = moedaInteira(p.meta);
+
+            document.getElementById("textoCodigo").textContent = "Doação #" + codigoRecebido;
+
+            document.getElementById("btnAcompanhar").addEventListener("click", () => {
+                window.location.href = "projeto.html?id=" + p.id;
+            });
+        }
+
+        function copiarCodigo() {
+
+            navigator.clipboard.writeText(codigoRecebido);
+
+            const botao = document.querySelector(".codigo button");
+
+            botao.innerHTML = `
+                <span class="material-symbols-outlined">
+                    check
+                </span>
+            `;
+
+            setTimeout(() => {
+
+                botao.innerHTML = `
+                    <span class="material-symbols-outlined">
+                        content_copy
+                    </span>
+                `;
+
+            }, 1800);
+        }
+    </script>
 </body>
 
 </html>
