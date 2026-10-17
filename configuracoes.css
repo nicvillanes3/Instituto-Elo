@@ -1,0 +1,436 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #ffffff;
+    color: #222;
+    overflow-x: hidden;
+}
+
+/* ===== LAYOUT (mesmo de notificacoes.css) ===== */
+.layout-principal {
+    display: grid;
+    grid-template-columns: 260px minmax(0, 1fr);
+    align-items: start;
+    gap: 35px;
+    width: 100%;
+    padding: 40px 2%;
+    min-height: 600px;
+    background: #ffffff;
+}
+
+.navbar {
+    background-color: #fff;
+    width: 100%;
+    margin: 0;
+}
+
+.area-lateral {
+    width: 100%;
+    min-width: 0;
+}
+
+.area-lateral .barra-lateral {
+    width: 100%;
+    margin: 0;
+}
+
+.area-lateral .card-destaque {
+    width: 100%;
+    margin: 20px 0 0;
+}
+
+/* Item ativo do menu lateral */
+.area-lateral .barra-lateral a.ativo {
+    background: #dceaff;
+    color: #1265df;
+    font-weight: 700;
+}
+
+.conteudo-principal {
+    width: 100%;
+    min-width: 0;
+}
+
+.conteudo-principal > h1 {
+    font-size: 25px;
+    font-weight: 700;
+    margin: 0 0 7px;
+}
+
+.conteudo-principal > p {
+    font-size: 12px;
+    color: #999;
+    margin: 0 0 25px;
+}
+
+/* ===== GRID DAS CONFIGURAÇÕES ===== */
+.config-grid {
+    display: grid;
+    grid-template-columns: 300px minmax(0, 1fr);
+    gap: 35px;
+    align-items: start;
+    max-width: 1050px;
+}
+
+.config-direita {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    min-width: 0;
+}
+
+.config-esquerda {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+
+/* ===== MENU DE SEÇÕES ===== */
+.config-menu {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+}
+
+.config-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    width: 100%;
+    padding: 18px 20px;
+    border: none;
+    border-bottom: 1px solid #eee;
+    background: #fff;
+    text-align: left;
+    cursor: pointer;
+    font-family: inherit;
+    transition: 0.2s;
+}
+
+.config-item:last-child {
+    border-bottom: none;
+}
+
+.config-item:hover {
+    background: #f3f7ff;
+}
+
+.config-item.ativo {
+    background: #cfe0ff;
+}
+
+.config-item i {
+    font-size: 22px;
+    width: 28px;
+    text-align: center;
+    color: #555;
+}
+
+.config-item.ativo i {
+    color: #1265df;
+}
+
+.config-item span {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.config-item strong {
+    font-size: 16px;
+    color: #111;
+}
+
+.config-item small {
+    font-size: 11px;
+    color: #999;
+}
+
+/* ===== CAIXAS ===== */
+.caixa {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    padding: 25px 30px;
+}
+
+.caixa h2 {
+    font-size: 17px;
+    font-weight: 700;
+    color: #111;
+}
+
+.sub {
+    font-size: 12px;
+    color: #999;
+    margin: 4px 0 18px;
+}
+
+/* ===== ENCERRAR CONTA ===== */
+.encerrar {
+    padding: 22px;
+}
+
+.encerrar h3 {
+    font-size: 15px;
+    margin-bottom: 14px;
+}
+
+.encerrar p {
+    font-size: 12px;
+    color: #777;
+    line-height: 1.5;
+    margin-bottom: 18px;
+}
+
+.btn-perigo {
+    width: 100%;
+    padding: 11px;
+    border: 1px solid #f3a3a3;
+    border-radius: 6px;
+    background: #fde1e1;
+    color: #e05555;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.btn-perigo:hover {
+    background: #fbcaca;
+}
+
+/* ===== INFORMAÇÕES DO PERFIL ===== */
+.perfil-info {
+    padding: 0 10px;
+}
+
+.perfil-topo {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.perfil-info h2 {
+    font-size: 17px;
+    font-weight: 700;
+}
+
+.perfil-corpo {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.foto {
+    position: relative;
+    width: 96px;
+    height: 96px;
+    flex-shrink: 0;
+}
+
+.foto img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    background: #dceaff;
+}
+
+.foto-btn {
+    position: absolute;
+    right: -2px;
+    bottom: -2px;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    background: #fff;
+    color: #333;
+    font-size: 12px;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.dados {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(150px, 1fr));
+    gap: 20px 40px;
+}
+
+.dados span {
+    display: block;
+    font-size: 9px;
+    color: #999;
+    margin-bottom: 3px;
+}
+
+.dados strong {
+    font-size: 11px;
+    color: #222;
+}
+
+/* ===== LINHAS DE CONFIGURAÇÃO ===== */
+.linha {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 0;
+}
+
+.linha + .linha {
+    border-top: 1px solid #eee;
+}
+
+.linha-icone {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: #dceaff;
+    color: #555;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 15px;
+}
+
+.linha-texto {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    min-width: 0;
+}
+
+.linha-texto strong {
+    font-size: 13px;
+    color: #111;
+}
+
+.linha-texto small {
+    font-size: 10px;
+    color: #999;
+}
+
+.status {
+    font-size: 10px;
+    font-weight: 700;
+    color: #888;
+}
+
+.status.ligado {
+    color: #3ca773;
+}
+
+/* ===== BOTÕES ===== */
+.btn-contorno {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 8px 14px;
+    border: 1.5px solid #1265df;
+    border-radius: 6px;
+    background: #fff;
+    color: #1265df;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: 0.2s;
+}
+
+.btn-contorno:hover {
+    background: #eaf2ff;
+}
+
+.seletor {
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background: #fff;
+    font-size: 12px;
+    color: #333;
+    cursor: pointer;
+}
+
+/* ===== RESPONSIVO ===== */
+@media (max-width: 1100px) {
+    .layout-principal {
+        grid-template-columns: 230px minmax(0, 1fr);
+        gap: 25px;
+        padding: 35px 4%;
+    }
+
+    .config-grid {
+        grid-template-columns: 260px minmax(0, 1fr);
+        gap: 25px;
+    }
+}
+
+@media (max-width: 900px) {
+    .config-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .config-menu {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 700px) {
+    .layout-principal {
+        display: flex;
+        flex-direction: column;
+        padding: 25px 5%;
+        gap: 30px;
+    }
+
+    .config-menu {
+        grid-template-columns: 1fr;
+    }
+
+    .caixa {
+        padding: 20px;
+    }
+
+    .linha {
+        flex-wrap: wrap;
+    }
+
+    .linha-texto {
+        flex-basis: calc(100% - 60px);
+    }
+
+    .perfil-topo {
+        gap: 10px;
+    }
+
+    .dados {
+        grid-template-columns: 1fr;
+    }
+}
+
+html,
+body,
+.layout-principal {
+    background: #ffffff !important;
+}
+
+body {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.layout-principal {
+    width: 100% !important;
+    margin: 0 !important;
+}

@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projeto | Instituto Elo</title>
+
+    <link rel="stylesheet" href="projeto.css">
+    <link rel="stylesheet" href="footer.css">
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="nav-logo">
+            <a href="index.html">
+                <img src="logoElo.jpeg" alt="Instituto Elo Logo">
+            </a>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Explorar</a></li>
+            <li><a href="projetos.html">Projetos</a></li>
+            <li><a href="comoFunciona.html">Como funciona</a></li>
+            <li><a href="sobre.html">Sobre nós</a></li>
+
+            <li>
+                <div class="search-box">
+                    <input type="text" placeholder="Buscar projetos">
+                    <button>
+                        <span class="material-symbols-outlined">search</span>
+                    </button>
+                </div>
+            </li>
+
+            <li><a href="login.html">Entrar</a></li>
+
+            <li>
+                <input type="button" value="Criar Campanha" id="botaoCampanha" onclick="window.location.href='criarCampanha.html'">
+            </li>
+        </ul>
+    </nav>
+
+    <main class="pagina-projeto">
+
+        <!-- Caminho de navegação -->
+        <nav class="breadcrumb" aria-label="Caminho">
+            <a href="index.html">Início</a>
+            <span>›</span>
+            <a href="explorar.html">Explorar projetos</a>
+            <span>›</span>
+            <a href="explorar.html" id="bcCategoria">Categoria</a>
+            <span>›</span>
+            <strong id="bcTitulo">Projeto</strong>
+        </nav>
+
+        <!-- Mensagem quando o projeto não existe -->
+        <div class="nao-encontrado" id="naoEncontrado" hidden>
+            <h1>Projeto não encontrado</h1>
+            <p>O projeto que você procura não existe ou foi removido.</p>
+            <a href="explorar.html" class="btn-azul">Voltar para Explorar</a>
+        </div>
+
+        <div class="colunas" id="conteudo">
+
+            <!-- COLUNA ESQUERDA -->
+            <div class="coluna-esquerda">
+
+                <section class="card-projeto">
+                    <div class="capa" id="capa">
+                        <button class="coracao" id="btnFavorito" aria-label="Favoritar projeto">
+                            <i class="fa-regular fa-heart"></i>
+                        </button>
+                    </div>
+
+                    <div class="card-corpo">
+                        <span class="tag" id="tag"></span>
+                        <h1 id="titulo"></h1>
+                        <p class="descricao" id="descricao"></p>
+
+                        <div class="infos">
+                            <span><i class="fa-solid fa-location-dot"></i> <span id="local"></span></span>
+                            <span><i class="fa-solid fa-graduation-cap"></i> <span id="nivel"></span></span>
+                        </div>
+
+                        <div class="progresso-box">
+                            <div class="progresso-topo">
+                                <div class="arrecadado">
+                                    <strong id="arrecadado"></strong>
+                                    <small>arrecadado</small>
+                                </div>
+
+                                <div class="progresso-meio">
+                                    <div class="barra"><div id="barra"></div></div>
+                                    <span id="pct"></span>
+                                </div>
+
+                                <div class="meta">
+                                    <span id="meta"></span>
+                                    <small id="prazoMeta"></small>
+                                </div>
+                            </div>
+
+                            <div class="mini-stats">
+                                <div class="mini">
+                                    <div class="mini-icone"><i class="fa-regular fa-user"></i></div>
+                                    <div><strong id="apoiadores"></strong><small>Apoiadores</small></div>
+                                </div>
+                                <div class="mini">
+                                    <div class="mini-icone"><i class="fa-regular fa-clock"></i></div>
+                                    <div><strong id="dias"></strong><small>Restantes</small></div>
+                                </div>
+                                <button class="mini mini-botao" id="btnCompartilhar" type="button">
+                                    <div class="mini-icone"><i class="fa-solid fa-share-nodes"></i></div>
+                                    <div><strong>Compartilhar</strong><small>Este projeto</small></div>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="card-abas">
+                    <div class="abas" role="tablist">
+                        <button class="aba ativo" data-aba="sobre" role="tab">Sobre o projeto</button>
+                        <button class="aba" data-aba="atualizacoes" role="tab">Atualizações <span class="contador" id="contAtualizacoes"></span></button>
+                        <button class="aba" data-aba="apoiadores" role="tab">Apoiadores <span class="contador" id="contApoiadores"></span></button>
+                    </div>
+
+                    <div class="aba-conteudo ativo" id="aba-sobre">
+                        <h2>Sobre o projeto</h2>
+                        <div id="textoSobre"></div>
+                        <div class="destaques" id="destaques"></div>
+                    </div>
+
+                    <div class="aba-conteudo" id="aba-atualizacoes">
+                        <h2>Atualizações</h2>
+                        <div id="listaAtualizacoes"></div>
+                    </div>
+
+                    <div class="aba-conteudo" id="aba-apoiadores">
+                        <h2>Apoiadores</h2>
+                        <div id="listaApoiadores"></div>
+                    </div>
+                </section>
+
+                <section class="card-abas recentes">
+                    <div class="recentes-topo">
+                        <h2>Atualizações recentes</h2>
+                        <a href="#" id="verTodas">Ver todas</a>
+                    </div>
+                    <div id="atualizacaoRecente"></div>
+                </section>
+            </div>
+
+            <!-- COLUNA DIREITA -->
+            <aside class="coluna-direita">
+
+                <section class="card-doacao">
+                    <h2>Apoie este projeto</h2>
+                    <p class="sub">Escolha um valor ou faça sua doação personalizada</p>
+
+                    <div class="valores" id="valores">
+                        <button class="valor" data-valor="25">R$ 25</button>
+                        <button class="valor ativo" data-valor="50">R$ 50</button>
+                        <button class="valor" data-valor="100">R$ 100</button>
+                        <button class="valor" data-valor="250">R$ 250</button>
+                        <button class="valor" data-valor="500">R$ 500</button>
+                        <button class="valor pequeno" data-valor="outro">Outro valor</button>
+                    </div>
+
+                    <label class="rotulo" for="valorCustom">Outro valor (R$)</label>
+                    <div class="campo-valor">
+                        <span>R$</span>
+                        <input type="text" id="valorCustom" inputmode="decimal" placeholder="Digite o valor que deseja">
+                    </div>
+
+                    <p class="rotulo">Forma de doação</p>
+
+                    <div class="metodos" id="metodos">
+                        <button class="metodo ativo" data-metodo="pix">
+                            <i class="fa-brands fa-pix"></i>
+                            <span><strong>PIX</strong><small>Aprovação imediata</small></span>
+                            <i class="fa-solid fa-chevron-right seta"></i>
+                        </button>
+                        <button class="metodo" data-metodo="cartao">
+                            <i class="fa-regular fa-credit-card"></i>
+                            <span><strong>Cartão de crédito</strong></span>
+                            <small class="lateral">Até 12x</small>
+                            <i class="fa-solid fa-chevron-right seta"></i>
+                        </button>
+                        <button class="metodo" data-metodo="boleto">
+                            <i class="fa-solid fa-barcode"></i>
+                            <span><strong>Boleto bancário</strong><small>Aprovação em até 2 dias</small></span>
+                            <i class="fa-solid fa-chevron-right seta"></i>
+                        </button>
+                    </div>
+
+                    <div class="seguro">
+                        <i class="fa-solid fa-shield-halved"></i>
+                        <div>
+                            <strong>Sua doação é segura</strong>
+                            <p>Seus dados estão protegidos e sua ajuda faz toda a diferença!</p>
+                        </div>
+                    </div>
+
+                    <button class="btn-doar" id="btnDoar">Doar agora com PIX</button>
+                    <p class="ambiente"><i class="fa-solid fa-lock"></i> Ambiente seguro e criptografado</p>
+                    <p class="retorno" id="retorno" role="status" hidden></p>
+                </section>
+
+                <section class="caixa-amarela">
+                    <div class="caixa-icone"><i class="fa-regular fa-heart"></i></div>
+                    <div>
+                        <strong>Toda contribuição faz a diferença!</strong>
+                        <p>Seu apoio ajuda a transformar ideias em soluções reais para a educação e para a sociedade.</p>
+                    </div>
+                </section>
+            </aside>
+        </div>
+    </main>
+
+    <div class="footer">
+
+        <div class="footer-content">
+            <div class="logo">
+                <img src="Vetorizado (1) (1).png" alt="Logo" class="footer-logo">
+            </div>
+            <p class="slogan">Conectando ideias, transformando realidades.</p>
+            <div class="social-icons">
+                <a href="https://www.instagram.com/instituto_.elo/?utm_source=ig_web_button_share_sheet" aria-label="Instagram">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+
+                <a href="https://www.facebook.com/profile.php?id=61595034278434" aria-label="Facebook">
+                    <i class="fa-brands fa-facebook-f"></i>
+                </a>
+
+                <a href="#" aria-label="LinkedIn">
+                    <i class="fa-brands fa-linkedin-in"></i>
+                </a>
+            </div>
+        </div>
+
+        <div class="navegaçao">
+            <ul>
+                <li><a href="#">Projetos</a></li>
+                <li><a href="#">Como funciona</a></li>
+                <li><a href="#">Sobre nós</a></li>
+            </ul>
+        </div>
+
+        <div class="institucional">
+            <ul>
+                <li><a href="#">Quem somos</a></li>
+                <li><a href="#">Transparência</a></li>
+                <li><a href="#">Termos de uso</a></li>
+                <li><a href="#">Política de privacidade</a></li>
+            </ul>
+        </div>
+
+        <div class="contato">
+            <p>contato@elo.com.br</p>
+            <p>(12) 92348-922067</p>
+        </div>
+
+    </div>
+
+    <script src="dadosProjetos.js"></script>
+    <script src="projeto.js"></script>
+</body>
+
+</html>

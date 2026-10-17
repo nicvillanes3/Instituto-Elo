@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explorar projetos</title>
+
+    <link rel="stylesheet" href="explorar.css">
+    <link rel="stylesheet" href="footer.css">
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="nav-logo">
+            <a href="index.html">
+                <img src="logoElo.jpeg" alt="Instituto Elo Logo">
+            </a>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Explorar</a></li>
+            <li><a href="projetos.html">Projetos</a></li>
+            <li><a href="comoFunciona.html">Como funciona</a></li>
+            <li><a href="sobre.html">Sobre nós</a></li>
+
+            <li>
+                <div class="search-box">
+                    <input type="text" placeholder="Buscar projetos">
+                    <button>
+                        <span class="material-symbols-outlined">search</span>
+                    </button>
+                </div>
+            </li>
+
+            <li><a href="login.html">Entrar</a></li>
+
+            <li>
+                <input type="button" value="Criar Campanha" id="botaoCampanha" onclick="window.location.href='criarCampanha.html'">
+            </li>
+        </ul>
+    </nav>
+
+    <main class="explorar">
+
+        <!-- TOPO -->
+        <section class="topo">
+            <div class="topo-texto">
+                <h1>Explore projetos que <br><span>transformam</span> o futuro</h1>
+                <p>Conheça ideias, apoie iniciativas e faça parte de histórias que geram impacto real na educação e na sociedade.</p>
+            </div>
+
+            <div class="estatisticas">
+                <div class="estat">
+                    <div class="estat-icone azul"><i class="fa-regular fa-folder-open"></i></div>
+                    <div>
+                        <strong>+120</strong>
+                        <span>Projetos publicados</span>
+                    </div>
+                </div>
+                <div class="estat">
+                    <div class="estat-icone amarelo"><i class="fa-solid fa-user-group"></i></div>
+                    <div>
+                        <strong>+50 mil</strong>
+                        <span>Arrecadados</span>
+                    </div>
+                </div>
+                <div class="estat">
+                    <div class="estat-icone azul"><i class="fa-regular fa-heart"></i></div>
+                    <div>
+                        <strong>+850</strong>
+                        <span>Pessoas apoiando</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FILTROS -->
+        <div class="categorias" id="categorias">
+            <button class="chip ativo" data-categoria="Todos">Todos</button>
+            <button class="chip" data-categoria="Tecnologia">Tecnologia</button>
+            <button class="chip" data-categoria="Meio Ambiente">Meio Ambiente</button>
+            <button class="chip" data-categoria="Educação">Educação</button>
+            <button class="chip" data-categoria="Sustentabilidade">Sustentabilidade</button>
+            <button class="chip" data-categoria="Inclusão Social">Inclusão Social</button>
+            <button class="chip" data-categoria="Cultura">Cultura</button>
+        </div>
+
+        <div class="ferramentas">
+            <select id="ordenacao" aria-label="Ordenar projetos">
+                <option value="recentes">Mais recentes</option>
+                <option value="progresso">Maior progresso</option>
+                <option value="arrecadado">Mais arrecadado</option>
+                <option value="apoiadores">Mais apoiadores</option>
+            </select>
+
+            <div class="visualizacao">
+                <button class="vis-btn ativo" id="visGrade" aria-label="Ver em grade"><i class="fa-solid fa-table-cells-large"></i></button>
+                <button class="vis-btn" id="visLista" aria-label="Ver em lista"><i class="fa-solid fa-list"></i></button>
+            </div>
+        </div>
+
+        <!-- CARDS (gerados pelo JavaScript) -->
+        <div class="grade" id="grade"></div>
+
+        <button class="ver-mais" id="verMais">Carregar mais ↓</button>
+
+        <!-- CHAMADA FINAL -->
+        <section class="chamada">
+            <div class="chamada-icone"><i class="fa-solid fa-rocket"></i></div>
+            <div class="chamada-texto">
+                <strong>Não encontrou o que procurava?</strong>
+                <p>Publique seu projeto e comece a transformar sua ideia em realidade!</p>
+            </div>
+            <a href="criarCampanha.html" class="chamada-botao">Publicar meu projeto</a>
+        </section>
+    </main>
+
+    <div class="footer">
+
+        <div class="footer-content">
+            <div class="logo">
+                <img src="Vetorizado (1) (1).png" alt="Logo" class="footer-logo">
+            </div>
+            <p class="slogan">Conectando ideias, transformando realidades.</p>
+            <div class="social-icons">
+                <a href="https://www.instagram.com/instituto_.elo/?utm_source=ig_web_button_share_sheet" aria-label="Instagram">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+
+                <a href="https://www.facebook.com/profile.php?id=61595034278434" aria-label="Facebook">
+                    <i class="fa-brands fa-facebook-f"></i>
+                </a>
+
+                <a href="#" aria-label="LinkedIn">
+                    <i class="fa-brands fa-linkedin-in"></i>
+                </a>
+            </div>
+        </div>
+
+        <div class="navegaçao">
+            <ul>
+                <li><a href="#">Projetos</a></li>
+                <li><a href="#">Como funciona</a></li>
+                <li><a href="#">Sobre nós</a></li>
+            </ul>
+        </div>
+
+        <div class="institucional">
+            <ul>
+                <li><a href="#">Quem somos</a></li>
+                <li><a href="#">Transparência</a></li>
+                <li><a href="#">Termos de uso</a></li>
+                <li><a href="#">Política de privacidade</a></li>
+            </ul>
+        </div>
+
+        <div class="contato">
+            <p>contato@elo.com.br</p>
+            <p>(12) 92348-922067</p>
+        </div>
+
+    </div>
+
+    <script src="dadosProjetos.js"></script>
+    <script>
+        const POR_PAGINA = 8;
+        let categoriaAtual = "Todos";
+        let ordem = "recentes";
+        let visiveis = POR_PAGINA;
+        const favoritos = new Set(projetos.map(p => p.id)); // todos vêm da lista de favoritos
+
+        const grade = document.getElementById("grade");
+        const verMais = document.getElementById("verMais");
+
+        const moeda = n => "R$ " + n.toLocaleString("pt-BR");
+
+        function ordenar(lista) {
+            const copia = [...lista];
+            if (ordem === "progresso") copia.sort((a, b) => b.pct - a.pct);
+            else if (ordem === "arrecadado") copia.sort((a, b) => b.arrecadado - a.arrecadado);
+            else if (ordem === "apoiadores") copia.sort((a, b) => b.apoiadores - a.apoiadores);
+            return copia;
+        }
+
+        function criarCard(p) {
+            const fav = favoritos.has(p.id);
+            const prazo = p.dias === 0 ? "Meta concluída" : `${p.dias} dias restantes`;
+            return `
+            <article class="projeto">
+                <div class="projeto-img" style="background-image:url('${p.img}')">
+                    <button class="coracao ${fav ? "ativo" : ""}" data-id="${p.id}" aria-label="Favoritar projeto">
+                        <i class="${fav ? "fa-solid" : "fa-regular"} fa-heart"></i>
+                    </button>
+                </div>
+                <div class="projeto-corpo">
+                    <span class="tag" style="background:${p.cor}">${p.categoria}</span>
+                    <h3>${p.titulo}</h3>
+                    <p class="desc">${p.desc}</p>
+
+                    <div class="valores">
+                        <strong>${moeda(p.arrecadado)}</strong>
+                        <span>de ${moeda(p.meta)}</span>
+                    </div>
+
+                    <div class="barra"><div style="width:${p.pct}%; background:${p.cor}"></div></div>
+
+                    <div class="valores pequeno">
+                        <span class="pct">${p.pct}%</span>
+                        <span>${prazo}</span>
+                    </div>
+
+                    <div class="meta-info">
+                        <span><i class="fa-regular fa-user"></i> ${p.apoiadores} apoiadores</span>
+                        <span><i class="fa-regular fa-building"></i> ${p.org}</span>
+                    </div>
+
+                    <a href="projeto.html?id=${p.id}" class="apoie">Apoie</a>
+                </div>
+            </article>`;
+        }
+
+        function renderizar() {
+            const filtrados = ordenar(
+                projetos.filter(p => categoriaAtual === "Todos" || p.categoria === categoriaAtual)
+            );
+
+            grade.innerHTML = filtrados.length
+                ? filtrados.slice(0, visiveis).map(criarCard).join("")
+                : '<p class="vazio">Nenhum projeto encontrado nesta categoria.</p>';
+
+            const restantes = filtrados.length - visiveis;
+            verMais.style.display = restantes > 0 ? "flex" : "none";
+        }
+
+        // Categorias
+        document.querySelectorAll(".chip").forEach(chip => {
+            chip.addEventListener("click", () => {
+                document.querySelectorAll(".chip").forEach(c => c.classList.remove("ativo"));
+                chip.classList.add("ativo");
+                categoriaAtual = chip.dataset.categoria;
+                visiveis = POR_PAGINA;
+                renderizar();
+            });
+        });
+
+        // Ordenação
+        document.getElementById("ordenacao").addEventListener("change", e => {
+            ordem = e.target.value;
+            renderizar();
+        });
+
+        // Grade / lista
+        const visGrade = document.getElementById("visGrade");
+        const visLista = document.getElementById("visLista");
+
+        visGrade.addEventListener("click", () => {
+            grade.classList.remove("lista");
+            visGrade.classList.add("ativo");
+            visLista.classList.remove("ativo");
+        });
+
+        visLista.addEventListener("click", () => {
+            grade.classList.add("lista");
+            visLista.classList.add("ativo");
+            visGrade.classList.remove("ativo");
+        });
+
+        // Favoritar
+        grade.addEventListener("click", e => {
+            const botao = e.target.closest(".coracao");
+            if (!botao) return;
+
+            const id = Number(botao.dataset.id);
+            const icone = botao.querySelector("i");
+
+            if (favoritos.has(id)) {
+                favoritos.delete(id);
+                botao.classList.remove("ativo");
+                icone.className = "fa-regular fa-heart";
+            } else {
+                favoritos.add(id);
+                botao.classList.add("ativo");
+                icone.className = "fa-solid fa-heart";
+            }
+        });
+
+        // Carregar mais
+        verMais.addEventListener("click", () => {
+            visiveis += POR_PAGINA;
+            renderizar();
+        });
+
+        // Abre já filtrado quando vier de projeto.html?categoria=...
+        const categoriaUrl = new URLSearchParams(window.location.search).get("categoria");
+        if (categoriaUrl) {
+            const chipUrl = [...document.querySelectorAll(".chip")].find(c => c.dataset.categoria === categoriaUrl);
+            if (chipUrl) chipUrl.click();
+        }
+
+        renderizar();
+    </script>
+
+</body>
+
+</html>

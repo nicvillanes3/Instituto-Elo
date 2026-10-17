@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configurações</title>
+
+    <link rel="stylesheet" href="configuracoes.css">
+    <link rel="stylesheet" href="footer.css">
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="menuLateral.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="nav-logo">
+            <a href="index.html">
+                <img src="logoElo.jpeg" alt="Instituto Elo Logo">
+            </a>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Explorar</a></li>
+            <li><a href="projetos.html">Projetos</a></li>
+            <li><a href="comoFunciona.html">Como funciona</a></li>
+            <li><a href="sobre.html">Sobre nós</a></li>
+
+            <li>
+                <div class="search-box">
+                    <input type="text" placeholder="Buscar projetos">
+                    <button>
+                        <span class="material-symbols-outlined">search</span>
+                    </button>
+                </div>
+            </li>
+
+            <li><a href="login.html">Entrar</a></li>
+
+            <li>
+                <input type="button" value="Criar Campanha" id="botaoCampanha" onclick="window.location.href='criarCampanha.html'">
+            </li>
+        </ul>
+    </nav>
+
+    <div class="layout-principal">
+
+        <!-- MENU LATERAL (igual ao de notificações) -->
+        <aside class="area-lateral">
+            <div class="barra-lateral">
+                <a href="perfil.html">
+                    <i class="fa-regular fa-user"></i> Meu perfil
+                </a>
+                <a href="criador.html">
+                    <i class="fa-solid fa-chart-column"></i> Painel do criador
+                </a>
+                <a href="projetos.html">
+                    <i class="fa-regular fa-comment-dots"></i> Projetos criados
+                </a>
+                <a href="doacoes.html">
+                    <i class="fa-solid fa-dollar-sign"></i> Minhas doações
+                </a>
+                <a href="favoritos.html">
+                    <i class="fa-regular fa-heart"></i> Favoritos
+                </a>
+                <a href="notificacoes.html">
+                    <i class="fa-regular fa-bell"></i> Notificações
+                </a>
+                <a href="configuracoes.html" class="ativo">
+                    <i class="fa-solid fa-gear"></i> Configurações
+                </a>
+                <a href="sair.html">
+                    <i class="fa-solid fa-right-from-bracket"></i> Sair
+                </a>
+            </div>
+
+            <div class="card-destaque">
+                <i class="fa-regular fa-heart" id="card-icon"></i>
+                <p id="card-text">Conecte-se com ideias que transformam o futuro.</p>
+            </div>
+        </aside>
+
+        <!-- CONTEÚDO -->
+        <main class="conteudo-principal">
+            <h1>Configurações</h1>
+            <p>Gerencie suas preferências e informações da conta.</p>
+
+            <div class="config-grid">
+
+                <!-- COLUNA ESQUERDA -->
+                <div class="config-esquerda">
+                    <nav class="config-menu" id="configMenu">
+                        <button class="config-item ativo" data-alvo="perfil">
+                            <i class="fa-regular fa-circle-user"></i>
+                            <span>
+                                <strong>Perfil</strong>
+                                <small>Suas informações pessoais.</small>
+                            </span>
+                        </button>
+                        <button class="config-item" data-alvo="seguranca">
+                            <i class="fa-solid fa-lock"></i>
+                            <span>
+                                <strong>Segurança</strong>
+                                <small>Senha e autenticação.</small>
+                            </span>
+                        </button>
+                        <button class="config-item" data-alvo="privacidade">
+                            <i class="fa-solid fa-shield-halved"></i>
+                            <span>
+                                <strong>Privacidade</strong>
+                                <small>Controle de dados.</small>
+                            </span>
+                        </button>
+                        <button class="config-item" data-alvo="pagamentos">
+                            <i class="fa-regular fa-credit-card"></i>
+                            <span>
+                                <strong>Pagamentos</strong>
+                                <small>Métodos e histórico.</small>
+                            </span>
+                        </button>
+                        <button class="config-item" data-alvo="preferencias">
+                            <i class="fa-solid fa-sliders"></i>
+                            <span>
+                                <strong>Preferências</strong>
+                                <small>Aparência e idioma.</small>
+                            </span>
+                        </button>
+                        <button class="config-item" data-alvo="conta">
+                            <i class="fa-regular fa-trash-can"></i>
+                            <span>
+                                <strong>Conta</strong>
+                                <small>Gerenciar conta.</small>
+                            </span>
+                        </button>
+                    </nav>
+
+                    <div class="caixa encerrar">
+                        <h3>Encerrar conta</h3>
+                        <p>Ao encerrar sua conta, você não terá mais acesso ao Elo.</p>
+                        <button class="btn-perigo" id="encerrarConta">Encerrar conta</button>
+                    </div>
+                </div>
+
+                <!-- COLUNA DIREITA -->
+                <div class="config-direita">
+
+                    <!-- Informações do perfil -->
+                    <section class="perfil-info" id="perfil">
+                        <div class="perfil-topo">
+                            <div>
+                                <h2>Informações do perfil</h2>
+                                <p class="sub">Atualize seus dados pessoais.</p>
+                            </div>
+                            <button class="btn-contorno">
+                                <i class="fa-solid fa-pencil"></i> Editar
+                            </button>
+                        </div>
+
+                        <div class="perfil-corpo">
+                            <div class="foto">
+                                <img src="mariane.jpg" alt="Foto de perfil de Mariane Araujo">
+                                <button class="foto-btn" aria-label="Alterar foto">
+                                    <i class="fa-solid fa-camera"></i>
+                                </button>
+                            </div>
+
+                            <div class="dados">
+                                <div>
+                                    <span>Nome Completo</span>
+                                    <strong>Mariane Araujo</strong>
+                                </div>
+                                <div>
+                                    <span>Telefone</span>
+                                    <strong>(11) 98765-4321</strong>
+                                </div>
+                                <div>
+                                    <span>E-mail</span>
+                                    <strong>marianearaujo@gmail.com</strong>
+                                </div>
+                                <div>
+                                    <span>Data de cadastro</span>
+                                    <strong>12 de abril de 2024</strong>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Segurança da conta -->
+                    <section class="caixa" id="seguranca">
+                        <h2>Segurança da conta</h2>
+                        <p class="sub">Mantenha sua conta protegida.</p>
+
+                        <div class="linha">
+                            <div class="linha-icone"><i class="fa-solid fa-lock"></i></div>
+                            <div class="linha-texto">
+                                <strong>Senha</strong>
+                                <small>Altere sua senha regularmente para manter sua conta segura.</small>
+                            </div>
+                            <button class="btn-contorno">Alterar senha <i class="fa-solid fa-arrow-right"></i></button>
+                        </div>
+
+                        <div class="linha">
+                            <div class="linha-icone"><i class="fa-solid fa-shield-halved"></i></div>
+                            <div class="linha-texto">
+                                <strong>Verificação de duas etapas</strong>
+                                <small>Ative para adicionar uma camada extra de segurança a sua conta.</small>
+                            </div>
+                            <span class="status" id="statusDuasEtapas">Desativado</span>
+                            <button class="btn-contorno" id="btnDuasEtapas">Ativar <i class="fa-solid fa-arrow-right"></i></button>
+                        </div>
+
+                        <div class="linha">
+                            <div class="linha-icone"><i class="fa-solid fa-desktop"></i></div>
+                            <div class="linha-texto">
+                                <strong>Dispositivos conectados</strong>
+                                <small>Gerencie os dispositivos conectados à sua conta.</small>
+                            </div>
+                            <button class="btn-contorno">Gerenciar <i class="fa-solid fa-arrow-right"></i></button>
+                        </div>
+                    </section>
+
+                    <!-- Preferências da conta -->
+                    <section class="caixa" id="preferencias">
+                        <h2>Preferências da conta</h2>
+                        <p class="sub">Personalize sua experiência na plataforma.</p>
+
+                        <div class="linha">
+                            <div class="linha-icone"><i class="fa-regular fa-bell"></i></div>
+                            <div class="linha-texto">
+                                <strong>E-mails e notificações</strong>
+                                <small>Escolha quais tipos de e-mails você deseja receber.</small>
+                            </div>
+                            <button class="btn-contorno">Gerenciar <i class="fa-solid fa-arrow-right"></i></button>
+                        </div>
+
+                        <div class="linha">
+                            <div class="linha-icone"><i class="fa-solid fa-globe"></i></div>
+                            <div class="linha-texto">
+                                <strong>Idioma</strong>
+                                <small>Selecione o idioma da plataforma.</small>
+                            </div>
+                            <select class="seletor" aria-label="Idioma da plataforma">
+                                <option>Português (Brasil)</option>
+                                <option>English</option>
+                                <option>Español</option>
+                            </select>
+                        </div>
+                    </section>
+
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <div class="footer">
+
+        <div class="footer-content">
+            <div class="logo">
+                <img src="Vetorizado (1) (1).png" alt="Logo" class="footer-logo">
+            </div>
+            <p class="slogan">Conectando ideias, transformando realidades.</p>
+            <div class="social-icons">
+                <a href="https://www.instagram.com/instituto_.elo/?utm_source=ig_web_button_share_sheet" aria-label="Instagram">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+
+                <a href="https://www.facebook.com/profile.php?id=61595034278434" aria-label="Facebook">
+                    <i class="fa-brands fa-facebook-f"></i>
+                </a>
+
+                <a href="#" aria-label="LinkedIn">
+                    <i class="fa-brands fa-linkedin-in"></i>
+                </a>
+            </div>
+        </div>
+
+        <div class="navegaçao">
+            <ul>
+                <li><a href="#">Projetos</a></li>
+                <li><a href="#">Como funciona</a></li>
+                <li><a href="#">Sobre nós</a></li>
+            </ul>
+        </div>
+
+        <div class="institucional">
+            <ul>
+                <li><a href="#">Quem somos</a></li>
+                <li><a href="#">Transparência</a></li>
+                <li><a href="#">Termos de uso</a></li>
+                <li><a href="#">Política de privacidade</a></li>
+            </ul>
+        </div>
+
+        <div class="contato">
+            <p>contato@elo.com.br</p>
+            <p>(12) 92348-922067</p>
+        </div>
+
+    </div>
+
+    <script>
+        // Menu de seções: marca o item ativo e rola até a seção correspondente
+        const itens = document.querySelectorAll(".config-item");
+
+        itens.forEach(item => {
+            item.addEventListener("click", () => {
+                itens.forEach(i => i.classList.remove("ativo"));
+                item.classList.add("ativo");
+
+                const alvo = document.getElementById(item.dataset.alvo);
+                if (alvo) {
+                    alvo.scrollIntoView({ behavior: "smooth", block: "start" });
+                }
+            });
+        });
+
+        // Verificação de duas etapas: alterna entre ativado e desativado
+        const btnDuasEtapas = document.getElementById("btnDuasEtapas");
+        const statusDuasEtapas = document.getElementById("statusDuasEtapas");
+        let duasEtapas = false;
+
+        btnDuasEtapas.addEventListener("click", () => {
+            duasEtapas = !duasEtapas;
+            statusDuasEtapas.textContent = duasEtapas ? "Ativado" : "Desativado";
+            statusDuasEtapas.classList.toggle("ligado", duasEtapas);
+            btnDuasEtapas.innerHTML = (duasEtapas ? "Desativar" : "Ativar") +
+                ' <i class="fa-solid fa-arrow-right"></i>';
+        });
+
+        // Encerrar conta: pede confirmação
+        document.getElementById("encerrarConta").addEventListener("click", () => {
+            if (confirm("Tem certeza que deseja encerrar sua conta? Essa ação não pode ser desfeita.")) {
+                window.location.href = "sair.html";
+            }
+        });
+    </script>
+
+</body>
+
+</html>

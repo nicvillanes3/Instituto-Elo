@@ -1,0 +1,490 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #ffffff;
+    color: #222;
+    overflow-x: hidden;
+}
+
+.navbar {
+    background-color: #fff;
+    width: 100%;
+    margin: 0;
+}
+
+.explorar {
+    font-family: "Poppins", Arial, sans-serif;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 4% 60px;
+}
+
+/* ===== TOPO ===== */
+.topo {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+}
+
+.topo-texto {
+    max-width: 520px;
+}
+
+.topo-texto h1 {
+    font-size: 34px;
+    line-height: 1.2;
+    font-weight: 700;
+    color: #111;
+    margin-bottom: 18px;
+}
+
+.topo-texto h1 span {
+    color: #1265df;
+}
+
+.topo-texto p {
+    font-size: 13px;
+    line-height: 1.6;
+    color: #555;
+    max-width: 440px;
+}
+
+.estatisticas {
+    display: flex;
+    gap: 30px;
+    padding: 18px 26px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.1);
+}
+
+.estat {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.estat-icone {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 17px;
+}
+
+.estat-icone.azul {
+    background: #1265df;
+    color: #fff;
+}
+
+.estat-icone.amarelo {
+    background: #ffd400;
+    color: #222;
+}
+
+.estat strong {
+    display: block;
+    font-size: 15px;
+    color: #111;
+}
+
+.estat span {
+    font-size: 10px;
+    color: #777;
+}
+
+/* ===== CATEGORIAS ===== */
+.categorias {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+.chip {
+    padding: 7px 16px;
+    border: none;
+    border-radius: 5px;
+    background: #f1f1f1;
+    color: #222;
+    font-family: inherit;
+    font-size: 11px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.chip:hover {
+    background: #e2ecfb;
+}
+
+.chip.ativo {
+    background: #1265df;
+    color: #fff;
+}
+
+/* ===== FERRAMENTAS ===== */
+.ferramentas {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+#ordenacao {
+    padding: 9px 14px;
+    min-width: 170px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background: #fff;
+    font-family: inherit;
+    font-size: 11px;
+    color: #444;
+    cursor: pointer;
+}
+
+.visualizacao {
+    display: flex;
+    gap: 6px;
+}
+
+.vis-btn {
+    width: 30px;
+    height: 30px;
+    border: none;
+    border-radius: 5px;
+    background: transparent;
+    color: #555;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.vis-btn.ativo {
+    background: #dceaff;
+    color: #1265df;
+}
+
+/* ===== GRADE ===== */
+.grade {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 22px;
+}
+
+.projeto {
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 3px 14px rgba(0, 0, 0, 0.1);
+    transition: 0.2s;
+}
+
+.projeto:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.14);
+}
+
+.projeto-img {
+    position: relative;
+    height: 130px;
+    background-size: cover;
+    background-position: center;
+    background-color: #dceaff;
+}
+
+.coracao {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 26px;
+    height: 26px;
+    border: none;
+    border-radius: 50%;
+    background: #fff;
+    color: #888;
+    font-size: 12px;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.coracao.ativo {
+    color: #1265df;
+}
+
+.projeto-corpo {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 12px 14px 16px;
+}
+
+.tag {
+    align-self: flex-start;
+    margin-top: -26px;
+    margin-bottom: 10px;
+    padding: 3px 9px;
+    border-radius: 3px;
+    font-size: 9px;
+    font-weight: 600;
+    color: #fff;
+    position: relative;
+}
+
+.projeto-corpo h3 {
+    font-size: 12px;
+    font-weight: 700;
+    color: #111;
+    margin-bottom: 6px;
+}
+
+.desc {
+    font-size: 9px;
+    line-height: 1.5;
+    color: #888;
+    margin-bottom: 12px;
+    min-height: 54px;
+}
+
+.valores {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 5px;
+}
+
+.valores strong {
+    font-size: 12px;
+    color: #1265df;
+}
+
+.valores span {
+    font-size: 8px;
+    color: #888;
+}
+
+.valores.pequeno .pct {
+    font-size: 9px;
+    font-weight: 700;
+    color: #1265df;
+}
+
+.barra {
+    height: 4px;
+    border-radius: 4px;
+    background: #e4e4e4;
+    margin-bottom: 5px;
+    overflow: hidden;
+}
+
+.barra div {
+    height: 100%;
+    border-radius: 4px;
+}
+
+.meta-info {
+    display: flex;
+    justify-content: space-between;
+    gap: 6px;
+    margin: 10px 0 14px;
+    font-size: 8px;
+    color: #777;
+}
+
+.meta-info i {
+    margin-right: 3px;
+}
+
+.apoie {
+    margin-top: auto;
+    display: block;
+    padding: 8px;
+    border-radius: 5px;
+    background: #1f5bc4;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    font-size: 11px;
+    font-weight: 600;
+    transition: 0.2s;
+}
+
+.apoie:hover {
+    background: #1265df;
+}
+
+.vazio {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 40px 0;
+    font-size: 13px;
+    color: #888;
+}
+
+/* ===== VISUALIZAÇÃO EM LISTA ===== */
+.grade.lista {
+    grid-template-columns: 1fr;
+}
+
+.grade.lista .projeto {
+    flex-direction: row;
+}
+
+.grade.lista .projeto-img {
+    width: 220px;
+    height: auto;
+    min-height: 170px;
+    flex-shrink: 0;
+}
+
+.grade.lista .tag {
+    margin-top: 0;
+}
+
+.grade.lista .desc {
+    min-height: 0;
+}
+
+/* ===== CARREGAR MAIS ===== */
+.ver-mais {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 130px;
+    height: 36px;
+    margin: 30px auto 0;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    background: #fafafa;
+    color: #1265df;
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.ver-mais:hover {
+    background: #f0f5ff;
+    border-color: #bcd5ff;
+}
+
+/* ===== CHAMADA FINAL ===== */
+.chamada {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin-top: 45px;
+    padding: 20px 28px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 3px 16px rgba(0, 0, 0, 0.1);
+}
+
+.chamada-icone {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #ffd400;
+    color: #1a1a1a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+}
+
+.chamada-texto {
+    flex: 1;
+}
+
+.chamada-texto strong {
+    display: block;
+    font-size: 13px;
+    margin-bottom: 3px;
+}
+
+.chamada-texto p {
+    font-size: 11px;
+    color: #666;
+}
+
+.chamada-botao {
+    padding: 10px 22px;
+    border-radius: 5px;
+    background: #1f5bc4;
+    color: #fff;
+    text-decoration: none;
+    font-size: 11px;
+    font-weight: 600;
+    white-space: nowrap;
+    transition: 0.2s;
+}
+
+.chamada-botao:hover {
+    background: #1265df;
+}
+
+/* ===== RESPONSIVO ===== */
+@media (max-width: 1050px) {
+    .grade {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 800px) {
+    .grade {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .estatisticas {
+        width: 100%;
+        justify-content: space-between;
+    }
+}
+
+@media (max-width: 560px) {
+    .topo-texto h1 {
+        font-size: 26px;
+    }
+
+    .topo-texto h1 br {
+        display: none;
+    }
+
+    .estatisticas {
+        flex-direction: column;
+        gap: 14px;
+    }
+
+    .grade {
+        grid-template-columns: 1fr;
+    }
+
+    .grade.lista .projeto {
+        flex-direction: column;
+    }
+
+    .grade.lista .projeto-img {
+        width: 100%;
+        height: 150px;
+        min-height: 0;
+    }
+
+    .chamada {
+        flex-direction: column;
+        text-align: center;
+    }
+}
