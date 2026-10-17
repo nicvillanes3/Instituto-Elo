@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minhas doações</title>
+
+    <link rel="stylesheet" href="doacoes.css">
+    <link rel="stylesheet" href="footer.css">
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="menuLateral.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="nav-logo">
+            <a href="index.html">
+                <img src="logoElo.jpeg" alt="Instituto Elo Logo">
+            </a>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Explorar</a></li>
+            <li><a href="projetos.html">Projetos</a></li>
+            <li><a href="comoFunciona.html">Como funciona</a></li>
+            <li><a href="sobre.html">Sobre nós</a></li>
+
+            <li>
+                <div class="search-box">
+                    <input type="text" placeholder="Buscar projetos">
+                    <button>
+                        <span class="material-symbols-outlined">search</span>
+                    </button>
+                </div>
+            </li>
+
+            <li><a href="login.html">Entrar</a></li>
+
+            <li>
+                <input type="button" value="Criar Campanha" id="botaoCampanha" onclick="window.location.href='criarCampanha.html'">
+            </li>
+        </ul>
+    </nav>
+
+    <div class="layout-principal">
+
+        <!-- MENU LATERAL (igual ao da página de configurações) -->
+        <aside class="area-lateral">
+            <div class="barra-lateral">
+                <a href="perfil.html">
+                    <i class="fa-regular fa-user"></i> Meu perfil
+                </a>
+                <a href="criador.html">
+                    <i class="fa-solid fa-chart-column"></i> Painel do criador
+                </a>
+                <a href="projetos.html">
+                    <i class="fa-regular fa-comment-dots"></i> Projetos criados
+                </a>
+                <a href="doacoes.html" class="active">
+                    <i class="fa-solid fa-dollar-sign"></i> Minhas doações
+                </a>
+                <a href="favoritos.html">
+                    <i class="fa-regular fa-heart"></i> Favoritos
+                </a>
+                <a href="notificacoes.html">
+                    <i class="fa-regular fa-bell"></i> Notificações
+                </a>
+                <a href="configuracoes.html">
+                    <i class="fa-solid fa-gear"></i> Configurações
+                </a>
+                <a href="sair.html">
+                    <i class="fa-solid fa-right-from-bracket"></i> Sair
+                </a>
+            </div>
+
+            <div class="card-destaque">
+                <i class="fa-regular fa-heart" id="card-icon"></i>
+                <p id="card-text">Conecte-se com ideias que transformam o futuro.</p>
+                <p class="card-sub">Seu apoio impulsiona o futuro de muitos estudantes.</p>
+                <a href="explorar.html" class="card-botao">Explorar projetos <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+        </aside>
+
+        <!-- CONTEÚDO -->
+        <main class="conteudo-principal doacoes">
+
+            <h1>Minhas doações</h1>
+            <p class="subtitulo">Acompanhe os projetos que você apoiou e o impacto que está gerando.</p>
+
+            <!-- RESUMO -->
+            <section class="resumo">
+                <article class="resumo-card">
+                    <span class="resumo-icone azul"><i class="fa-solid fa-dollar-sign"></i></span>
+                    <div>
+                        <small>Total apoiado</small>
+                        <strong id="resTotal"></strong>
+                        <small id="resTotalSub"></small>
+                    </div>
+                </article>
+
+                <article class="resumo-card">
+                    <span class="resumo-icone verde"><i class="fa-regular fa-heart"></i></span>
+                    <div>
+                        <small>Projetos apoiados</small>
+                        <strong id="resProjetos"></strong>
+                        <small>projetos diferentes</small>
+                    </div>
+                </article>
+
+                <article class="resumo-card">
+                    <span class="resumo-icone amarelo"><i class="fa-solid fa-user-group"></i></span>
+                    <div>
+                        <small>Total de doações</small>
+                        <strong id="resDoacoes"></strong>
+                        <small>doações realizadas</small>
+                    </div>
+                </article>
+
+                <article class="resumo-card">
+                    <span class="resumo-icone roxo"><i class="fa-solid fa-medal"></i></span>
+                    <div>
+                        <small>Projetos concluídos</small>
+                        <strong id="resConcluidos"></strong>
+                        <small id="resConcluidosSub"></small>
+                    </div>
+                </article>
+            </section>
+
+            <!-- ABAS + ORDENAÇÃO -->
+            <div class="barra-abas">
+                <div class="abas" role="tablist">
+                    <button type="button" class="aba ativo" data-filtro="todas" role="tab">Todas as doações</button>
+                    <button type="button" class="aba" data-filtro="andamento" role="tab">Em andamento</button>
+                    <button type="button" class="aba" data-filtro="concluido" role="tab">Concluído</button>
+                </div>
+
+                <select id="ordenacao" aria-label="Ordenar doações">
+                    <option value="recentes">Mais recentes</option>
+                    <option value="antigas">Mais antigas</option>
+                    <option value="valor">Maior valor</option>
+                </select>
+            </div>
+
+            <!-- TABELA -->
+            <div class="cabecalho-tabela">
+                <span>PROJETO</span>
+                <span>VALOR</span>
+                <span>DATA</span>
+                <span>STATUS</span>
+            </div>
+
+            <div class="tabela" id="listaDoacoes"></div>
+
+            <!-- PAGINAÇÃO -->
+            <div class="paginacao">
+                <span id="textoPaginacao"></span>
+                <div class="paginacao-botoes" id="botoesPaginacao"></div>
+            </div>
+
+        </main>
+    </div>
+
+    <div class="footer">
+
+        <div class="footer-content">
+            <div class="logo">
+                <img src="Vetorizado (1) (1).png" alt="Logo" class="footer-logo">
+            </div>
+            <p class="slogan">Conectando ideias, transformando realidades.</p>
+            <div class="social-icons">
+                <a href="https://www.instagram.com/instituto_.elo/?utm_source=ig_web_button_share_sheet" aria-label="Instagram">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+
+                <a href="https://www.facebook.com/profile.php?id=61595034278434" aria-label="Facebook">
+                    <i class="fa-brands fa-facebook-f"></i>
+                </a>
+
+                <a href="#" aria-label="LinkedIn">
+                    <i class="fa-brands fa-linkedin-in"></i>
+                </a>
+            </div>
+        </div>
+
+        <div class="navegaçao">
+            <ul>
+                <li><a href="#">Projetos</a></li>
+                <li><a href="#">Como funciona</a></li>
+                <li><a href="#">Sobre nós</a></li>
+            </ul>
+        </div>
+
+        <div class="institucional">
+            <ul>
+                <li><a href="#">Quem somos</a></li>
+                <li><a href="#">Transparência</a></li>
+                <li><a href="#">Termos de uso</a></li>
+                <li><a href="#">Política de privacidade</a></li>
+            </ul>
+        </div>
+
+        <div class="contato">
+            <p>contato@elo.com.br</p>
+            <p>(12) 92348-922067</p>
+        </div>
+
+    </div>
+
+    <script src="menuLateral.js"></script>
+    <script src="dadosProjetos.js"></script>
+    <script src="doacoes.js"></script>
+</body>
+
+</html>

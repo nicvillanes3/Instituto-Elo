@@ -1,0 +1,614 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #ffffff;
+    color: #222;
+    overflow-x: hidden;
+}
+
+/* ===== LAYOUT (mesmo da página de configurações) ===== */
+.layout-principal {
+    display: grid;
+    grid-template-columns: 260px minmax(0, 1fr);
+    align-items: start;
+    gap: 35px;
+    width: 100%;
+    padding: 40px 2%;
+    min-height: 600px;
+    background: #ffffff;
+}
+
+.navbar {
+    background-color: #fff;
+    width: 100%;
+    margin: 0;
+}
+
+.area-lateral {
+    width: 100%;
+    min-width: 0;
+}
+
+.area-lateral .barra-lateral {
+    width: 100%;
+    margin: 0;
+}
+
+.area-lateral .card-destaque {
+    width: 100%;
+    margin: 20px 0 0;
+}
+
+/* Item ativo do menu lateral */
+.area-lateral .barra-lateral a.active {
+    background: #dceaff !important;
+    color: #1265df !important;
+    font-weight: 700;
+}
+
+.area-lateral .barra-lateral a.active i {
+    color: #1265df !important;
+}
+
+.conteudo-principal {
+    width: 100%;
+    min-width: 0;
+}
+
+/* ===== PÁGINA ===== */
+.lista-projetos {
+    font-family: "Poppins", Arial, sans-serif;
+    max-width: 1050px;
+}
+
+.lista-projetos h1 {
+    font-size: 27px;
+    font-weight: 600;
+    color: #111;
+    margin-bottom: 10px;
+}
+
+.subtitulo {
+    font-size: 11px;
+    color: #777;
+    margin-bottom: 26px;
+}
+
+/* ===== RESUMO ===== */
+.resumo {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 16px;
+    margin-bottom: 30px;
+}
+
+.resumo-card {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 16px 18px;
+    border-radius: 10px;
+    background: #fff;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.1);
+}
+
+.resumo-icone {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 17px;
+    flex-shrink: 0;
+}
+
+.roxo    { background: #ddd5fb; color: #6b4fd8; }
+.verde   { background: #bde8cf; color: #3ca773; }
+.amarelo { background: #fff09a; color: #c7a900; }
+.azul    { background: #cfe0ff; color: #1265df; }
+
+.resumo-card > div {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    min-width: 0;
+}
+
+.resumo-card small {
+    font-size: 9px;
+    color: #777;
+}
+
+.resumo-card strong {
+    font-size: 15px;
+    font-weight: 700;
+    color: #111;
+    white-space: nowrap;
+}
+
+/* ===== ABAS ===== */
+.barra-abas {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 14px;
+    margin-bottom: 18px;
+    border-bottom: 1px solid #e3e3e3;
+}
+
+.abas {
+    display: flex;
+    gap: 34px;
+    padding-left: 20px;
+}
+
+.aba {
+    padding: 10px 0;
+    border: none;
+    border-bottom: 2px solid transparent;
+    background: transparent;
+    font-family: inherit;
+    font-size: 11px;
+    color: #555;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: 0.2s;
+}
+
+.aba:hover {
+    color: #1265df;
+}
+
+.aba.ativo {
+    color: #0e3f9c;
+    font-weight: 600;
+    border-bottom-color: #1265df;
+}
+
+#ordenacao {
+    margin-bottom: 6px;
+    padding: 7px 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background: #fff;
+    font-family: inherit;
+    font-size: 10px;
+    color: #444;
+    cursor: pointer;
+}
+
+/* ===== CARTÃO DO PROJETO ===== */
+.projeto {
+    display: grid;
+    grid-template-columns: 150px minmax(0, 1.6fr) minmax(0, 1.25fr) minmax(0, 0.7fr) 130px;
+    align-items: center;
+    gap: 22px;
+    padding: 18px 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    background: #fff;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.1);
+}
+
+.projeto-foto {
+    display: block;
+    width: 150px;
+    height: 100px;
+    border-radius: 6px;
+    background-size: cover;
+    background-position: center;
+    background-color: #dceaff;
+}
+
+.projeto-info h2 {
+    font-size: 14px;
+    font-weight: 600;
+    color: #111;
+    margin-bottom: 8px;
+}
+
+.projeto-info p {
+    margin-bottom: 10px;
+    font-size: 9px;
+    line-height: 1.5;
+    color: #777;
+}
+
+.tag {
+    display: inline-block;
+    padding: 3px 12px;
+    border-radius: 4px;
+    font-size: 8px;
+    font-weight: 600;
+    color: #fff;
+}
+
+.valores-topo {
+    display: flex;
+    justify-content: space-between;
+    gap: 14px;
+    margin-bottom: 8px;
+}
+
+.valores-topo strong {
+    display: block;
+    font-size: 15px;
+    font-weight: 600;
+    color: #111;
+}
+
+.valores-topo small {
+    font-size: 8px;
+    color: #888;
+}
+
+.barra {
+    height: 5px;
+    border-radius: 5px;
+    background: #e4e4e4;
+    overflow: hidden;
+}
+
+.barra div {
+    height: 100%;
+    border-radius: 5px;
+    background: #1f5bc4;
+}
+
+.meta {
+    display: block;
+    margin-top: 10px;
+    font-size: 8px;
+    color: #777;
+}
+
+.projeto-apoio {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    text-align: center;
+}
+
+.apoiadores strong,
+.dias strong {
+    display: block;
+    font-size: 15px;
+    font-weight: 600;
+    color: #111;
+}
+
+.apoiadores strong i {
+    margin-right: 4px;
+    font-size: 11px;
+    color: #666;
+}
+
+.projeto-apoio small {
+    font-size: 8px;
+    color: #888;
+}
+
+.concluido-em small {
+    display: block;
+    margin-bottom: 4px;
+}
+
+.concluido-em span {
+    font-size: 9px;
+    color: #444;
+}
+
+/* ===== AÇÕES ===== */
+.projeto-acoes {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 6px;
+}
+
+.status {
+    padding: 4px 8px;
+    border: 1px solid #bde8cf;
+    border-radius: 4px;
+    background: #d9f4e6;
+    color: #2c7a55;
+    font-size: 8px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.status.concluido {
+    border-color: #f5c1c1;
+    background: #fde1e1;
+    color: #d46a6a;
+}
+
+.criado {
+    margin-bottom: 2px;
+    font-size: 8px;
+    color: #777;
+}
+
+.botoes {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 5px;
+}
+
+.botoes .btn-mini:nth-child(1),
+.botoes .btn-mini:nth-child(2) {
+    grid-column: 1;
+}
+
+.btn-mini {
+    display: block;
+    padding: 5px 8px;
+    border: 1.5px solid #1265df;
+    border-radius: 4px;
+    background: #fff;
+    color: #1265df;
+    font-family: inherit;
+    font-size: 8px;
+    font-weight: 600;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.btn-mini:hover {
+    background: #eaf2ff;
+}
+
+.menu-mais {
+    position: relative;
+    grid-column: 2;
+    grid-row: 1;
+}
+
+.btn-mais {
+    padding: 5px 9px;
+    line-height: 1;
+}
+
+.menu-lista {
+    position: absolute;
+    top: calc(100% + 4px);
+    right: 0;
+    z-index: 20;
+    min-width: 150px;
+    padding: 6px;
+    border: 1px solid #e3e3e3;
+    border-radius: 8px;
+    background: #fff;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.menu-lista[hidden] {
+    display: none;
+}
+
+.menu-lista a,
+.menu-lista button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+    padding: 8px 10px;
+    border: none;
+    border-radius: 5px;
+    background: transparent;
+    font-family: inherit;
+    font-size: 10px;
+    color: #333;
+    text-align: left;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.menu-lista a:hover,
+.menu-lista button:hover {
+    background: #eaf2ff;
+    color: #1265df;
+}
+
+/* ===== VAZIO ===== */
+.vazio {
+    padding: 50px 0;
+    text-align: center;
+}
+
+.vazio p {
+    margin-bottom: 16px;
+    font-size: 12px;
+    color: #888;
+}
+
+.btn-azul {
+    display: inline-block;
+    padding: 10px 22px;
+    border-radius: 6px;
+    background: #1265df;
+    color: #fff;
+    font-size: 11px;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.btn-azul:hover {
+    background: #0e3f9c;
+}
+
+/* ===== PAGINAÇÃO ===== */
+.paginacao {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 14px;
+    margin-top: 28px;
+}
+
+.paginacao span {
+    font-size: 12px;
+    font-weight: 600;
+    color: #222;
+}
+
+.paginacao-botoes {
+    display: flex;
+    gap: 10px;
+}
+
+.pag {
+    min-width: 30px;
+    height: 30px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background: #fff;
+    font-family: inherit;
+    font-size: 11px;
+    font-weight: 600;
+    color: #444;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.pag:hover:not(:disabled) {
+    background: #eaf2ff;
+}
+
+.pag.ativo {
+    border-color: #1265df;
+    background: #1265df;
+    color: #fff;
+}
+
+.pag:disabled {
+    opacity: 0.4;
+    cursor: default;
+}
+
+/* ===== AVISO ===== */
+.aviso {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 120;
+    padding: 12px 18px;
+    border-radius: 8px;
+    background: #111827;
+    color: #fff;
+    font-size: 12px;
+    transform: translateY(-80px);
+    opacity: 0;
+    transition: 0.3s;
+    pointer-events: none;
+}
+
+.aviso.visivel {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* ===== RESPONSIVO ===== */
+@media (max-width: 1200px) {
+    .projeto {
+        grid-template-columns: 130px minmax(0, 1fr) minmax(0, 1fr);
+        row-gap: 16px;
+    }
+
+    .projeto-foto {
+        width: 130px;
+        height: 90px;
+    }
+
+    .projeto-apoio {
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    .projeto-acoes {
+        grid-column: 2 / -1;
+    }
+}
+
+@media (max-width: 1100px) {
+    .layout-principal {
+        grid-template-columns: 230px minmax(0, 1fr);
+        gap: 25px;
+        padding: 35px 4%;
+    }
+
+    .resumo {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 700px) {
+    .layout-principal {
+        display: flex;
+        flex-direction: column;
+        padding: 25px 5%;
+        gap: 30px;
+    }
+
+    .barra-abas {
+        flex-direction: column;
+        align-items: flex-start;
+        border-bottom: none;
+    }
+
+    .abas {
+        width: 100%;
+        gap: 18px;
+        padding-left: 0;
+        overflow-x: auto;
+        border-bottom: 1px solid #e3e3e3;
+    }
+
+    .projeto {
+        grid-template-columns: 1fr;
+    }
+
+    .projeto-foto {
+        width: 100%;
+        height: 150px;
+    }
+
+    .projeto-acoes {
+        grid-column: auto;
+    }
+
+    .paginacao {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+@media (max-width: 480px) {
+    .resumo {
+        grid-template-columns: 1fr;
+    }
+}
+
+html,
+body,
+.layout-principal {
+    background: #ffffff !important;
+}
+
+body {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.layout-principal {
+    width: 100% !important;
+    margin: 0 !important;
+}

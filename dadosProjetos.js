@@ -11,7 +11,10 @@ const projetos = [
             { id: 9, titulo: "Conectando Saberes", categoria: "Tecnologia", cor: "#1265df", autor: "Lucas Martins", org: "Lucas Martins", desc: "Aulas de informática básica e programação para jovens e adultos da comunidade.", arrecadado: 2900, meta: 5000, pct: 58, dias: 22, apoiadores: 23, img: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=500&q=80" },
             { id: 10, titulo: "Verde no Bairro", categoria: "Meio Ambiente", cor: "#1265df", autor: "Ana Clara Souza", org: "Ana Clara Souza", desc: "Revitalização de praças e canteiros do bairro com plantio de mudas e mutirões de limpeza.", arrecadado: 2100, meta: 5000, pct: 42, dias: 28, apoiadores: 19, img: "https://images.unsplash.com/photo-1472396961693-142e6e269027?auto=format&fit=crop&w=500&q=80" },
             { id: 11, titulo: "Aprender e Crescer", categoria: "Educação", cor: "#28a745", autor: "Beatriz Lima", org: "Beatriz Lima", desc: "Reforço escolar gratuito para crianças do ensino fundamental, com materiais e lanche incluídos.", arrecadado: 3600, meta: 5000, pct: 72, dias: 10, apoiadores: 34, img: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=500&q=80" },
-            { id: 12, titulo: "Todos no Jogo", categoria: "Inclusão Social", cor: "#fd7e14", autor: "Gabriel Santos", org: "Gabriel Santos", desc: "Campeonatos esportivos inclusivos que reúnem jovens com e sem deficiência.", arrecadado: 1750, meta: 5000, pct: 35, dias: 32, apoiadores: 16, img: "https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&w=500&q=80" }
+            { id: 12, titulo: "Todos no Jogo", categoria: "Inclusão Social", cor: "#fd7e14", autor: "Gabriel Santos", org: "Gabriel Santos", desc: "Campeonatos esportivos inclusivos que reúnem jovens com e sem deficiência.", arrecadado: 1750, meta: 5000, pct: 35, dias: 32, apoiadores: 16, img: "https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&w=500&q=80" },
+            { id: 13, titulo: "Biblioteca Digital para Todos", categoria: "Educação", cor: "#28a745", autor: "Mariane Araujo", org: "Escola Municipal Aurora", desc: "Criação de uma biblioteca digital acessível para estudantes de baixa renda, com acervo gratuito e computadores de apoio.", arrecadado: 6150, meta: 5000, pct: 100, dias: 0, apoiadores: 68, img: "https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&w=500&q=80" },
+            { id: 14, titulo: "Mães Empreendedoras", categoria: "Inclusão Social", cor: "#fd7e14", autor: "Mariane Araujo", org: "Associação Mãos Unidas", desc: "Curso de empreendedorismo e microcrédito para mães que querem abrir o próprio negócio e gerar renda para a família.", arrecadado: 3400, meta: 8000, pct: 43, dias: 21, apoiadores: 22, img: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=500&q=80" },
+            { id: 15, titulo: "Ciência na Praça", categoria: "Educação", cor: "#28a745", autor: "Mariane Araujo", org: "Coletivo Ciência Viva", desc: "Feira itinerante de experimentos científicos para crianças e jovens, realizada em praças e escolas públicas.", arrecadado: 1900, meta: 4000, pct: 48, dias: 9, apoiadores: 17, img: "https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=500&q=80" }
         ];
 
 // Detalhes extras de cada projeto (usados na página projeto.html)
@@ -64,6 +67,24 @@ const detalhes = {
     sobre: ["Campeonatos esportivos inclusivos que reúnem jovens com e sem deficiência, valorizando o trabalho em equipe e o respeito às diferenças.", "Os recursos serão usados em uniformes, arbitragem, transporte e premiação simbólica."],
     destaques: [["fa-futbol","Esporte","Campeonatos para todos"],["fa-wheelchair","Inclusão","Regras adaptadas"],["fa-users","Equipes mistas","Convivência e respeito"]],
     atualizacoes: [["Times inscritos","Já temos oito equipes inscritas para a primeira edição.","Há 4 dias"],["Uniformes aprovados","O desenho dos uniformes foi escolhido pelos próprios jogadores.","Há 2 semanas"]] }
+  ,
+  13: { local: "Osasco – SP", nivel: "Ensino Fundamental e Médio",
+    sobre: ["Uma biblioteca digital gratuita, com livros, apostilas e materiais de estudo, acompanhada de um espaço com computadores para estudantes que não têm acesso à internet em casa.", "A meta foi superada! Os recursos extras serão usados para ampliar o acervo e manter o laboratório funcionando."],
+    destaques: [["fa-book-open","Acervo gratuito","Milhares de títulos disponíveis"],["fa-laptop-code","Inclusão digital","Computadores para estudo"],["fa-graduation-cap","Apoio escolar","Materiais para todas as idades"]],
+    atualizacoes: [["Meta superada!","Chegamos a 123% da meta graças aos 68 apoiadores. Obrigado a todos!","Há 2 meses"],["Laboratório inaugurado","Os dez primeiros computadores já estão em uso pelos alunos.","Há 3 meses"]] },
+  14: { local: "São Bernardo do Campo – SP", nivel: "Adultos",
+    sobre: ["Curso gratuito de empreendedorismo, finanças básicas e vendas para mães que desejam abrir o próprio negócio, com acompanhamento e acesso a microcrédito.", "A arrecadação será usada em material didático, mentoria e no fundo de microcrédito inicial."],
+    destaques: [["fa-hand-holding-heart","Geração de renda","Autonomia financeira para as famílias"],["fa-chalkboard-user","Capacitação","Aulas e mentoria"],["fa-users","Rede de apoio","Encontros entre empreendedoras"]],
+    atualizacoes: [["Primeira turma completa","As 30 vagas da primeira turma foram preenchidas em uma semana.","Há 4 dias"],["Mentoras confirmadas","Cinco empreendedoras locais vão acompanhar as alunas.","Há 2 semanas"]] },
+  15: { local: "Mogi das Cruzes – SP", nivel: "Ensino Fundamental",
+    sobre: ["Feira itinerante de ciências com experimentos práticos, oficinas e demonstrações, levada a praças e escolas públicas para despertar a curiosidade de crianças e jovens.", "Os recursos serão usados na compra de materiais de laboratório, na estrutura das barracas e no transporte."],
+    destaques: [["fa-laptop-code","Ciência na prática","Experimentos ao vivo"],["fa-graduation-cap","Educação","Aprender de forma divertida"],["fa-users","Comunidade","Eventos abertos ao público"]],
+    atualizacoes: [["Primeira feira marcada","A estreia será em uma praça central, com 12 experimentos diferentes.","Há 3 dias"],["Kit de química chegou","Recebemos os materiais para as oficinas de reações químicas.","Há 1 semana"]] }
 };
 
 projetos.forEach(p => Object.assign(p, detalhes[p.id] || {}));
+
+// Projetos criados pelo usuário logado (usado em perfil, painel do criador e projetos criados)
+const MEUS_PROJETOS = [1, 3, 8, 13, 14, 15];
+const CRIADO_EM = { 1: "2026-07-20", 3: "2026-07-10", 8: "2026-05-06", 13: "2026-03-12", 14: "2026-08-25", 15: "2026-09-02" };
+const CONCLUIDO_EM = { 8: "2026-05-30", 13: "2026-08-18" };

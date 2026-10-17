@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu perfil</title>
+
+    <link rel="stylesheet" href="perfil.css">
+    <link rel="stylesheet" href="footer.css">
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="menuLateral.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="nav-logo">
+            <a href="index.html">
+                <img src="logoElo.jpeg" alt="Instituto Elo Logo">
+            </a>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Explorar</a></li>
+            <li><a href="projetos.html">Projetos</a></li>
+            <li><a href="comoFunciona.html">Como funciona</a></li>
+            <li><a href="sobre.html">Sobre nós</a></li>
+
+            <li>
+                <div class="search-box">
+                    <input type="text" placeholder="Buscar projetos">
+                    <button>
+                        <span class="material-symbols-outlined">search</span>
+                    </button>
+                </div>
+            </li>
+
+            <li><a href="login.html">Entrar</a></li>
+
+            <li>
+                <input type="button" value="Criar Campanha" id="botaoCampanha" onclick="window.location.href='criarCampanha.html'">
+            </li>
+        </ul>
+    </nav>
+
+    <div class="layout-principal">
+
+        <!-- MENU LATERAL (igual ao da página de configurações) -->
+        <aside class="area-lateral">
+            <div class="barra-lateral">
+                <a href="perfil.html" class="active">
+                    <i class="fa-regular fa-user"></i> Meu perfil
+                </a>
+                <a href="criador.html">
+                    <i class="fa-solid fa-chart-column"></i> Painel do criador
+                </a>
+                <a href="projetos.html">
+                    <i class="fa-regular fa-comment-dots"></i> Projetos criados
+                </a>
+                <a href="doacoes.html">
+                    <i class="fa-solid fa-dollar-sign"></i> Minhas doações
+                </a>
+                <a href="favoritos.html">
+                    <i class="fa-regular fa-heart"></i> Favoritos
+                </a>
+                <a href="notificacoes.html">
+                    <i class="fa-regular fa-bell"></i> Notificações
+                </a>
+                <a href="configuracoes.html">
+                    <i class="fa-solid fa-gear"></i> Configurações
+                </a>
+                <a href="sair.html">
+                    <i class="fa-solid fa-right-from-bracket"></i> Sair
+                </a>
+            </div>
+
+            <div class="card-destaque">
+                <i class="fa-regular fa-heart" id="card-icon"></i>
+                <p id="card-text">Conecte-se com ideias que transformam o futuro.</p>
+            </div>
+        </aside>
+
+        <!-- CONTEÚDO -->
+        <main class="conteudo-principal perfil">
+
+            <h1>Meu perfil</h1>
+            <p class="subtitulo">Gerencie suas informações e acompanhe suas atividades no Elo.</p>
+
+            <!-- CARTÃO DO PERFIL -->
+            <section class="cartao-perfil">
+                <div class="perfil-dados">
+                    <div class="foto">
+                        <img id="fotoPerfil" src="mariane.jpg" alt="Foto de perfil">
+                        <button type="button" class="foto-btn" id="btnFoto" aria-label="Alterar foto">
+                            <i class="fa-solid fa-camera"></i>
+                        </button>
+                        <input type="file" id="arquivoFoto" accept="image/*" hidden>
+                    </div>
+
+                    <div class="perfil-texto">
+                        <h2 id="nomePerfil"></h2>
+                        <span class="selo-tipo"><i class="fa-regular fa-circle-check"></i> Apoiadora e Criadora</span>
+                        <p class="email" id="emailPerfil"></p>
+                        <p class="membro">Membro desde abril de 2024</p>
+                        <p class="bio" id="bioPerfil"></p>
+                        <button type="button" class="btn-contorno" id="btnEditar">
+                            <i class="fa-solid fa-pencil"></i> Editar Perfil
+                        </button>
+                    </div>
+                </div>
+
+                <div class="perfil-numeros">
+                    <div class="numero">
+                        <span class="numero-icone azul"><i class="fa-regular fa-file"></i></span>
+                        <div><strong id="statCriados"></strong><small>Projetos criados</small></div>
+                    </div>
+                    <div class="numero">
+                        <span class="numero-icone verde"><i class="fa-regular fa-heart"></i></span>
+                        <div><strong id="statApoiados"></strong><small>Projetos apoiados</small></div>
+                    </div>
+                    <div class="numero">
+                        <span class="numero-icone amarelo"><i class="fa-solid fa-dollar-sign"></i></span>
+                        <div><strong id="statTotal"></strong><small>Total doado</small></div>
+                    </div>
+                    <div class="numero">
+                        <span class="numero-icone roxo"><i class="fa-solid fa-user-group"></i></span>
+                        <div><strong id="statPessoas"></strong><small>Pessoas impactadas</small></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ABAS -->
+            <div class="abas" role="tablist">
+                <button type="button" class="aba ativo" data-aba="geral" role="tab">Visão Geral</button>
+                <button type="button" class="aba" data-aba="criados" role="tab">Projetos criados</button>
+                <button type="button" class="aba" data-aba="apoiados" role="tab">Projetos apoiados</button>
+                <button type="button" class="aba" data-aba="informacoes" role="tab">Informações pessoais</button>
+            </div>
+
+            <!-- VISÃO GERAL -->
+            <section class="aba-painel ativo" id="aba-geral">
+                <div class="duas-colunas">
+                    <article class="cartao">
+                        <div class="cartao-topo">
+                            <h3>Projetos que criei</h3>
+                            <button type="button" class="ver-todos" data-ir="criados">ver todos <i class="fa-solid fa-arrow-right"></i></button>
+                        </div>
+                        <div id="resumoCriados"></div>
+                        <a href="criarCampanha.html" class="btn-contorno largo"><i class="fa-solid fa-circle-plus"></i> Criar nova campanha</a>
+                    </article>
+
+                    <article class="cartao">
+                        <div class="cartao-topo">
+                            <h3>Projetos que apoio</h3>
+                            <button type="button" class="ver-todos" data-ir="apoiados">ver todos <i class="fa-solid fa-arrow-right"></i></button>
+                        </div>
+                        <div id="resumoApoiados"></div>
+                        <a href="doacoes.html" class="btn-contorno largo">Ver todas as doações</a>
+                    </article>
+                </div>
+
+                <section class="convite">
+                    <div class="convite-icone"><i class="fa-solid fa-gift"></i></div>
+                    <div class="convite-texto">
+                        <strong>Indique a Elo para mais pessoas!</strong>
+                        <p>Quanto mais pessoas apoiando ideias, maior o impacto que podemos gerar juntos.</p>
+                    </div>
+                    <button type="button" class="btn-contorno" id="btnConvidar">
+                        <i class="fa-solid fa-share-nodes"></i> Convidar amigos
+                    </button>
+                </section>
+            </section>
+
+            <!-- PROJETOS CRIADOS -->
+            <section class="aba-painel" id="aba-criados">
+                <article class="cartao">
+                    <div class="cartao-topo"><h3>Projetos que criei</h3></div>
+                    <div id="listaCriados"></div>
+                    <a href="criarCampanha.html" class="btn-contorno largo"><i class="fa-solid fa-circle-plus"></i> Criar nova campanha</a>
+                </article>
+            </section>
+
+            <!-- PROJETOS APOIADOS -->
+            <section class="aba-painel" id="aba-apoiados">
+                <article class="cartao">
+                    <div class="cartao-topo"><h3>Projetos que apoio</h3></div>
+                    <div id="listaApoiados"></div>
+                    <a href="doacoes.html" class="btn-contorno largo">Ver todas as doações</a>
+                </article>
+            </section>
+
+            <!-- INFORMAÇÕES PESSOAIS -->
+            <section class="aba-painel" id="aba-informacoes">
+                <article class="cartao">
+                    <div class="cartao-topo"><h3>Informações pessoais</h3></div>
+                    <form id="formPerfil" novalidate>
+                        <div class="campos-duplos">
+                            <label class="campo"><span>Nome completo</span>
+                                <input type="text" id="campoNome" maxlength="80"></label>
+                            <label class="campo"><span>Telefone</span>
+                                <input type="text" id="campoTelefone" maxlength="20"></label>
+                        </div>
+                        <label class="campo"><span>E-mail</span>
+                            <input type="email" id="campoEmail" maxlength="80"></label>
+                        <label class="campo"><span>Sobre você</span>
+                            <textarea id="campoBio" maxlength="200"></textarea></label>
+                        <p class="erro-form" id="erroPerfil" hidden></p>
+                        <div class="form-acoes">
+                            <button type="button" class="btn-contorno" id="cancelarPerfil">Cancelar</button>
+                            <button type="submit" class="btn-azul">Salvar alterações</button>
+                        </div>
+                    </form>
+                </article>
+            </section>
+
+        </main>
+    </div>
+
+    <div class="footer">
+
+        <div class="footer-content">
+            <div class="logo">
+                <img src="Vetorizado (1) (1).png" alt="Logo" class="footer-logo">
+            </div>
+            <p class="slogan">Conectando ideias, transformando realidades.</p>
+            <div class="social-icons">
+                <a href="https://www.instagram.com/instituto_.elo/?utm_source=ig_web_button_share_sheet" aria-label="Instagram">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+
+                <a href="https://www.facebook.com/profile.php?id=61595034278434" aria-label="Facebook">
+                    <i class="fa-brands fa-facebook-f"></i>
+                </a>
+
+                <a href="#" aria-label="LinkedIn">
+                    <i class="fa-brands fa-linkedin-in"></i>
+                </a>
+            </div>
+        </div>
+
+        <div class="navegaçao">
+            <ul>
+                <li><a href="#">Projetos</a></li>
+                <li><a href="#">Como funciona</a></li>
+                <li><a href="#">Sobre nós</a></li>
+            </ul>
+        </div>
+
+        <div class="institucional">
+            <ul>
+                <li><a href="#">Quem somos</a></li>
+                <li><a href="#">Transparência</a></li>
+                <li><a href="#">Termos de uso</a></li>
+                <li><a href="#">Política de privacidade</a></li>
+            </ul>
+        </div>
+
+        <div class="contato">
+            <p>contato@elo.com.br</p>
+            <p>(12) 92348-922067</p>
+        </div>
+
+    </div>
+
+    <!-- Janela "Convidar amigos" -->
+    <div class="modal" id="modal" hidden>
+        <div class="modal-fundo" data-fechar></div>
+        <div class="modal-caixa" role="dialog" aria-modal="true" aria-labelledby="modalTitulo">
+            <button type="button" class="modal-fechar" data-fechar aria-label="Fechar">&times;</button>
+            <h3 id="modalTitulo"></h3>
+            <div id="modalCorpo"></div>
+        </div>
+    </div>
+
+    <div class="aviso" id="aviso" role="status"></div>
+
+    <script src="menuLateral.js"></script>
+    <script src="dadosProjetos.js"></script>
+    <script src="perfil.js"></script>
+</body>
+
+</html>
