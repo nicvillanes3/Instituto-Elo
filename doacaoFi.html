@@ -275,6 +275,11 @@
 
             document.getElementById("textoCodigo").textContent = "Doação #" + codigoRecebido;
 
+            // Guarda a doação para aparecer em "Minhas doações" (não duplica ao recarregar)
+            const hoje = new Date();
+            const hojeISO = `${hoje.getFullYear()}-${String(hoje.getMonth() + 1).padStart(2, "0")}-${String(hoje.getDate()).padStart(2, "0")}`;
+            registrarDoacao({ id: p.id, valor: valorPagamento, data: hojeISO, codigo: codigoRecebido });
+
             document.getElementById("btnAcompanhar").addEventListener("click", () => {
                 window.location.href = "projeto.html?id=" + p.id;
             });

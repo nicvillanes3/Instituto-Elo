@@ -9,18 +9,6 @@ document.addEventListener("DOMContentLoaded", function () {
     };
     const PESSOAS_IMPACTADAS = 45;
 
-    // Doações feitas pelo usuário (exemplo): 8 projetos, total R$ 650
-    const DOACOES = [
-        { id: 1,  valor: 50,  data: "2026-08-15" },
-        { id: 2,  valor: 50,  data: "2026-08-10" },
-        { id: 6,  valor: 40,  data: "2026-07-28" },
-        { id: 4,  valor: 100, data: "2026-07-12" },
-        { id: 5,  valor: 150, data: "2026-06-30" },
-        { id: 3,  valor: 60,  data: "2026-06-15" },
-        { id: 9,  valor: 120, data: "2026-05-20" },
-        { id: 10, valor: 80,  data: "2026-05-02" }
-    ];
-
     const $ = id => document.getElementById(id);
     const esc = t => String(t).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
     const moeda = n => "R$" + n.toLocaleString("pt-BR", { maximumFractionDigits: 0 });
@@ -59,7 +47,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     // Doações já ligadas ao projeto, da mais recente para a mais antiga
-    const apoios = DOACOES
+    const apoios = todasAsDoacoes()
         .map(d => ({ ...d, projeto: projetos.find(p => p.id === d.id) }))
         .filter(d => d.projeto)
         .sort((a, b) => b.data.localeCompare(a.data));

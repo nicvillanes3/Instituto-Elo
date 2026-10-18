@@ -88,3 +88,31 @@ projetos.forEach(p => Object.assign(p, detalhes[p.id] || {}));
 const MEUS_PROJETOS = [1, 3, 8, 13, 14, 15];
 const CRIADO_EM = { 1: "2026-07-20", 3: "2026-07-10", 8: "2026-05-06", 13: "2026-03-12", 14: "2026-08-25", 15: "2026-09-02" };
 const CONCLUIDO_EM = { 8: "2026-05-30", 13: "2026-08-18" };
+
+// Doações feitas pelo usuário logado (exemplo). Novas doações feitas no site
+// são guardadas no navegador por registrarDoacao() e somadas a esta lista.
+const MINHAS_DOACOES = [
+    { id: 1,  valor: 50,  data: "2026-08-20" },
+    { id: 2,  valor: 80,  data: "2026-08-15" },
+    { id: 3,  valor: 40,  data: "2026-08-10" },
+    { id: 13, valor: 30,  data: "2026-07-25" },
+    { id: 4,  valor: 50,  data: "2026-07-18" },
+    { id: 6,  valor: 120, data: "2026-07-05" },
+    { id: 9,  valor: 150, data: "2026-06-20" },
+    { id: 10, valor: 100, data: "2026-06-02" }
+];
+
+function lerDoacoesSalvas() {
+    try { return JSON.parse(localStorage.getItem("eloDoacoes")) || []; } catch (e) { return []; }
+}
+
+function registrarDoacao(doacao) {
+    const lista = lerDoacoesSalvas();
+    if (doacao.codigo && lista.some(x => x.codigo === doacao.codigo)) return;   // evita duplicar ao recarregar
+    lista.push(doacao);
+    try { localStorage.setItem("eloDoacoes", JSON.stringify(lista)); } catch (e) { /* ignora */ }
+}
+
+function todasAsDoacoes() {
+    return [...MINHAS_DOACOES, ...lerDoacoesSalvas()];
+}
