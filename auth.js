@@ -159,8 +159,13 @@
     }
 
     function garantirRecursos() {
-        // Ícones (Material Symbols) usados pela navbar
-        if (!document.querySelector('link[href*="Material+Symbols"]')) {
+        // Ícones (Material Symbols) usados pela navbar: "search" e "account_circle".
+        // Se a página já carrega a fonte só com uma lista de ícones (icon_names=...) que não
+        // inclui account_circle, carrega a fonte completa também.
+        const fontes = Array.from(document.querySelectorAll('link[href*="Material+Symbols"]'));
+        const atende = fontes.some(l => !l.href.includes("icon_names") || l.href.includes("account_circle"));
+
+        if (!atende) {
             const fonte = document.createElement("link");
             fonte.rel = "stylesheet";
             fonte.href = "https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined";

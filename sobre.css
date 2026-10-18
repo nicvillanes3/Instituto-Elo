@@ -1,0 +1,246 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #ffffff;
+    color: #111;
+    text-align: center;
+    padding: 50px 40px 30px;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Título */
+
+body > h1 {
+    font-size: 40px;
+    font-weight: 800;
+    margin-bottom: 12px;
+}
+
+body > p {
+    max-width: 540px;
+    margin: 0 auto 42px;
+    font-size: 15px;
+    line-height: 1.45;
+    color: #4d4d4d;
+}
+
+/* Decorações */
+
+body::before {
+    content: "";
+    position: absolute;
+    width: 145px;
+    height: 240px;
+    background: #e8f1ff;
+    border-radius: 0 150px 150px 0;
+    left: -45px;
+    top: 80px;
+    z-index: -1;
+}
+
+body::after {
+    content: "";
+    position: absolute;
+    width: 100px;
+    height: 175px;
+    background: #ffd500;
+    border-radius: 100px 0 0 100px;
+    right: -35px;
+    top: 220px;
+    z-index: -1;
+}
+
+/* Cards principais */
+
+.cards {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    max-width: 875px;
+    margin: 0 auto 30px;
+}
+
+.card {
+    width: 280px;
+    min-height: 270px;
+    background: #fff;
+    border-radius: 10px;
+    padding: 28px 35px 25px;
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.10);
+    text-align: center;
+}
+
+.card img {
+    width: 90px;
+    height: 90px;
+    object-fit: contain;
+    margin-bottom: 14px;
+}
+
+.card h2 {
+    font-size: 16px;
+    margin-bottom: 14px;
+    font-weight: 700;
+}
+
+.card p {
+    font-size: 11px;
+    line-height: 1.5;
+    color: #888;
+    text-align: left;
+}
+
+/* Área dos números */
+
+.card2 {
+    max-width: 875px;
+    height: 118px;
+    margin: 0 auto 34px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.09);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 15px 35px;
+}
+
+.projeto {
+    display: grid;
+    grid-template-columns: 55px auto;
+    grid-template-rows: 30px 25px;
+    column-gap: 10px;
+    align-items: center;
+    text-align: left;
+}
+
+.projeto img {
+    width: 55px;
+    height: 55px;
+    object-fit: contain;
+    grid-row: 1 / 3;
+}
+
+.projeto h1 {
+    font-size: 28px;
+    font-weight: 800;
+    margin: 0;
+}
+
+.projeto p {
+    font-size: 14px;
+    color: #777;
+    margin: 0;
+}
+
+/* Texto final */
+
+.info {
+    max-width: 650px;
+    margin: 0 auto;
+}
+
+.info h2 {
+    font-size: 18px;
+    font-weight: 800;
+    margin-bottom: 20px;
+    position: relative;
+    display: inline-block;
+}
+
+.info h2::after {
+    content: "";
+    position: absolute;
+    width: 70px;
+    height: 3px;
+    background: #ffd500;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.info p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #555;
+}
+
+/* Bolinhas decorativas */
+
+.cards::before {
+    content: "";
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: #1764d8;
+    border-radius: 50%;
+    right: 48px;
+    top: 193px;
+}
+
+.card2::before {
+    content: "";
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    background: #ffd500;
+    border-radius: 50%;
+    left: 23px;
+    margin-top: 80px;
+    z-index: -1;
+}
+
+/* Responsivo */
+
+@media (max-width: 900px) {
+    .cards {
+        flex-wrap: wrap;
+    }
+
+    .card {
+        width: 45%;
+    }
+
+    .card2 {
+        width: 90%;
+    }
+}
+
+@media (max-width: 600px) {
+    body {
+        padding: 35px 20px;
+    }
+
+    body > h1 {
+        font-size: 32px;
+    }
+
+    .cards {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card {
+        width: 100%;
+        max-width: 330px;
+    }
+
+    .card2 {
+        width: 100%;
+        height: auto;
+        flex-direction: column;
+        gap: 25px;
+        padding: 25px;
+    }
+
+    .projeto {
+        width: 190px;
+    }
+}
