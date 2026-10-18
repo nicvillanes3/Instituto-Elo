@@ -1,9 +1,10 @@
 document.addEventListener("DOMContentLoaded", function () {
 
     // ===== Dados do usuário (troque pelos dados reais do usuário logado) =====
+    const sessao = (window.Auth && Auth.usuario()) || {};
     const PERFIL_PADRAO = {
-        nome: "Mariane Araujo",
-        email: "mariane.araujo@gmail.com",
+        nome: sessao.nome || "Mariane Araujo",
+        email: sessao.email || "mariane.araujo@gmail.com",
         telefone: "(11) 98765-4321",
         bio: "Estudante de design apaixonada por projetos que transformam realidades através da educação e tecnologia."
     };
@@ -225,7 +226,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     $("btnConvidar").addEventListener("click", () => {
-        const url = new URL("index.html", window.location.href).href;
+        const url = new URL("inicio.html", window.location.href).href;
         const texto = "Venha apoiar ideias que transformam o futuro no Instituto Elo!";
 
         abrirModal("Convidar amigos", `

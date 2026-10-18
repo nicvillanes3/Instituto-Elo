@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saindo...</title>
+    <script src="auth.js"></script>
+</head>
+
+<body>
+    <p style="font-family: Arial, sans-serif; text-align: center; margin-top: 60px; color: #666;">Saindo da sua conta...</p>
+
+    <script>
+        // Encerra a sessão e volta para a página inicial
+        Auth.sair();
+        window.location.replace(Auth.paginaInicial);
+    </script>
+</body>
+
+</html>
