@@ -72,9 +72,7 @@
 
 
             <a href="esqueciSenha.html">Esqueceu sua senha?</a>
-          <button type="button" onclick="window.location.href='perfil.html'">
-    Entrar
-</button>
+        <button type="submit">Entrar</button>
         </form>
         <p>ou continue com</p>
         <div class="social-login">
@@ -164,6 +162,26 @@
         </div>
 
     </div>
+    <script>
+document.querySelector(".login-container form").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const email = document.getElementById("email").value.trim();
+    const senha = document.getElementById("password").value;
+
+    if (!email || !senha) {
+        alert("Preencha o e-mail e a senha.");
+        return;
+    }
+
+    Auth.entrar({
+        nome: email.split("@")[0],
+        email: email
+    });
+
+    Auth.irParaDestino();
+});
+</script>
 </body>
 
 </html>

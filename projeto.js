@@ -26,7 +26,12 @@ document.addEventListener("DOMContentLoaded", function () {
     $("bcCategoria").href = "explorar.html?categoria=" + encodeURIComponent(projeto.categoria);
     $("bcTitulo").textContent = projeto.titulo;
 
-    $("capa").style.backgroundImage = `url('${projeto.img}')`;
+  const capa = $("capa");
+
+capa.style.backgroundImage = `url("${projeto.img}")`;
+capa.style.backgroundSize = "cover";
+capa.style.backgroundPosition = "center";
+capa.style.backgroundRepeat = "no-repeat";
     $("tag").textContent = projeto.categoria;
     $("tag").style.background = projeto.cor;
     $("titulo").textContent = projeto.titulo;
