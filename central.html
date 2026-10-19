@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="central.css">
   <link rel="stylesheet" href="header.css">
   <link rel="stylesheet" href="footer.css">
+  <link rel="stylesheet" href="nav.css">
 
   <link
     href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@300&icon_names=search,help,volunteer_activism,person,edit_note,security,account_balance_wallet,school"
@@ -23,8 +24,35 @@
 <body>
 
   <!-- HEADER -->
-  <script src="header.js"></script>
-  <header id="header"></header>
+
+    <nav class="navbar">
+        <div class="nav-logo">
+            <a href="index.html">
+                <img src="logoElo.jpeg" alt="Instituto Elo Logo">
+            </a>
+        </div>
+<ul class="nav-links">
+    <li><a href="explorar.html">Explorar</a></li>
+    <li><a href="explorar.html">Projetos</a></li>
+    <li><a href="index.html">Como funciona</a></li>
+    <li><a href="sobre.html">Sobre nós</a></li>
+
+    <li>
+        <div class="search-box">
+            <input type="text" placeholder="Buscar projetos">
+            <button>
+                <span class="material-symbols-outlined">search</span>
+            </button>
+        </div>
+    </li>
+
+    <li><a href="login.html">Entrar</a></li>
+
+    <li>
+        <input type="button" value="Criar Campanha" id="botaoCampanha" onclick="window.location.href='criarCampanha.html'">
+    </li>
+</ul>
+    </nav>
 
   <script src="search.js"></script>
 

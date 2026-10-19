@@ -816,19 +816,7 @@
 
 @media (max-width: 1000px) {
 
-    .nav-links {
-        gap: 15px;
-        margin-right: 20px;
-    }
-
-    .nav-links li {
-        padding: 0 3px;
-    }
-
-    .search-box {
-        width: 190px;
-    }
-
+  
     .hero {
         grid-template-columns: 1fr;
         text-align: center;
@@ -884,27 +872,6 @@
 
 @media (max-width: 768px) {
 
-    .navbar {
-        flex-direction: column;
-        padding: 15px;
-        gap: 15px;
-    }
-
-    .nav-logo img {
-        margin-left: 0;
-    }
-
-    .nav-links {
-        width: 100%;
-        margin: 0;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 12px;
-    }
-
-    .search-box {
-        width: 220px;
-    }
 
     .hero {
         padding: 50px 6%;
@@ -1061,4 +1028,8 @@
         font-size: 25px;
     }
 
+}
+
+.navbar .nav-links a {
+    font-weight: 520;
 }
