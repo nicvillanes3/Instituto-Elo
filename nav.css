@@ -136,3 +136,14 @@
     font-size: 25px;
     cursor: pointer;
 }
+
+.navbar {
+    background-color: #FFFFFF !important;
+}
+
+header,
+header nav,
+header .navbar,
+#header {
+    background-color: #FFFFFF !important;
+}
