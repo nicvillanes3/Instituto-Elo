@@ -498,3 +498,8 @@ body::after {
         flex-direction: column;
     }
 }
+
+.footer {
+    grid-column: 1 / -1;
+    width: 100%;
+}
