@@ -532,3 +532,8 @@ body::after {
         padding: 50px 24px 60px;
     }
 }
+
+.footer {
+    grid-column: 1 / -1;
+    width: 100%;
+}

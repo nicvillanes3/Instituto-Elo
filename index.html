@@ -1,49 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="auth.js"></script>
     <title>Instituto-Elo</title>
     <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="nav.css">
     <link rel="stylesheet" href="footer.css">
-   
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
     <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=check_circle,description,eco,groups,hub,search,volunteer_activism,arrow_forward,trending_up,school,add_circle">
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=account_circle,check_circle,description,eco,groups,hub,search,volunteer_activism,arrow_forward,trending_up,school,add_circle">
 </head>
 
 <body>
-    <nav class="navbar">
-        <div class="nav-logo">
-            <a href="index.html">
-                <img src="logoElo.jpeg" alt="Instituto Elo Logo">
-            </a>
-        </div>
-        <ul class="nav-links">
-            <li><a href="explorar.html">Explorar</a></li>
-            <li><a href="explorar.html">Projetos</a></li>
-            <li><a href="inicio.html">Como funciona</a></li>
-            <li><a href="sobre.html">Sobre nós</a></li>
+    <!-- A navbar (visitante ou logado) é montada automaticamente pelo auth.js -->
+    <div id="navbar"></div>
 
-            <li>
-                <div class="search-box">
-                    <input type="text" placeholder="Buscar projetos">
-                    <button>
-                        <span class="material-symbols-outlined">search</span>
-                    </button>
-                </div>
-            </li>
-
-            <li><a href="login.html">Entrar</a></li>
-
-            <li>
-                <input type="button" value="Criar Campanha" id="botaoCampanha"
-                    onclick="window.location.href='criarCampanha.html'">
-            </li>
-        </ul>
-        </nav>
-        <main>
+    <main>
 
         <!-- HERO -->
 
@@ -70,14 +46,14 @@
 
                 <div class="hero-botoes">
 
-                    <a href="projetos.html" class="btn-principal">
+                    <a href="explorar.html" class="btn-principal">
                         Explorar projetos
                         <span class="material-symbols-outlined">
                             arrow_forward
                         </span>
                     </a>
 
-                    <a href="criarCampanha.html" class="btn-secundario">
+                    <a href="criarCampanha1.html" class="btn-secundario">
                         Criar campanha
                     </a>
 
@@ -116,7 +92,8 @@
 
                 <div class="imagem-principal">
                     <img src="01_aluna_robotica.png"
-                        alt="Estudante desenvolvendo projeto">
+                        alt="Estudante desenvolvendo projeto"
+                        onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=1000&q=80';">
                 </div>
 
                 <div class="card-impacto">
@@ -154,7 +131,7 @@
 
         <!-- COMO FUNCIONA -->
 
-        <section class="como-funciona">
+        <section class="como-funciona" id="como-funciona">
 
             <div class="titulo-secao">
 
@@ -300,7 +277,7 @@
                     áreas e transformam comunidades.
                 </p>
 
-                <a href="projetos.html">
+                <a href="explorar.html">
                     Saiba mais sobre as áreas
                     <span class="material-symbols-outlined">
                         arrow_forward
@@ -398,200 +375,200 @@
 
         <!-- PROJETOS EM DESTAQUE -->
 
-<section class="projetos-destaque">
+        <section class="projetos-destaque">
 
-    <div class="topo-projetos">
+            <div class="topo-projetos">
 
-        <div>
-            <h2>Projetos em destaque</h2>
-        </div>
-
-        <a href="projetos.html" class="ver-projetos">
-            Ver todos os projetos
-            <span class="material-symbols-outlined">
-                arrow_forward
-            </span>
-        </a>
-
-    </div>
-
-
-    <div class="filtros-projetos">
-
-        <button class="filtro ativo" data-categoria="todos">
-            Todos
-        </button>
-
-        <button class="filtro" data-categoria="tecnologia">
-            Tecnologia
-        </button>
-
-        <button class="filtro" data-categoria="meio-ambiente">
-            Meio Ambiente
-        </button>
-
-        <button class="filtro" data-categoria="educacao">
-            Educação
-        </button>
-
-        <button class="filtro" data-categoria="saude">
-            Saúde
-        </button>
-
-        <button class="filtro" data-categoria="inclusao">
-            Inclusão social
-        </button>
-
-    </div>
-
-
-    <div class="cards-projetos">
-
-
-        <article class="projeto-card" data-categoria="meio-ambiente">
-
-            <div class="imagem-projeto">
-                <img src="energia_solar_na_escola.png"
-                    alt="Energia Solar na Escola">
-            </div>
-
-            <div class="conteudo-projeto">
-
-                <span class="categoria">
-                    Meio Ambiente
-                </span>
-
-                <h3>
-                    Energia Solar na Escola
-                </h3>
-
-                <p>
-                    Uma iniciativa para levar energia limpa
-                    e conhecimento sobre sustentabilidade.
-                </p>
-
-                <div class="progresso">
-
-                    <div class="barra">
-                        <div class="barra-preenchida"
-                            style="width:72%;">
-                        </div>
-                    </div>
-
-                    <div class="dados-projeto">
-                        <strong>72%</strong>
-                        <span>da meta</span>
-                    </div>
-
+                <div>
+                    <h2>Projetos em destaque</h2>
                 </div>
 
-                <div class="rodape-card">
-                    <span>R$ 7.200 arrecadados</span>
-                    <span>Meta: R$ 10.000</span>
-                </div>
+                <a href="explorar.html" class="ver-projetos">
+                    Ver todos os projetos
+                    <span class="material-symbols-outlined">
+                        arrow_forward
+                    </span>
+                </a>
 
             </div>
 
-        </article>
 
+            <div class="filtros-projetos">
 
-        <article class="projeto-card" data-categoria="tecnologia">
+                <button class="filtro ativo" data-categoria="todos">
+                    Todos
+                </button>
 
-            <div class="imagem-projeto">
-                <img src="robotica_para_todos.png"
-                    alt="Robótica para Todos">
-            </div>
-
-            <div class="conteudo-projeto">
-
-                <span class="categoria amarelo-tag">
+                <button class="filtro" data-categoria="tecnologia">
                     Tecnologia
-                </span>
+                </button>
 
-                <h3>
-                    Robótica para Todos
-                </h3>
+                <button class="filtro" data-categoria="meio-ambiente">
+                    Meio Ambiente
+                </button>
 
-                <p>
-                    Um laboratório de robótica para incentivar
-                    criatividade e inovação entre estudantes.
-                </p>
-
-                <div class="progresso">
-
-                    <div class="barra">
-                        <div class="barra-preenchida"
-                            style="width:84%;">
-                        </div>
-                    </div>
-
-                    <div class="dados-projeto">
-                        <strong>84%</strong>
-                        <span>da meta</span>
-                    </div>
-
-                </div>
-
-                <div class="rodape-card">
-                    <span>R$ 8.400 arrecadados</span>
-                    <span>Meta: R$ 10.000</span>
-                </div>
-
-            </div>
-
-        </article>
-
-
-        <article class="projeto-card" data-categoria="educacao">
-
-            <div class="imagem-projeto">
-                <img src="horta_sustentavel.png"
-                    alt="Horta Sustentável">
-            </div>
-
-            <div class="conteudo-projeto">
-
-                <span class="categoria verde-tag">
+                <button class="filtro" data-categoria="educacao">
                     Educação
-                </span>
+                </button>
 
-                <h3>
-                    Horta Sustentável
-                </h3>
+                <button class="filtro" data-categoria="saude">
+                    Saúde
+                </button>
 
-                <p>
-                    Estudantes criando uma horta para promover
-                    educação ambiental dentro da escola.
-                </p>
-
-                <div class="progresso">
-
-                    <div class="barra">
-                        <div class="barra-preenchida"
-                            style="width:58%;">
-                        </div>
-                    </div>
-
-                    <div class="dados-projeto">
-                        <strong>58%</strong>
-                        <span>da meta</span>
-                    </div>
-
-                </div>
-
-                <div class="rodape-card">
-                    <span>R$ 4.350 arrecadados</span>
-                    <span>Meta: R$ 7.500</span>
-                </div>
+                <button class="filtro" data-categoria="inclusao">
+                    Inclusão social
+                </button>
 
             </div>
 
-        </article>
+
+            <div class="cards-projetos">
 
 
-    </div>
+                <article class="projeto-card" data-categoria="meio-ambiente">
 
-</section>
+                    <div class="imagem-projeto">
+                        <img src="https://irp.cdn-website.com/ec21af5c/dms3rep/multi/opt/adlai-solar-1920w.jpg"
+                            alt="Energia Solar na Escola">
+                    </div>
+
+                    <div class="conteudo-projeto">
+
+                        <span class="categoria">
+                            Meio Ambiente
+                        </span>
+
+                        <h3>
+                            Energia Solar na Escola
+                        </h3>
+
+                        <p>
+                            Uma iniciativa para levar energia limpa
+                            e conhecimento sobre sustentabilidade.
+                        </p>
+
+                        <div class="progresso">
+
+                            <div class="barra">
+                                <div class="barra-preenchida"
+                                    style="width:72%;">
+                                </div>
+                            </div>
+
+                            <div class="dados-projeto">
+                                <strong>72%</strong>
+                                <span>da meta</span>
+                            </div>
+
+                        </div>
+
+                        <div class="rodape-card">
+                            <span>R$ 7.200 arrecadados</span>
+                            <span>Meta: R$ 10.000</span>
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <article class="projeto-card" data-categoria="tecnologia">
+
+                    <div class="imagem-projeto">
+                        <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=500&q=80"
+                            alt="Robótica para Todos">
+                    </div>
+
+                    <div class="conteudo-projeto">
+
+                        <span class="categoria amarelo-tag">
+                            Tecnologia
+                        </span>
+
+                        <h3>
+                            Robótica para Todos
+                        </h3>
+
+                        <p>
+                            Um laboratório de robótica para incentivar
+                            criatividade e inovação entre estudantes.
+                        </p>
+
+                        <div class="progresso">
+
+                            <div class="barra">
+                                <div class="barra-preenchida"
+                                    style="width:84%;">
+                                </div>
+                            </div>
+
+                            <div class="dados-projeto">
+                                <strong>84%</strong>
+                                <span>da meta</span>
+                            </div>
+
+                        </div>
+
+                        <div class="rodape-card">
+                            <span>R$ 8.400 arrecadados</span>
+                            <span>Meta: R$ 10.000</span>
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <article class="projeto-card" data-categoria="educacao">
+
+                    <div class="imagem-projeto">
+                        <img src="https://images.unsplash.com/photo-1530836369250-ef72a3f5cda8?auto=format&fit=crop&w=500&q=80"
+                            alt="Horta Sustentável">
+                    </div>
+
+                    <div class="conteudo-projeto">
+
+                        <span class="categoria verde-tag">
+                            Educação
+                        </span>
+
+                        <h3>
+                            Horta Sustentável
+                        </h3>
+
+                        <p>
+                            Estudantes criando uma horta para promover
+                            educação ambiental dentro da escola.
+                        </p>
+
+                        <div class="progresso">
+
+                            <div class="barra">
+                                <div class="barra-preenchida"
+                                    style="width:58%;">
+                                </div>
+                            </div>
+
+                            <div class="dados-projeto">
+                                <strong>58%</strong>
+                                <span>da meta</span>
+                            </div>
+
+                        </div>
+
+                        <div class="rodape-card">
+                            <span>R$ 4.350 arrecadados</span>
+                            <span>Meta: R$ 7.500</span>
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+            </div>
+
+        </section>
 
 
         <!-- CTA -->
@@ -638,7 +615,8 @@
         </section>
 
     </main>
-     <div class="footer">
+
+    <div class="footer">
 
         <div class="footer-content">
             <div class="logo">
@@ -662,9 +640,9 @@
 
         <div class="navegaçao">
             <ul>
-                <li><a href="#">Projetos</a></li>
-                <li><a href="#">Como funciona</a></li>
-                <li><a href="#">Sobre nós</a></li>
+                <li><a href="explorar.html">Projetos</a></li>
+                <li><a href="inicio.html#como-funciona">Como funciona</a></li>
+                <li><a href="sobre.html">Sobre nós</a></li>
             </ul>
         </div>
 
@@ -683,39 +661,40 @@
         </div>
 
     </div>
-<script>
-const filtros = document.querySelectorAll(".filtro");
-const projetos = document.querySelectorAll(".projeto-card");
 
-filtros.forEach(filtro => {
-    filtro.addEventListener("click", () => {
+    <script>
+        const filtros = document.querySelectorAll(".filtro");
+        const projetos = document.querySelectorAll(".projeto-card");
 
-        filtros.forEach(item => {
-            item.classList.remove("ativo");
+        filtros.forEach(filtro => {
+            filtro.addEventListener("click", () => {
+
+                filtros.forEach(item => {
+                    item.classList.remove("ativo");
+                });
+
+                filtro.classList.add("ativo");
+
+                const categoria = filtro.dataset.categoria;
+
+                projetos.forEach(projeto => {
+
+                    if (categoria === "todos" ||
+                        projeto.dataset.categoria === categoria) {
+
+                        projeto.style.display = "block";
+
+                    } else {
+
+                        projeto.style.display = "none";
+
+                    }
+
+                });
+
+            });
         });
-
-        filtro.classList.add("ativo");
-
-        const categoria = filtro.dataset.categoria;
-
-        projetos.forEach(projeto => {
-
-            if (categoria === "todos" ||
-                projeto.dataset.categoria === categoria) {
-
-                projeto.style.display = "block";
-
-            } else {
-
-                projeto.style.display = "none";
-
-            }
-
-        });
-
-    });
-});
-</script>
+    </script>
 
 </body>
 

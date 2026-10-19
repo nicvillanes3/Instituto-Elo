@@ -1,27 +1,36 @@
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-
 body {
-    background-color: #f4f5f7;
-    display: flex;
+    background-color: #fff;
+    display: block;
     min-height: 100vh;
     color: #333;
 }
 
-.dashboard-container {
-    display: flex;
+.navbar {
     width: 100%;
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 30px;
-    gap: 40px;
+    min-height: 90px;
+    background-color: #fff;
+    position: relative;
+    z-index: 10;
 }
 
-aside {
+.dashboard-container {
+    display: flex;
+    align-items: stretch;
+    gap: 28px;
+    width: 100%;
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 28px;
+}
+
+aside.sidebar {
     width: 260px;
     flex-shrink: 0;
     display: flex;
@@ -98,16 +107,17 @@ aside {
 
 main {
     flex-grow: 1;
+    min-width: 0;
 }
 
-header h1 {
+main header h1 {
     font-size: 28px;
     font-weight: 700;
     color: #111;
     margin-bottom: 8px;
 }
 
-header p {
+main header p {
     color: #666;
     font-size: 14px;
     margin-bottom: 20px;
@@ -117,11 +127,13 @@ header p {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 15px;
     margin-bottom: 30px;
 }
 
 .filtros-botoes {
     display: flex;
+    flex-wrap: wrap;
     gap: 10px;
 }
 
@@ -164,7 +176,7 @@ header p {
     background-color: #fff;
     border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
     border: 1px solid #eaeaea;
     display: flex;
     flex-direction: column;
@@ -173,7 +185,7 @@ header p {
 
 .card-projeto:hover {
     transform: translateY(-3px);
-    box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
 }
 
 .card-img-topo {
@@ -197,7 +209,7 @@ header p {
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
     transition: all 0.2s ease;
 }
 
@@ -258,6 +270,7 @@ header p {
 .card-detalhes-valores {
     display: flex;
     justify-content: space-between;
+    gap: 8px;
     font-size: 11px;
     color: #555;
 }
@@ -277,6 +290,7 @@ header p {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 15px;
     font-size: 13px;
     color: #666;
     border-top: 1px solid #e5e5e5;
@@ -312,16 +326,67 @@ header p {
     background-color: #f9f9f9;
 }
 
-.dashboard-container {
-    display: flex;
-    align-items: stretch;
-    gap: 28px;
-    max-width: 1600px;
-    margin: 0 auto;
-    padding: 28px;
+@media (max-width: 900px) {
+    .dashboard-container {
+        padding: 20px;
+        gap: 18px;
+    }
+
+    aside.sidebar {
+        width: 220px;
+    }
+
+    .nav-links {
+        gap: 8px;
+        margin-right: 12px;
+        flex-wrap: wrap;
+    }
+
+    .nav-links li {
+        padding: 0 5px;
+        gap: 10px;
+    }
 }
 
-.conteudo {
-    flex: 1;
-    min-width: 0;
+@media (max-width: 650px) {
+    .dashboard-container {
+        flex-direction: column;
+        padding: 16px;
+    }
+
+    aside.sidebar {
+        width: 100%;
+    }
+
+    .navbar {
+        align-items: flex-start;
+        flex-wrap: wrap;
+        padding: 10px 0;
+    }
+
+    .nav-logo img {
+        margin-left: 16px;
+    }
+
+    .nav-links {
+        width: 100%;
+        margin: 10px 12px 0;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .nav-links li {
+        padding: 5px;
+    }
+
+    .search-box {
+        width: 210px;
+    }
+
+    .filtros-container,
+    .paginacao-container {
+        align-items: flex-start;
+        flex-direction: column;
+    }
 }

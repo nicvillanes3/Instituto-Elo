@@ -1,3 +1,4 @@
+
 * {
     margin: 0;
     padding: 0;
@@ -9,7 +10,7 @@ body {
     background: #ffffff;
     color: #111;
     text-align: center;
-    padding: 50px 40px 30px;
+    padding: 0;
     position: relative;
     overflow-x: hidden;
 }
@@ -19,12 +20,13 @@ body {
 body > h1 {
     font-size: 40px;
     font-weight: 800;
-    margin-bottom: 12px;
+    margin: 50px 0 12px;
 }
 
 body > p {
     max-width: 540px;
     margin: 0 auto 42px;
+    padding: 0 10px;
     font-size: 15px;
     line-height: 1.45;
     color: #4d4d4d;
@@ -42,6 +44,7 @@ body::before {
     left: -45px;
     top: 80px;
     z-index: -1;
+    pointer-events: none;
 }
 
 body::after {
@@ -54,6 +57,7 @@ body::after {
     right: -35px;
     top: 220px;
     z-index: -1;
+    pointer-events: none;
 }
 
 /* Cards principais */
@@ -64,6 +68,7 @@ body::after {
     gap: 20px;
     max-width: 875px;
     margin: 0 auto 30px;
+    position: relative;
 }
 
 .card {
@@ -100,16 +105,16 @@ body::after {
 
 .card2 {
     max-width: 875px;
-    height: 118px;
+    min-height: 118px;
     margin: 0 auto 34px;
     background: #fff;
     border-radius: 10px;
     box-shadow: 0 3px 15px rgba(0, 0, 0, 0.09);
-
     display: flex;
     align-items: center;
     justify-content: space-around;
     padding: 15px 35px;
+    position: relative;
 }
 
 .projeto {
@@ -144,7 +149,8 @@ body::after {
 
 .info {
     max-width: 650px;
-    margin: 0 auto;
+    margin: 0 auto 40px;
+    padding: 0 15px;
 }
 
 .info h2 {
@@ -172,7 +178,7 @@ body::after {
     color: #555;
 }
 
-/* Bolinhas decorativas */
+/* Decorações dos cards */
 
 .cards::before {
     content: "";
@@ -181,8 +187,9 @@ body::after {
     height: 8px;
     background: #1764d8;
     border-radius: 50%;
-    right: 48px;
-    top: 193px;
+    right: -48px;
+    top: 113px;
+    pointer-events: none;
 }
 
 .card2::before {
@@ -192,34 +199,198 @@ body::after {
     height: 80px;
     background: #ffd500;
     border-radius: 50%;
-    left: 23px;
-    margin-top: 80px;
+    left: -23px;
+    bottom: -20px;
     z-index: -1;
+    pointer-events: none;
 }
 
-/* Responsivo */
+/* Footer */
+
+.footer {
+    width: 100%;
+    min-height: 230px;
+    margin-top: 0;
+    text-align: left;
+    background-color: #edf4ff;
+    display: flex;
+    padding: 28px 11%;
+    color: #34405a;
+    position: relative;
+    z-index: 1;
+}
+
+.footer-content {
+    width: 28%;
+    padding-right: 45px;
+    flex-shrink: 0;
+}
+
+.footer-logo {
+    width: 55px;
+    margin-bottom: 15px;
+}
+
+.footer .slogan {
+    font-size: 11px;
+    line-height: 1.5;
+    color: #4b5870;
+    margin-bottom: 15px;
+    max-width: 180px;
+}
+
+.social-icons {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.social-icons a {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #1458b8;
+    text-decoration: none;
+    transition: 0.2s;
+}
+
+.social-icons a:hover {
+    color: #0d4bc0;
+}
+
+.social-icons i {
+    font-size: 18px;
+}
+
+.navegaçao {
+    width: 27%;
+    border-left: 1px solid #c5cfdd;
+    padding-left: 20px;
+}
+
+.navegaçao::before {
+    content: "Navegação";
+    display: block;
+    color: #1458b8;
+    font-size: 11px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #1458b8;
+    width: 50px;
+    padding-bottom: 3px;
+}
+
+.navegaçao ul,
+.institucional ul {
+    list-style: none;
+}
+
+.navegaçao li,
+.institucional li {
+    margin-bottom: 13px;
+}
+
+.navegaçao a,
+.institucional a {
+    text-decoration: none;
+    color: #4b5870;
+    font-size: 11px;
+}
+
+.institucional {
+    width: 27%;
+    border-left: 1px solid #c5cfdd;
+    padding-left: 30px;
+}
+
+.institucional::before {
+    content: "Institucional";
+    display: block;
+    color: #1458b8;
+    font-size: 11px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #1458b8;
+    width: 58px;
+    padding-bottom: 3px;
+}
+
+.contato {
+    width: 20%;
+    border-left: 1px solid #c5cfdd;
+    padding-left: 20px;
+}
+
+.contato::before {
+    content: "Contato";
+    display: block;
+    color: #1458b8;
+    font-size: 11px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #1458b8;
+    width: 43px;
+    padding-bottom: 3px;
+}
+
+.contato p {
+    font-size: 11px;
+    margin-bottom: 12px;
+    color: #4b5870;
+}
+
+.navegaçao a:hover,
+.institucional a:hover {
+    color: #1458b8;
+}
+
+/* Responsividade */
 
 @media (max-width: 900px) {
     .cards {
         flex-wrap: wrap;
+        padding: 0 15px;
     }
 
     .card {
-        width: 45%;
+        width: calc(50% - 10px);
     }
 
     .card2 {
         width: 90%;
     }
+
+    .cards::before {
+        right: 0;
+    }
+
+    .footer {
+        padding: 30px 6%;
+        flex-wrap: wrap;
+        gap: 25px;
+    }
+
+    .footer-content {
+        width: 100%;
+    }
+
+    .navegaçao,
+    .institucional,
+    .contato {
+        width: 30%;
+    }
 }
 
 @media (max-width: 600px) {
-    body {
-        padding: 35px 20px;
-    }
-
     body > h1 {
         font-size: 32px;
+        margin-top: 35px;
+    }
+
+    body > p {
+        padding: 0 20px;
     }
 
     .cards {
@@ -233,7 +404,7 @@ body::after {
     }
 
     .card2 {
-        width: 100%;
+        width: calc(100% - 40px);
         height: auto;
         flex-direction: column;
         gap: 25px;
@@ -242,5 +413,25 @@ body::after {
 
     .projeto {
         width: 190px;
+    }
+
+    .info {
+        margin-bottom: 35px;
+    }
+
+    .footer {
+        flex-direction: column;
+        padding: 30px 6%;
+        gap: 25px;
+    }
+
+    .footer-content,
+    .navegaçao,
+    .institucional,
+    .contato {
+        width: 100%;
+        border-left: none;
+        padding-left: 0;
+        padding-right: 0;
     }
 }

@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", function() {
             texto: "Apoiar é transformar ideias em realidade.",
             icone: "fa-solid fa-dollar-sign"
         },
-        "notificacoes.html": {
+        "notificacao.html": {
             texto: "Fique por dentro das novidades e atualizações!",
             icone: "fa-regular fa-bell"
         },
@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", function() {
             texto: "Sua segurança é nossa prioridade.",
             icone: "fa-solid fa-gear"
         },
-        "sair.html": {
+        "logout.html": {
             texto: "Obrigado por fazer parte da comunidade Elo!",
             icone: "fa-solid fa-right-from-bracket"
         }
