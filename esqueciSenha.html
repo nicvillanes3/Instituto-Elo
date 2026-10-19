@@ -1,0 +1,108 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Esqueci minha senha | Elo</title>
+    <link rel="stylesheet" href="nav.css">
+    <link rel="stylesheet" href="header.css">
+    <link rel="stylesheet" href="footer.css">
+    <link rel="stylesheet" href="esqueciSenha.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+</head>
+<body>
+
+    <header id="header"></header>
+    <script src="header.js"></script>
+
+    <main class="pagina-senha">
+        <div class="decoracao decoracao-azul"></div>
+        <div class="decoracao decoracao-amarela"></div>
+        <span class="ponto-decorativo ponto-um"></span>
+        <span class="ponto-decorativo ponto-dois"></span>
+
+        <section class="card-senha">
+            <a href="login.html" class="voltar-login">
+                <span class="material-symbols-outlined">arrow_back</span>
+                Voltar para o login
+            </a>
+
+            <div class="icone-senha">
+                <span class="material-symbols-outlined">lock_reset</span>
+            </div>
+
+            <h1>Esqueceu sua senha?</h1>
+            <p class="descricao-senha">
+                Não se preocupe! Informe o e-mail cadastrado na sua conta
+                e enviaremos as orientações para redefinir sua senha.
+            </p>
+
+            <form id="formEsqueciSenha">
+                <label for="email">E-mail cadastrado</label>
+
+                <div class="campo-email">
+                    <span class="material-symbols-outlined">mail</span>
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="seuemail@exemplo.com"
+                        autocomplete="email"
+                        required
+                    >
+                </div>
+
+                <button type="submit" id="botaoEnviar">
+                    Enviar instruções
+                    <span class="material-symbols-outlined">arrow_forward</span>
+                </button>
+            </form>
+
+            <div id="mensagemSenha" class="mensagem-senha" role="status" aria-live="polite"></div>
+
+            <div class="ajuda-senha">
+                <span class="material-symbols-outlined">help</span>
+                <p>
+                    Precisa de ajuda?
+                    <a href="mailto:contato@elo.com.br">Entre em contato</a>
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-logo">
+                <img src="Vetorizado (1) (1).png" alt="Logo Elo">
+                <p>Conectando pessoas a ideias que transformam a educação.</p>
+            </div>
+
+            <div class="footer-links">
+                <h3>Links</h3>
+                <a href="index.html">Início</a>
+                <a href="explorar.html">Explorar projetos</a>
+                <a href="sobre.html">Sobre nós</a>
+            </div>
+
+            <div class="footer-links">
+                <h3>Institucional</h3>
+                <a href="transparencia.html">Transparência</a>
+                <a href="termos.html">Termos de uso</a>
+                <a href="politica.html">Política de privacidade</a>
+            </div>
+
+            <div class="footer-links">
+                <h3>Contato</h3>
+                <a href="mailto:contato@elo.com.br">contato@elo.com.br</a>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2026 Elo. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="esqueciSenha.js"></script>
+</body>
+</html>

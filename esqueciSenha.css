@@ -1,0 +1,299 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --azul: #075BE8;
+    --azul-escuro: #0549B8;
+    --azul-claro: #E0ECFF;
+    --amarelo: #FFD600;
+    --texto: #172033;
+    --texto-secundario: #64748B;
+    --fundo: #F8FAFF;
+    --borda: #DCE6F5;
+}
+
+body {
+    font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+    color: var(--texto);
+    background: var(--fundo);
+}
+
+.pagina-senha {
+    min-height: 650px;
+    padding: 65px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    background: var(--fundo);
+    isolation: isolate;
+}
+
+.decoracao {
+    position: absolute;
+    border-radius: 50%;
+    z-index: -1;
+}
+
+.decoracao-azul {
+    width: 270px;
+    height: 270px;
+    background: var(--azul-claro);
+    top: -125px;
+    left: -80px;
+}
+
+.decoracao-amarela {
+    width: 180px;
+    height: 180px;
+    background: #FFF2A6;
+    right: -55px;
+    bottom: -65px;
+}
+
+.ponto-decorativo {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+
+.ponto-um {
+    background: var(--azul);
+    top: 18%;
+    right: 20%;
+}
+
+.ponto-dois {
+    background: var(--amarelo);
+    bottom: 20%;
+    left: 17%;
+}
+
+.card-senha {
+    width: 100%;
+    max-width: 480px;
+    padding: 35px 38px;
+    background: #FFFFFF;
+    border: 1px solid var(--borda);
+    border-radius: 18px;
+    box-shadow: 0 10px 35px rgba(7, 91, 232, 0.08);
+    position: relative;
+    z-index: 1;
+}
+
+.voltar-login {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 28px;
+    color: var(--texto-secundario);
+    font-size: 13px;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.voltar-login:hover {
+    color: var(--azul);
+}
+
+.voltar-login span {
+    font-size: 19px;
+}
+
+.icone-senha {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 62px;
+    height: 62px;
+    margin: 0 auto 20px;
+    color: var(--azul);
+    background: var(--azul-claro);
+    border-radius: 17px;
+}
+
+.icone-senha span {
+    font-size: 34px;
+}
+
+.card-senha h1 {
+    font-size: 28px;
+    line-height: 1.35;
+    text-align: center;
+    margin-bottom: 12px;
+    color: var(--texto);
+}
+
+.descricao-senha {
+    font-size: 14px;
+    line-height: 1.8;
+    text-align: center;
+    color: var(--texto-secundario);
+    margin-bottom: 28px;
+}
+
+.card-senha form label {
+    display: block;
+    margin-bottom: 9px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--texto);
+}
+
+.campo-email {
+    height: 48px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0 14px;
+    background: #FFFFFF;
+    border: 1px solid var(--borda);
+    border-radius: 9px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.campo-email:focus-within {
+    border-color: var(--azul);
+    box-shadow: 0 0 0 3px rgba(7, 91, 232, 0.09);
+}
+
+.campo-email > span {
+    font-size: 21px;
+    color: var(--texto-secundario);
+}
+
+.campo-email input {
+    flex: 1;
+    width: 100%;
+    min-width: 0;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: var(--texto);
+    font-size: 14px;
+}
+
+.campo-email input::placeholder {
+    color: #94A3B8;
+}
+
+#botaoEnviar {
+    width: 100%;
+    min-height: 48px;
+    margin-top: 20px;
+    padding: 12px 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    border: none;
+    border-radius: 9px;
+    background: var(--azul);
+    color: #FFFFFF;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+}
+
+#botaoEnviar:hover {
+    background: var(--azul-escuro);
+    transform: translateY(-1px);
+}
+
+#botaoEnviar span {
+    font-size: 20px;
+}
+
+#botaoEnviar:disabled {
+    opacity: 0.7;
+    cursor: wait;
+    transform: none;
+}
+
+.mensagem-senha {
+    display: none;
+    margin-top: 18px;
+    padding: 12px 14px;
+    border-radius: 9px;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.mensagem-senha.sucesso {
+    display: block;
+    background: #E5F8EC;
+    color: #17683A;
+    border: 1px solid #BCE8CB;
+}
+
+.mensagem-senha.erro {
+    display: block;
+    background: #FFF0F0;
+    color: #B42318;
+    border: 1px solid #F5CACA;
+}
+
+.ajuda-senha {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 7px;
+    margin-top: 28px;
+    padding-top: 20px;
+    border-top: 1px solid #EDF1F7;
+    color: var(--texto-secundario);
+    font-size: 12px;
+}
+
+.ajuda-senha > span {
+    font-size: 18px;
+    color: var(--azul);
+}
+
+.ajuda-senha a {
+    color: var(--azul);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.ajuda-senha a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+    .pagina-senha {
+        min-height: 560px;
+        padding: 40px 16px;
+    }
+
+    .card-senha {
+        padding: 27px 22px;
+        border-radius: 15px;
+    }
+
+    .card-senha h1 {
+        font-size: 24px;
+    }
+
+    .descricao-senha {
+        font-size: 13px;
+    }
+
+    .decoracao-azul {
+        width: 180px;
+        height: 180px;
+    }
+
+    .decoracao-amarela {
+        width: 120px;
+        height: 120px;
+    }
+}
