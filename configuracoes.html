@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="auth.js"></script>
     <title>Configurações</title>
 
     <link rel="stylesheet" href="configuracoes.css">
@@ -12,39 +13,11 @@
     <link rel="stylesheet" href="menuLateral.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined">
-       <script src="auth.js"></script>
-
 </head>
 
 <body>
-    <nav class="navbar">
-        <div class="nav-logo">
-            <a href="index.html">
-                <img src="logoElo.jpeg" alt="Instituto Elo Logo">
-            </a>
-        </div>
-        <ul class="nav-links">
-            <li><a href="index.html">Explorar</a></li>
-            <li><a href="projetos.html">Projetos</a></li>
-            <li><a href="comoFunciona.html">Como funciona</a></li>
-            <li><a href="sobre.html">Sobre nós</a></li>
-
-            <li>
-                <div class="search-box">
-                    <input type="text" placeholder="Buscar projetos">
-                    <button>
-                        <span class="material-symbols-outlined">search</span>
-                    </button>
-                </div>
-            </li>
-
-            <li><a href="login.html">Entrar</a></li>
-
-            <li>
-                <input type="button" value="Criar Campanha" id="botaoCampanha" onclick="window.location.href='criarCampanha1.html'">
-            </li>
-        </ul>
-    </nav>
+    <!-- A navbar (visitante ou logado) é montada automaticamente pelo auth.js -->
+    <div id="navbar"></div>
 
     <div class="layout-principal">
 
@@ -161,7 +134,9 @@
 
                         <div class="perfil-corpo">
                             <div class="foto">
-                                <img src="mariane.jpg" alt="Foto de perfil de Mariane Araujo">
+                                <!-- Se mariane.jpg não for encontrada, aparece um avatar padrão -->
+                                <img src="mariane.jpg" alt="Foto de perfil de Mariane Araujo"
+                                    onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 96 96%27><rect width=%2796%27 height=%2796%27 fill=%27%23dceaff%27/><circle cx=%2748%27 cy=%2738%27 r=%2716%27 fill=%27%231265df%27/><path d=%27M16 90c4-22 20-30 32-30s28 8 32 30z%27 fill=%27%231265df%27/></svg>';">
                                 <button class="foto-btn" aria-label="Alterar foto">
                                     <i class="fa-solid fa-camera"></i>
                                 </button>
@@ -193,18 +168,18 @@
                         <h2>Segurança da conta</h2>
                         <p class="sub">Mantenha sua conta protegida.</p>
 
-                        <div class="linha">
-                            <div class="linha-icone"><i class="fa-solid fa-lock"></i></div>
-                            <div class="linha-texto">
+                        <div class="cfg-linha">
+                            <div class="cfg-linha-icone"><i class="fa-solid fa-lock"></i></div>
+                            <div class="cfg-linha-texto">
                                 <strong>Senha</strong>
                                 <small>Altere sua senha regularmente para manter sua conta segura.</small>
                             </div>
                             <button class="btn-contorno">Alterar senha <i class="fa-solid fa-arrow-right"></i></button>
                         </div>
 
-                        <div class="linha">
-                            <div class="linha-icone"><i class="fa-solid fa-shield-halved"></i></div>
-                            <div class="linha-texto">
+                        <div class="cfg-linha">
+                            <div class="cfg-linha-icone"><i class="fa-solid fa-shield-halved"></i></div>
+                            <div class="cfg-linha-texto">
                                 <strong>Verificação de duas etapas</strong>
                                 <small>Ative para adicionar uma camada extra de segurança a sua conta.</small>
                             </div>
@@ -212,9 +187,9 @@
                             <button class="btn-contorno" id="btnDuasEtapas">Ativar <i class="fa-solid fa-arrow-right"></i></button>
                         </div>
 
-                        <div class="linha">
-                            <div class="linha-icone"><i class="fa-solid fa-desktop"></i></div>
-                            <div class="linha-texto">
+                        <div class="cfg-linha">
+                            <div class="cfg-linha-icone"><i class="fa-solid fa-desktop"></i></div>
+                            <div class="cfg-linha-texto">
                                 <strong>Dispositivos conectados</strong>
                                 <small>Gerencie os dispositivos conectados à sua conta.</small>
                             </div>
@@ -227,18 +202,18 @@
                         <h2>Preferências da conta</h2>
                         <p class="sub">Personalize sua experiência na plataforma.</p>
 
-                        <div class="linha">
-                            <div class="linha-icone"><i class="fa-regular fa-bell"></i></div>
-                            <div class="linha-texto">
+                        <div class="cfg-linha">
+                            <div class="cfg-linha-icone"><i class="fa-regular fa-bell"></i></div>
+                            <div class="cfg-linha-texto">
                                 <strong>E-mails e notificações</strong>
                                 <small>Escolha quais tipos de e-mails você deseja receber.</small>
                             </div>
                             <button class="btn-contorno">Gerenciar <i class="fa-solid fa-arrow-right"></i></button>
                         </div>
 
-                        <div class="linha">
-                            <div class="linha-icone"><i class="fa-solid fa-globe"></i></div>
-                            <div class="linha-texto">
+                        <div class="cfg-linha">
+                            <div class="cfg-linha-icone"><i class="fa-solid fa-globe"></i></div>
+                            <div class="cfg-linha-texto">
                                 <strong>Idioma</strong>
                                 <small>Selecione o idioma da plataforma.</small>
                             </div>

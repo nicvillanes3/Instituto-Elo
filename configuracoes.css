@@ -45,7 +45,7 @@ body {
 }
 
 /* Item ativo do menu lateral */
-.area-lateral .barra-lateral a.ativo {
+.area-lateral .barra-lateral a.active {
     background: #dceaff;
     color: #1265df;
     font-weight: 700;
@@ -277,19 +277,20 @@ body {
     color: #222;
 }
 
-/* ===== LINHAS DE CONFIGURAÇÃO ===== */
-.linha {
+/* ===== LINHAS DE CONFIGURAÇÃO =====
+   (prefixo cfg- para não colidir com a classe .linha do CSS da página inicial) */
+.cfg-linha {
     display: flex;
     align-items: center;
     gap: 14px;
     padding: 14px 0;
 }
 
-.linha + .linha {
+.cfg-linha + .cfg-linha {
     border-top: 1px solid #eee;
 }
 
-.linha-icone {
+.cfg-linha-icone {
     width: 38px;
     height: 38px;
     border-radius: 50%;
@@ -302,7 +303,7 @@ body {
     font-size: 15px;
 }
 
-.linha-texto {
+.cfg-linha-texto {
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -310,12 +311,12 @@ body {
     min-width: 0;
 }
 
-.linha-texto strong {
+.cfg-linha-texto strong {
     font-size: 13px;
     color: #111;
 }
 
-.linha-texto small {
+.cfg-linha-texto small {
     font-size: 10px;
     color: #999;
 }
@@ -402,11 +403,11 @@ body {
         padding: 20px;
     }
 
-    .linha {
+    .cfg-linha {
         flex-wrap: wrap;
     }
 
-    .linha-texto {
+    .cfg-linha-texto {
         flex-basis: calc(100% - 60px);
     }
 

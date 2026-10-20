@@ -34,7 +34,7 @@
     const PAGINA_LOGIN = "login.html";
     const PAGINA_INICIAL = "index.html";      // primeira página do site (logo, depois do login e do logout)
     const PAGINA_EXPLORAR = "explorar.html";   // links "Explorar" e "Projetos" da navbar
-    const PAGINA_COMO_FUNCIONA = "inicio.html#como-funciona";
+    const PAGINA_COMO_FUNCIONA = PAGINA_INICIAL + "#como-funciona";   // seção "Como funciona" da página inicial
     const PAGINA_CRIAR_CAMPANHA = "criarCampanha1.html";
 
     // Páginas que exigem login (nomes em minúsculas)
