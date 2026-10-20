@@ -18,7 +18,7 @@
        Auth.entrar({ nome: "Mariane Araujo", email: "mariane@email.com" });
        Auth.irParaDestino();   // volta para a página que a pessoa queria
 
-   O nome da primeira página (inicio.html) e da página Explorar ficam
+   O nome da primeira página e o da página Explorar ficam
    nas constantes PAGINA_INICIAL e PAGINA_EXPLORAR, logo abaixo.
 
    Para sair:  Auth.sair();  (a página sair.html já faz isso)
@@ -195,6 +195,41 @@
         nav.id = "navbar";
         nav.innerHTML = htmlNavbar(Auth.estaLogado());
         marcador.replaceWith(nav);
+
+        // Se sobrou outra navbar fixa na página, remove (evita navbar duplicada)
+        document.querySelectorAll("nav.navbar").forEach(outra => {
+            if (outra !== nav) outra.remove();
+        });
+
+        ativarBusca(nav);
+    }
+
+    // Busca da navbar: Enter ou clique na lupa abre explorar.html?busca=termo
+    function ativarBusca(nav) {
+        const campo = nav.querySelector(".search-box input");
+        const botao = nav.querySelector(".search-box button");
+        if (!campo || !botao) return;
+
+        // Mostra no campo o termo já pesquisado
+        const atual = new URLSearchParams(window.location.search).get("busca");
+        if (atual) campo.value = atual;
+
+        function buscar() {
+            const termo = campo.value.trim();
+            if (!termo) {
+                campo.focus();
+                return;
+            }
+            window.location.href = PAGINA_EXPLORAR + "?busca=" + encodeURIComponent(termo);
+        }
+
+        botao.addEventListener("click", buscar);
+        campo.addEventListener("keydown", function (e) {
+            if (e.key === "Enter") {
+                e.preventDefault();
+                buscar();
+            }
+        });
     }
 
     function iniciar() {

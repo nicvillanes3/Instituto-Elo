@@ -488,3 +488,32 @@ body {
         text-align: center;
     }
 }
+
+/* ===== RESULTADO DA BUSCA ===== */
+.busca-resultado {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    padding: 12px 18px;
+    margin-bottom: 22px;
+    border-radius: 8px;
+    background: #e8f0ff;
+    font-size: 12px;
+    color: #0e3f9c;
+}
+
+.busca-resultado[hidden] {
+    display: none;
+}
+
+.busca-limpar {
+    font-weight: 600;
+    color: #1265df;
+    text-decoration: none;
+}
+
+.busca-limpar:hover {
+    text-decoration: underline;
+}

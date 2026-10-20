@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="auth.js"></script>
     <title>Explorar projetos</title>
 
     <link rel="stylesheet" href="explorar.css">
@@ -12,39 +13,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap">
-       <script src="auth.js"></script>
-
 </head>
 
 <body>
-    <nav class="navbar">
-        <div class="nav-logo">
-            <a href="index.html">
-                <img src="logoElo.jpeg" alt="Instituto Elo Logo">
-            </a>
-        </div>
-        <ul class="nav-links">
-            <li><a href="index.html">Explorar</a></li>
-            <li><a href="projetos.html">Projetos</a></li>
-            <li><a href="comoFunciona.html">Como funciona</a></li>
-            <li><a href="sobre.html">Sobre nós</a></li>
-
-            <li>
-                <div class="search-box">
-                    <input type="text" placeholder="Buscar projetos">
-                    <button>
-                        <span class="material-symbols-outlined">search</span>
-                    </button>
-                </div>
-            </li>
-
-            <li><a href="login.html">Entrar</a></li>
-
-            <li>
-                <input type="button" value="Criar Campanha" id="botaoCampanha" onclick="window.location.href='criarCampanha1.html'">
-            </li>
-        </ul>
-    </nav>
+    <!-- A navbar (visitante ou logado, com busca) é montada pelo auth.js -->
+    <div id="navbar"></div>
 
     <main class="explorar">
 
@@ -79,6 +52,12 @@
                 </div>
             </div>
         </section>
+
+        <!-- RESULTADO DA BUSCA (aparece quando se pesquisa na navbar) -->
+        <div class="busca-resultado" id="buscaResultado" hidden>
+            <span id="buscaTexto"></span>
+            <a href="explorar.html" class="busca-limpar">Limpar busca</a>
+        </div>
 
         <!-- FILTROS -->
         <div class="categorias" id="categorias">
@@ -121,7 +100,7 @@
         </section>
     </main>
 
-<div class="footer">
+    <div class="footer">
 
         <div class="footer-content">
             <div class="logo">
@@ -180,6 +159,17 @@
 
         const moeda = n => "R$ " + n.toLocaleString("pt-BR");
 
+        // Termo pesquisado na navbar (?busca=...)
+        const termoBusca = (new URLSearchParams(window.location.search).get("busca") || "").trim();
+        const normalizar = t => String(t).normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+
+        // Procura em título, descrição, categoria, autor e organização (sem acento, sem diferenciar maiúsculas)
+        function combinaComBusca(p) {
+            if (!termoBusca) return true;
+            const texto = normalizar([p.titulo, p.desc, p.categoria, p.autor, p.org].join(" "));
+            return normalizar(termoBusca).split(/\s+/).every(palavra => texto.includes(palavra));
+        }
+
         function ordenar(lista) {
             const copia = [...lista];
             if (ordem === "progresso") copia.sort((a, b) => b.pct - a.pct);
@@ -188,60 +178,68 @@
             return copia;
         }
 
+        function criarCard(p) {
+            const fav = favoritos.has(p.id);
+            const prazo = p.dias === 0 ? "Meta concluída" : `${p.dias} dias restantes`;
+            return `
+            <article class="projeto">
+                <div class="projeto-img" style="background-image:url('${p.img}')">
+                    <button class="coracao ${fav ? "ativo" : ""}" data-id="${p.id}" aria-label="Favoritar projeto">
+                        <i class="${fav ? "fa-solid" : "fa-regular"} fa-heart"></i>
+                    </button>
+                </div>
+                <div class="projeto-corpo">
+                    <span class="tag" style="background:${p.cor}">${p.categoria}</span>
+                    <h3>${p.titulo}</h3>
+                    <p class="desc">${p.desc}</p>
+                    <div class="valores">
+                        <strong>${moeda(p.arrecadado)}</strong>
+                        <span>de ${moeda(p.meta)}</span>
+                    </div>
+                    <div class="barra"><div style="width:${p.pct}%; background:${p.cor}"></div></div>
+                    <div class="valores pequeno">
+                        <span class="pct">${p.pct}%</span>
+                        <span>${prazo}</span>
+                    </div>
+                    <div class="meta-info">
+                        <span><i class="fa-regular fa-user"></i> ${p.apoiadores} apoiadores</span>
+                        <span><i class="fa-regular fa-building"></i> ${p.org}</span>
+                    </div>
+                    <a href="projeto.html?id=${p.id}" class="apoie" onclick="return verificarLogin(event, ${p.id})">Apoie</a>
+                </div>
+            </article>`;
+        }
 
-function criarCard(p) {
-    const fav = favoritos.has(p.id);
-    const prazo = p.dias === 0 ? "Meta concluída" : `${p.dias} dias restantes`;
-    return `
-    <article class="projeto">
-        <div class="projeto-img" style="background-image:url('${p.img}')">
-            <button class="coracao ${fav ? "ativo" : ""}" data-id="${p.id}" aria-label="Favoritar projeto">
-                <i class="${fav ? "fa-solid" : "fa-regular"} fa-heart"></i>
-            </button>
-        </div>
-        <div class="projeto-corpo">
-            <span class="tag" style="background:${p.cor}">${p.categoria}</span>
-            <h3>${p.titulo}</h3>
-            <p class="desc">${p.desc}</p>
-            <div class="valores">
-                <strong>${moeda(p.arrecadado)}</strong>
-                <span>de ${moeda(p.meta)}</span>
-            </div>
-            <div class="barra"><div style="width:${p.pct}%; background:${p.cor}"></div></div>
-            <div class="valores pequeno">
-                <span class="pct">${p.pct}%</span>
-                <span>${prazo}</span>
-            </div>
-            <div class="meta-info">
-                <span><i class="fa-regular fa-user"></i> ${p.apoiadores} apoiadores</span>
-                <span><i class="fa-regular fa-building"></i> ${p.org}</span>
-            </div>
-            <a href="projeto.html?id=${p.id}" class="apoie" onclick="return verificarLogin(event, ${p.id})">Apoie</a>
-        </div>
-    </article>`;
-}
+        // "Apoie" exige login; depois de entrar, a pessoa volta para o projeto escolhido
+        function verificarLogin(event, id) {
+            event.preventDefault();
 
-function verificarLogin(event, id) {
-    if (!Auth.estaLogado()) {
-        event.preventDefault();
-        window.location.href = "login.html";
-        return false;
-    }
+            if (!Auth.estaLogado()) {
+                window.location.href = "login.html?voltar=" + encodeURIComponent("projeto.html?id=" + id);
+                return false;
+            }
 
-    window.location.href = `projeto.html?id=${id}`;
-    return false;
-}
-
-        
+            window.location.href = `projeto.html?id=${id}`;
+            return false;
+        }
 
         function renderizar() {
             const filtrados = ordenar(
-                projetos.filter(p => categoriaAtual === "Todos" || p.categoria === categoriaAtual)
+                projetos.filter(p => (categoriaAtual === "Todos" || p.categoria === categoriaAtual) && combinaComBusca(p))
             );
+
+            // Faixa com o resultado da busca
+            if (termoBusca) {
+                document.getElementById("buscaResultado").hidden = false;
+                document.getElementById("buscaTexto").textContent =
+                    `Resultados para “${termoBusca}”: ${filtrados.length} ${filtrados.length === 1 ? "projeto" : "projetos"}`;
+            }
 
             grade.innerHTML = filtrados.length
                 ? filtrados.slice(0, visiveis).map(criarCard).join("")
-                : '<p class="vazio">Nenhum projeto encontrado nesta categoria.</p>';
+                : `<p class="vazio">${termoBusca
+                    ? "Nenhum projeto encontrado para “" + termoBusca.replace(/[<>&]/g, "") + "”."
+                    : "Nenhum projeto encontrado nesta categoria."}</p>`;
 
             const restantes = filtrados.length - visiveis;
             verMais.style.display = restantes > 0 ? "flex" : "none";
