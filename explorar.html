@@ -188,42 +188,51 @@
             return copia;
         }
 
-        function criarCard(p) {
-            const fav = favoritos.has(p.id);
-            const prazo = p.dias === 0 ? "Meta concluída" : `${p.dias} dias restantes`;
-            return `
-            <article class="projeto">
-                <div class="projeto-img" style="background-image:url('${p.img}')">
-                    <button class="coracao ${fav ? "ativo" : ""}" data-id="${p.id}" aria-label="Favoritar projeto">
-                        <i class="${fav ? "fa-solid" : "fa-regular"} fa-heart"></i>
-                    </button>
-                </div>
-                <div class="projeto-corpo">
-                    <span class="tag" style="background:${p.cor}">${p.categoria}</span>
-                    <h3>${p.titulo}</h3>
-                    <p class="desc">${p.desc}</p>
 
-                    <div class="valores">
-                        <strong>${moeda(p.arrecadado)}</strong>
-                        <span>de ${moeda(p.meta)}</span>
-                    </div>
+function criarCard(p) {
+    const fav = favoritos.has(p.id);
+    const prazo = p.dias === 0 ? "Meta concluída" : `${p.dias} dias restantes`;
+    return `
+    <article class="projeto">
+        <div class="projeto-img" style="background-image:url('${p.img}')">
+            <button class="coracao ${fav ? "ativo" : ""}" data-id="${p.id}" aria-label="Favoritar projeto">
+                <i class="${fav ? "fa-solid" : "fa-regular"} fa-heart"></i>
+            </button>
+        </div>
+        <div class="projeto-corpo">
+            <span class="tag" style="background:${p.cor}">${p.categoria}</span>
+            <h3>${p.titulo}</h3>
+            <p class="desc">${p.desc}</p>
+            <div class="valores">
+                <strong>${moeda(p.arrecadado)}</strong>
+                <span>de ${moeda(p.meta)}</span>
+            </div>
+            <div class="barra"><div style="width:${p.pct}%; background:${p.cor}"></div></div>
+            <div class="valores pequeno">
+                <span class="pct">${p.pct}%</span>
+                <span>${prazo}</span>
+            </div>
+            <div class="meta-info">
+                <span><i class="fa-regular fa-user"></i> ${p.apoiadores} apoiadores</span>
+                <span><i class="fa-regular fa-building"></i> ${p.org}</span>
+            </div>
+            <a href="projeto.html?id=${p.id}" class="apoie" onclick="return verificarLogin(event, ${p.id})">Apoie</a>
+        </div>
+    </article>`;
+}
 
-                    <div class="barra"><div style="width:${p.pct}%; background:${p.cor}"></div></div>
+function verificarLogin(event, id) {
+    if (!Auth.estaLogado()) {
+        event.preventDefault();
+        window.location.href = "login.html";
+        return false;
+    }
 
-                    <div class="valores pequeno">
-                        <span class="pct">${p.pct}%</span>
-                        <span>${prazo}</span>
-                    </div>
+    window.location.href = `projeto.html?id=${id}`;
+    return false;
+}
 
-                    <div class="meta-info">
-                        <span><i class="fa-regular fa-user"></i> ${p.apoiadores} apoiadores</span>
-                        <span><i class="fa-regular fa-building"></i> ${p.org}</span>
-                    </div>
-
-                    <a href="projeto.html?id=${p.id}" class="apoie">Apoie</a>
-                </div>
-            </article>`;
-        }
+        
 
         function renderizar() {
             const filtrados = ordenar(
