@@ -744,3 +744,347 @@ body {
     width: 100% !important;
     margin: 0 !important;
 }
+
+.foto {
+    position: relative;
+    width: 96px;
+    height: 96px;
+    flex-shrink: 0;
+}
+
+.foto img {
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
+}
+
+.foto-btn {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 30px;
+    height: 30px;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    background: #1265df;
+    color: #fff;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Aviso (toast) igual ao da página de perfil */
+.aviso {
+    position: fixed;
+    left: 50%;
+    bottom: 30px;
+    transform: translateX(-50%) translateY(20px);
+    background: #1f2a44;
+    color: #fff;
+    padding: 12px 22px;
+    border-radius: 10px;
+    font-size: 14px;
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.25s;
+    z-index: 1000;
+}
+
+.aviso.visivel {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+
+/* ========================================
+   AJUSTES — DADOS DO PERFIL ELO
+======================================== */
+
+/* Cartão principal do perfil */
+.cartao-perfil {
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+    align-items: stretch;
+    gap: 0;
+    width: 100%;
+    margin-bottom: 28px;
+    border: 1px solid #e8edf5;
+    border-radius: 16px;
+    background: #ffffff;
+    box-shadow: 0 5px 22px rgba(23, 54, 100, 0.07);
+    overflow: hidden;
+}
+
+/* Área que contém foto e informações pessoais */
+.perfil-corpo {
+    display: flex;
+    align-items: flex-start;
+    gap: 22px;
+    min-width: 0;
+    padding: 30px;
+    border-right: 1px solid #edf0f5;
+}
+
+/* Foto de perfil */
+.perfil-corpo .foto {
+    position: relative;
+    flex: 0 0 100px;
+    width: 100px;
+    height: 100px;
+}
+
+.perfil-corpo .foto img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: 4px solid #eaf1ff;
+    border-radius: 50%;
+    object-fit: cover;
+    background: #dceaff;
+}
+
+/* Botão para alterar a foto */
+.perfil-corpo .foto-btn {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border: 3px solid #ffffff;
+    border-radius: 50%;
+    background: #075BE8;
+    color: #ffffff;
+    font-size: 12px;
+    box-shadow: 0 2px 8px rgba(7, 91, 232, 0.2);
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+}
+
+.perfil-corpo .foto-btn:hover {
+    background: #0648b8;
+    transform: scale(1.05);
+}
+
+/* Nome, e-mail e biografia */
+.perfil-texto {
+    flex: 1;
+    min-width: 0;
+}
+
+.perfil-texto h2 {
+    margin: 2px 0 10px;
+    color: #172033;
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 1.35;
+    overflow-wrap: anywhere;
+}
+
+.selo-tipo {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 16px;
+    padding: 6px 11px;
+    border: 1px solid #c9ddff;
+    border-radius: 20px;
+    background: #e8f1ff;
+    color: #075BE8;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.email,
+.membro {
+    margin-bottom: 7px;
+    color: #68758a;
+    font-size: 12px;
+    line-height: 1.6;
+    overflow-wrap: anywhere;
+}
+
+.bio {
+    max-width: 360px;
+    margin: 12px 0 18px;
+    color: #526078;
+    font-size: 13px;
+    line-height: 1.7;
+    overflow-wrap: anywhere;
+}
+
+/* Botão editar perfil */
+.perfil-texto .btn-contorno {
+    min-height: 40px;
+    padding: 10px 16px;
+    border: 1px solid #075BE8;
+    border-radius: 8px;
+    background: #ffffff;
+    color: #075BE8;
+    font-size: 12px;
+}
+
+.perfil-texto .btn-contorno:hover {
+    background: #e8f1ff;
+}
+
+/* Indicadores do perfil */
+.perfil-numeros {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-content: center;
+    gap: 14px;
+    min-width: 0;
+    padding: 24px;
+}
+
+.numero {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-width: 0;
+    min-height: 86px;
+    padding: 16px;
+    border: 1px solid #e8edf5;
+    border-radius: 12px;
+    background: #f8faff;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.numero:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 14px rgba(23, 54, 100, 0.06);
+}
+
+.numero-icone {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 40px;
+    width: 40px;
+    height: 40px;
+    border-radius: 11px;
+    font-size: 16px;
+}
+
+.numero strong {
+    display: block;
+    margin-bottom: 4px;
+    color: #172033;
+    font-size: 21px;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.numero small {
+    display: block;
+    color: #68758a;
+    font-size: 11px;
+    line-height: 1.4;
+}
+
+/* Cores dos indicadores */
+.numero-icone.azul {
+    background: #e1ecff;
+    color: #075BE8;
+}
+
+.numero-icone.verde {
+    background: #ddf7e8;
+    color: #16a05d;
+}
+
+.numero-icone.amarelo {
+    background: #fff5cc;
+    color: #b18b00;
+}
+
+.numero-icone.roxo {
+    background: #eee8ff;
+    color: #7655d6;
+}
+
+/* Formulário de informações pessoais */
+#aba-informacoes .cartao {
+    padding: 28px;
+    border: 1px solid #e8edf5;
+    border-radius: 14px;
+    box-shadow: 0 5px 22px rgba(23, 54, 100, 0.06);
+}
+
+#aba-informacoes .campo span {
+    color: #344054;
+    font-size: 12px;
+}
+
+#aba-informacoes .campo input,
+#aba-informacoes .campo textarea {
+    min-height: 44px;
+    padding: 12px 14px;
+    border: 1px solid #dce3ed;
+    border-radius: 8px;
+    background: #ffffff;
+    font-size: 13px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+#aba-informacoes .campo input:focus,
+#aba-informacoes .campo textarea:focus {
+    border-color: #075BE8;
+    box-shadow: 0 0 0 3px rgba(7, 91, 232, 0.1);
+}
+
+#aba-informacoes .campo textarea {
+    min-height: 110px;
+}
+
+/* Responsividade */
+@media (max-width: 1200px) {
+    .cartao-perfil {
+        grid-template-columns: 1fr;
+    }
+
+    .perfil-corpo {
+        border-right: none;
+        border-bottom: 1px solid #edf0f5;
+    }
+
+    .perfil-numeros {
+        padding: 24px 30px;
+    }
+}
+
+@media (max-width: 600px) {
+    .perfil-corpo {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 22px;
+    }
+
+    .perfil-texto h2 {
+        font-size: 20px;
+    }
+
+    .perfil-numeros {
+        grid-template-columns: 1fr;
+        padding: 18px;
+    }
+
+    .numero {
+        min-height: 76px;
+    }
+
+    #aba-informacoes .cartao {
+        padding: 18px;
+    }
+
+    .campos-duplos {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+}

@@ -11,8 +11,11 @@
     <link rel="stylesheet" href="footer.css">
     <link rel="stylesheet" href="nav.css">
     <link rel="stylesheet" href="menuLateral.css">
+    <link rel="stylesheet" href="ajustes-configuracoes.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined">
+    <script src="menuLateral.js"></script>
+    <script src="fotoPerfil.js"></script>
 </head>
 
 <body>
@@ -21,7 +24,7 @@
 
     <div class="layout-principal">
 
-        <!-- MENU LATERAL (igual ao de notificações) -->
+        <!-- MENU LATERAL -->
         <aside class="area-lateral">
             <div class="barra-lateral">
                 <a href="perfil.html">
@@ -127,33 +130,34 @@
                                 <h2>Informações do perfil</h2>
                                 <p class="sub">Atualize seus dados pessoais.</p>
                             </div>
-                            <button class="btn-contorno">
+                            <a href="perfil.html#informacoes" class="btn-contorno" id="btnEditar">
                                 <i class="fa-solid fa-pencil"></i> Editar
-                            </button>
+                            </a>
                         </div>
 
                         <div class="perfil-corpo">
                             <div class="foto">
                                 <!-- Se mariane.jpg não for encontrada, aparece um avatar padrão -->
-                                <img src="mariane.jpg" alt="Foto de perfil de Mariane Araujo"
+                                <img id="fotoPerfil" src="mariane.jpg" alt="Foto de perfil de Mariane Araujo"
                                     onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 96 96%27><rect width=%2796%27 height=%2796%27 fill=%27%23dceaff%27/><circle cx=%2748%27 cy=%2738%27 r=%2716%27 fill=%27%231265df%27/><path d=%27M16 90c4-22 20-30 32-30s28 8 32 30z%27 fill=%27%231265df%27/></svg>';">
-                                <button class="foto-btn" aria-label="Alterar foto">
+                                <button class="foto-btn" id="btnFoto" type="button" aria-label="Alterar foto">
                                     <i class="fa-solid fa-camera"></i>
                                 </button>
+                                <input type="file" id="arquivoFoto" accept="image/*" hidden>
                             </div>
 
                             <div class="dados">
                                 <div>
                                     <span>Nome Completo</span>
-                                    <strong>Mariane Araujo</strong>
+                                    <strong id="nomePerfil"></strong>
                                 </div>
                                 <div>
                                     <span>Telefone</span>
-                                    <strong>(11) 98765-4321</strong>
+                                    <strong id="telefonePerfil"></strong>
                                 </div>
                                 <div>
                                     <span>E-mail</span>
-                                    <strong>marianearaujo@gmail.com</strong>
+                                    <strong id="emailPerfil"></strong>
                                 </div>
                                 <div>
                                     <span>Data de cadastro</span>
@@ -276,6 +280,8 @@
 
     </div>
 
+    <div class="aviso" id="aviso" role="status"></div>
+
     <script>
         // Menu de seções: marca o item ativo e rola até a seção correspondente
         const itens = document.querySelectorAll(".config-item");
@@ -310,6 +316,62 @@
             if (confirm("Tem certeza que deseja encerrar sua conta? Essa ação não pode ser desfeita.")) {
                 window.location.href = "sair.html";
             }
+        });
+
+        // ===== Mesmos dados e mesmas chaves do perfil.js =====
+        const CHAVE_PERFIL = "eloPerfil";
+        const CHAVE_FOTO = "eloFotoPerfil";
+
+        const $ = id => document.getElementById(id);
+        const ler = (chave, padrao) => {
+            try { return JSON.parse(localStorage.getItem(chave)) || padrao; } catch (e) { return padrao; }
+        };
+        const gravar = (chave, valor) => {
+            try { localStorage.setItem(chave, JSON.stringify(valor)); return true; } catch (e) { return false; }
+        };
+
+        function aviso(texto) {
+            const el = $("aviso");
+            el.textContent = texto;
+            el.classList.add("visivel");
+            setTimeout(() => el.classList.remove("visivel"), 2500);
+        }
+
+        // Dados pessoais (os mesmos padrões do perfil.js)
+        const sessao = (window.Auth && Auth.usuario()) || {};
+        const perfil = Object.assign({
+            nome: sessao.nome || "Mariane Araujo",
+            email: sessao.email || "mariane.araujo@gmail.com",
+            telefone: "(11) 98765-4321"
+        }, ler(CHAVE_PERFIL, {}));
+
+        $("nomePerfil").textContent = perfil.nome;
+        $("telefonePerfil").textContent = perfil.telefone;
+        $("emailPerfil").textContent = perfil.email;
+
+        // Foto de perfil
+        const foto = $("fotoPerfil");
+        const fotoSalva = ler(CHAVE_FOTO, null);
+        if (fotoSalva) foto.src = fotoSalva;
+
+        $("btnFoto").addEventListener("click", () => $("arquivoFoto").click());
+
+        $("arquivoFoto").addEventListener("change", e => {
+            const arquivo = e.target.files[0];
+            if (!arquivo) return;
+
+            if (arquivo.size > 2 * 1024 * 1024) {
+                aviso("Escolha uma imagem de até 2 MB.");
+                return;
+            }
+
+            const leitor = new FileReader();
+            leitor.onload = () => {
+                foto.src = leitor.result;
+                gravar(CHAVE_FOTO, leitor.result);
+                aviso("Foto atualizada!");
+            };
+            leitor.readAsDataURL(arquivo);
         });
     </script>
 

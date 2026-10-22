@@ -1033,3 +1033,9 @@
 .navbar .nav-links a {
     font-weight: 520;
 }
+
+.navbar .nav-links a {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+}

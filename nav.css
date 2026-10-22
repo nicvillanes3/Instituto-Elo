@@ -11,6 +11,10 @@
     display: flex;
     align-items: center;
 }
+.navbar {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
 
 .nav-links {
     display: flex;

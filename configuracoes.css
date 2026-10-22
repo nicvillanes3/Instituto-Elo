@@ -435,3 +435,58 @@ body {
     width: 100% !important;
     margin: 0 !important;
 }
+
+/* Carregue este arquivo DEPOIS dos outros CSS da página configuracoes.html */
+
+.foto {
+    position: relative;
+    width: 96px;
+    height: 96px;
+    flex-shrink: 0;
+}
+
+.foto img {
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
+}
+
+.foto-btn {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 30px;
+    height: 30px;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    background: #1265df;
+    color: #fff;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Aviso (toast) igual ao da página de perfil */
+.aviso {
+    position: fixed;
+    left: 50%;
+    bottom: 30px;
+    transform: translateX(-50%) translateY(20px);
+    background: #1f2a44;
+    color: #fff;
+    padding: 12px 22px;
+    border-radius: 10px;
+    font-size: 14px;
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.25s;
+    z-index: 1000;
+}
+
+.aviso.visivel {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
