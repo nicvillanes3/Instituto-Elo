@@ -465,7 +465,7 @@ $('btnVoltarPasso').addEventListener('click', () => irParaPasso(1));
 
 $('btnContinuar').addEventListener('click', () => {
     if ($('btnContinuar').dataset.step === '2') {
-        $('formCampanha').requestSubmit();
+        window.location.href = 'explorar.html';
     } else {
         irParaPasso(2);
     }
