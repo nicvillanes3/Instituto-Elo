@@ -66,60 +66,6 @@
 
             <div class="config-grid">
 
-                <!-- COLUNA ESQUERDA -->
-                <div class="config-esquerda">
-                    <nav class="config-menu" id="configMenu">
-                        <button class="config-item ativo" data-alvo="perfil">
-                            <i class="fa-regular fa-circle-user"></i>
-                            <span>
-                                <strong>Perfil</strong>
-                                <small>Suas informações pessoais.</small>
-                            </span>
-                        </button>
-                        <button class="config-item" data-alvo="seguranca">
-                            <i class="fa-solid fa-lock"></i>
-                            <span>
-                                <strong>Segurança</strong>
-                                <small>Senha e autenticação.</small>
-                            </span>
-                        </button>
-                        <button class="config-item" data-alvo="privacidade">
-                            <i class="fa-solid fa-shield-halved"></i>
-                            <span>
-                                <strong>Privacidade</strong>
-                                <small>Controle de dados.</small>
-                            </span>
-                        </button>
-                        <button class="config-item" data-alvo="pagamentos">
-                            <i class="fa-regular fa-credit-card"></i>
-                            <span>
-                                <strong>Pagamentos</strong>
-                                <small>Métodos e histórico.</small>
-                            </span>
-                        </button>
-                        <button class="config-item" data-alvo="preferencias">
-                            <i class="fa-solid fa-sliders"></i>
-                            <span>
-                                <strong>Preferências</strong>
-                                <small>Aparência e idioma.</small>
-                            </span>
-                        </button>
-                        <button class="config-item" data-alvo="conta">
-                            <i class="fa-regular fa-trash-can"></i>
-                            <span>
-                                <strong>Conta</strong>
-                                <small>Gerenciar conta.</small>
-                            </span>
-                        </button>
-                    </nav>
-
-                    <div class="caixa encerrar">
-                        <h3>Encerrar conta</h3>
-                        <p>Ao encerrar sua conta, você não terá mais acesso ao Elo.</p>
-                        <button class="btn-perigo" id="encerrarConta">Encerrar conta</button>
-                    </div>
-                </div>
-
                 <!-- COLUNA DIREITA -->
                 <div class="config-direita">
 
@@ -178,7 +124,6 @@
                                 <strong>Senha</strong>
                                 <small>Altere sua senha regularmente para manter sua conta segura.</small>
                             </div>
-                            <button class="btn-contorno">Alterar senha <i class="fa-solid fa-arrow-right"></i></button>
                         </div>
 
                         <div class="cfg-linha">
@@ -188,7 +133,6 @@
                                 <small>Ative para adicionar uma camada extra de segurança a sua conta.</small>
                             </div>
                             <span class="status" id="statusDuasEtapas">Desativado</span>
-                            <button class="btn-contorno" id="btnDuasEtapas">Ativar <i class="fa-solid fa-arrow-right"></i></button>
                         </div>
 
                         <div class="cfg-linha">
@@ -197,7 +141,6 @@
                                 <strong>Dispositivos conectados</strong>
                                 <small>Gerencie os dispositivos conectados à sua conta.</small>
                             </div>
-                            <button class="btn-contorno">Gerenciar <i class="fa-solid fa-arrow-right"></i></button>
                         </div>
                     </section>
 
@@ -212,7 +155,6 @@
                                 <strong>E-mails e notificações</strong>
                                 <small>Escolha quais tipos de e-mails você deseja receber.</small>
                             </div>
-                            <button class="btn-contorno">Gerenciar <i class="fa-solid fa-arrow-right"></i></button>
                         </div>
 
                         <div class="cfg-linha">
@@ -221,11 +163,6 @@
                                 <strong>Idioma</strong>
                                 <small>Selecione o idioma da plataforma.</small>
                             </div>
-                            <select class="seletor" aria-label="Idioma da plataforma">
-                                <option>Português (Brasil)</option>
-                                <option>English</option>
-                                <option>Español</option>
-                            </select>
                         </div>
                     </section>
 
@@ -283,41 +220,6 @@
     <div class="aviso" id="aviso" role="status"></div>
 
     <script>
-        // Menu de seções: marca o item ativo e rola até a seção correspondente
-        const itens = document.querySelectorAll(".config-item");
-
-        itens.forEach(item => {
-            item.addEventListener("click", () => {
-                itens.forEach(i => i.classList.remove("ativo"));
-                item.classList.add("ativo");
-
-                const alvo = document.getElementById(item.dataset.alvo);
-                if (alvo) {
-                    alvo.scrollIntoView({ behavior: "smooth", block: "start" });
-                }
-            });
-        });
-
-        // Verificação de duas etapas: alterna entre ativado e desativado
-        const btnDuasEtapas = document.getElementById("btnDuasEtapas");
-        const statusDuasEtapas = document.getElementById("statusDuasEtapas");
-        let duasEtapas = false;
-
-        btnDuasEtapas.addEventListener("click", () => {
-            duasEtapas = !duasEtapas;
-            statusDuasEtapas.textContent = duasEtapas ? "Ativado" : "Desativado";
-            statusDuasEtapas.classList.toggle("ligado", duasEtapas);
-            btnDuasEtapas.innerHTML = (duasEtapas ? "Desativar" : "Ativar") +
-                ' <i class="fa-solid fa-arrow-right"></i>';
-        });
-
-        // Encerrar conta: pede confirmação
-        document.getElementById("encerrarConta").addEventListener("click", () => {
-            if (confirm("Tem certeza que deseja encerrar sua conta? Essa ação não pode ser desfeita.")) {
-                window.location.href = "sair.html";
-            }
-        });
-
         // ===== Mesmos dados e mesmas chaves do perfil.js =====
         const CHAVE_PERFIL = "eloPerfil";
         const CHAVE_FOTO = "eloFotoPerfil";
