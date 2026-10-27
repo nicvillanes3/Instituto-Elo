@@ -333,11 +333,12 @@
 
 .linha {
     position: absolute;
-    top: 18px;
-    left: 9%;
-    right: 9%;
+    top: 17px;
+    left: calc(12.5% - 18px);
+    right: calc(12.5% - 18px);
     height: 2px;
     background: #AFC9EF;
+    z-index: 1;
 }
 
 .etapa {

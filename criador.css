@@ -856,3 +856,29 @@ body {
     line-height: 1.5;
     color: #888;
 }
+
+.linha-tempo {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.linha-tempo > * {
+    width: 100%;
+}
+
+#atualizacoes .linha-tempo {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    width: 100%;
+    gap: 15px;
+}
+
+#atualizacoes .linha-tempo > * {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+}
